@@ -1,0 +1,21 @@
+# Core scientific stack
+numpy
+pandas==2.2.2
+scikit-learn
+matplotlib
+seaborn
+tqdm
+
+# Neuroimaging
+nibabel
+nilearn
+antspyx
+
+# Deep learning
+tensorflow>=2.12
+torch
+torchvision
+torchaudio
+
+# PyTorch Geometric should be installed with the wheel URL matching torch/CUDA.
+# See REPRODUCIBILITY.md for the version-aware installation command.

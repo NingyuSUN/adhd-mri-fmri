@@ -1,0 +1,22 @@
+name: adhd-mri-fmri
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - tqdm
+  - nibabel
+  - nilearn
+  - pip
+  - pip:
+      - antspyx
+      - tensorflow>=2.12
+      - torch
+      - torchvision
+      - torchaudio
+      - torch-geometric

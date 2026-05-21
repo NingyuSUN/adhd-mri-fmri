@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: "ADHD Classification from Brain MRI using Deep Learning"
+authors:
+  - family-names: Sun
+    given-names: Ningyu
+version: 0.1.0
+date-released: 2026-05-21
+message: "If you use this repository, please cite it using the metadata in this file."
