@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+tqdm
+nibabel
+nilearn
+antspyx
+tensorflow>=2.12
+torch
+torchvision
+torchaudio
+torch-geometric
