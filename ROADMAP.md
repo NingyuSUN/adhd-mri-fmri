@@ -1,24 +1,33 @@
 # Roadmap
 
-## Short-term
+## Completed project scope
 
-- Convert Colab-exported `.py` scripts to clean `.ipynb` notebooks.
-- Add a single configuration file for all path settings.
-- Export current results into clean CSV tables under `results/`.
-- Add schematic figures for structural MRI and fMRI pipelines.
-- Add a model card describing intended and non-intended use.
+- structural MRI baselines and ablations
+- subject-level leakage controls
+- strict structural LOSO work
+- fMRI connectivity and graph prototypes
+- locked fMRI strict nested LOSO benchmark
+- frozen BrainLM transfer evaluation
+- confound baselines and incremental-value tests
+- motion restriction and frame scrubbing
+- training-fold residualization
+- within-site validation
+- spatial network module features
+- paired bootstrap uncertainty
+- final documentation and model card
 
-## Medium-term
+## Completion decision
 
-- Run leave-one-site-out validation for structural MRI CNNs.
-- Run fMRI connectivity baselines using logistic regression, random forest, and XGBoost on vectorized connectivity matrices.
-- Compare GCN against non-GNN baselines.
-- Add motion/QC-aware fMRI filtering.
-- Add site-stratified performance tables.
+The project is closed as a research benchmark. Transformer fine-tuning is not required because the frozen representation did not pass the prespecified transfer gate and multiple simpler representations failed robustness checks.
 
-## Long-term
+## Optional future work
 
-- Multimodal fusion of T1 MRI and fMRI connectivity.
-- Harmonization experiments such as ComBat or domain-adversarial modeling.
-- Interpretability analysis of connectivity edges and ROI contributions.
-- Manuscript-style write-up with transparent negative-result reporting.
+Only reopen the modeling phase if new evidence changes the data problem, for example:
+
+1. a larger and acquisition-balanced training cohort;
+2. an independent prospective external test set;
+3. richer phenotypes, comorbidity, medication, and symptom targets;
+4. stronger harmonization with all parameters fit inside training folds;
+5. preregistered success criteria requiring improvement over confound baselines.
+
+Additional architecture sweeps on the same cohort are low priority.

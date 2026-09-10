@@ -1,0 +1,8 @@
+evaluation,model,n,auc,ci_low,ci_high,interpretation
+strict_loso_oof,roi_guided_cnn,924,0.470184,,,unstable across sites
+strict_loso_oof,pretrained_swin_t_mri,923,0.579199,0.542983,0.616883,below age sex baseline
+strict_loso_oof,age_sex_logistic,923,0.619195,0.583560,0.655793,non-image baseline
+five_fold_oof,raw_roi_logistic,923,0.601417,,,not site-held-out
+five_fold_oof,combat_roi_logistic,923,0.535772,,,harmonization did not improve auc
+single_heldout_split,pretrained_swin_t_mri,185,0.773690,0.701776,0.842347,less stringent split
+single_heldout_split,age_sex_site_logistic,185,0.781369,0.711026,0.843856,matched confound baseline is higher
