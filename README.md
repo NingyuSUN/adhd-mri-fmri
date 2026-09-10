@@ -1,283 +1,137 @@
-# ADHD Classification from Brain MRI using Deep Learning
+# ADHD-200 MRI/fMRI Classification
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)](#)
-[![PyTorch Geometric](https://img.shields.io/badge/PyG-GNN-red)](#)
-[![Status](https://img.shields.io/badge/status-active%20research-yellow)](#)
+This portfolio project demonstrates an end-to-end deep-learning workflow for structural MRI and resting-state fMRI: data engineering, neuroimaging preprocessing, CNN/GNN/Transformer modeling, leakage-safe evaluation, robustness analysis, and reproducible Colab execution.
 
-This repository investigates whether structural MRI and resting-state fMRI contain reproducible signal for classifying ADHD versus typically developing controls using the ADHD-200 multi-site dataset.
+**Project status: completed deep-learning case study.** The technical objective is to demonstrate the ability to build and evaluate real medical-AI pipelines—not to claim a clinically deployable ADHD diagnostic system.
 
-The project is organized as a research pipeline rather than a single model demonstration. It starts from conservative structural MRI baselines, moves to ROI-guided modeling, then tests confounding and shortcut learning through ablation and site-bias analyses. The current fMRI branch represents the brain as a functional connectivity graph and evaluates graph neural network models.
+## Portfolio highlights
 
-> **Important note**  
-> This repository does **not** claim a clinically deployable ADHD diagnostic model. The central research question is whether image-derived signals generalize beyond site, scanner, demographic, and preprocessing confounds.
+| Area | Demonstrated work |
+|---|---|
+| Data engineering | Multi-site BIDS discovery, phenotypic-label recovery, subject deduplication, QC, caching, checkpointed Google Drive pipelines |
+| Structural MRI | Slice and ROI pipelines, MNI registration, CNNs, pretrained Swin-T, ComBat and ablation studies |
+| Functional MRI | A424 time-series extraction, functional connectivity, spectral features, motion scrubbing, network modules |
+| Deep learning | 2D/3D CNN concepts, GNN prototypes, frozen BrainLM transfer learning, Transformer comparison |
+| Evaluation | Subject-level splits, site-stratified CV, nested LOSO stress testing, bootstrap uncertainty, confound baselines |
+| Research practice | Leakage prevention, reproducibility, model card, limitations, clinically responsible interpretation |
 
----
+```mermaid
+flowchart LR
+    A[ADHD-200 MRI/fMRI] --> B[Manifest and QC]
+    B --> C1[T1 registration and ROI slices]
+    B --> C2[A424 fMRI time series]
+    C1 --> D1[CNN / Swin-T]
+    C2 --> D2[FC / spectral / GNN]
+    C2 --> D3[BrainLM embeddings]
+    D1 --> E[Subject-level evaluation]
+    D2 --> E
+    D3 --> E
+    E --> F[Confound comparison and robustness]
+```
 
-## Research Questions
+For a concise portfolio narrative and interview-ready discussion, see [PORTFOLIO_CASE_STUDY.md](PORTFOLIO_CASE_STUDY.md).
 
-1. Can T1-weighted structural MRI alone provide stable subject-level discrimination between ADHD and controls?
-2. Does ROI-guided slice selection improve signal compared with single-slice or generic multi-slice baselines?
-3. Are apparent MRI classification signals robust to ablation, subject-level splitting, bootstrap uncertainty, and site-bias controls?
-4. Does resting-state fMRI functional connectivity provide a stronger modeling target than structural MRI?
-5. Can graph neural networks model brain connectivity while preserving a fixed and reproducible ROI graph representation?
+## Scientific outcome
 
----
+The analyses do not support a reliable cross-site ADHD predictor from the available MRI/fMRI representations.
 
-## Repository Structure
+- In the portfolio-oriented repeated 4-fold site-and-label-stratified CV (`5` repeats, `20` outer evaluations, `n=409`), age + sex + motion/QC reached mean AUC **0.677 ± 0.058**.
+- The strongest image-only/representation result in that experiment was FC + frozen BrainLM at **0.595 ± 0.031**; FC ROI summary reached **0.583 ± 0.036**, spectral features **0.570 ± 0.035**, and frozen BrainLM alone **0.529 ± 0.043**.
+- A follow-up end-to-end experiment trained a 1D-CNN and temporal Transformer directly on standardized A424 parcel time series. Their four-fold mean AUCs were **0.580 ± 0.057** and **0.578 ± 0.056**, below the locked image-only RBF-SVM baseline of **0.622**.
+- Structural MRI also failed the strict generalization test: Swin-T reached LOSO OOF AUC **0.579** versus **0.619** for age + sex, while the ROI-guided CNN reached **0.470**.
+- In the locked fMRI cohort (`n=409`), age + sex + motion/QC reached macro LOSO AUC **0.686**.
+- The best tested image-only fMRI result was frozen BrainLM at **0.512** macro LOSO AUC; spectral, FC-summary, and full-edge models were approximately chance or worse.
+- Adding BrainLM to confounds reduced performance from **0.686** to **0.622**.
+- Training-fold residualization, within-site validation, strict motion restriction, frame scrubbing, and spatial network aggregation did not reveal a stable image-derived gain.
+
+The defensible interpretation is that the dataset contains strong demographic/site/motion structure, while the tested neuroimaging features do not generalize reliably to unseen sites.
+
+## Headline fMRI results
+
+| Evaluation | Model | N | AUC |
+|---|---|---:|---:|
+| Repeated site+label-stratified CV | age + sex + motion/QC | 409 | 0.677 ± 0.058 |
+| Repeated site+label-stratified CV | FC + BrainLM | 409 | 0.595 ± 0.031 |
+| Repeated site+label-stratified CV | FC ROI summary | 409 | 0.583 ± 0.036 |
+| Repeated site+label-stratified CV | BrainLM frozen | 409 | 0.529 ± 0.043 |
+| Strict nested LOSO | age + sex + motion/QC | 409 | 0.686 |
+| Strict nested LOSO | motion/QC | 409 | 0.664 |
+| Strict nested LOSO | age + sex | 409 | 0.583 |
+| Strict nested LOSO | BrainLM frozen | 409 | 0.512 |
+| Strict nested LOSO | FC + BrainLM | 409 | 0.501 |
+| Strict nested LOSO | spectral | 409 | 0.492 |
+| Strict nested LOSO | FC ROI summary | 409 | 0.477 |
+| Strict nested LOSO | full FC edges, top 2000 | 409 | 0.430 |
+| Strict nested LOSO | confounds + BrainLM | 409 | 0.622 |
+
+See [RESULTS.md](RESULTS.md) and [FINAL_REPORT.md](FINAL_REPORT.md) for the full interpretation and robustness analyses.
+
+## Evaluation strategy
+
+For portfolio presentation, the primary within-dataset experiment uses repeated site-and-label-stratified subject-level cross-validation. The completed LOSO analysis is retained as an advanced domain-shift stress test rather than the only definition of project success.
+
+- Splits are performed by subject, never by slice or time window.
+- The portfolio benchmark uses repeated four-fold CV stratified jointly by site and label; imputation, scaling, and regularization selection are fit inside each training fold.
+- The reported portfolio number is the mean AUC across 20 outer folds, with standard deviation across folds.
+- LOSO is reported separately as an unseen-site stress test; held-out sites are not used for scaling, feature selection, residualization, or hyperparameter selection.
+- Every image model is compared with non-image confound baselines.
+- A model is not considered useful merely because its AUC is above 0.5; it must add stable out-of-site information beyond confounds.
+
+## Analysis sequence
+
+The repository contains the original structural and connectivity prototypes. The final fMRI benchmark was completed in Colab:
+
+1. [06 — strict LOSO benchmark](https://colab.research.google.com/drive/1Zkrj4btEB2YrWDjYOx9vmlLCvHxPrCfM)
+2. [07 — site/motion robustness](https://colab.research.google.com/drive/1jdFe7GRn7mIKcVtGig7_66qdZhbBsnqe)
+3. [08 — motion scrubbing and spatial modules](https://colab.research.google.com/drive/12ez3NKRvs88YrmLIfNT-tNgBcU3MpbzE)
+4. [09 — portfolio site-stratified CV](https://colab.research.google.com/drive/1CkXQKR3tfbdIsuM41ML1YNPULmv9HFU2) — one-click comparison with completed outputs
+5. [10 — mixed-site fMRI model sweep](https://colab.research.google.com/drive/1Qh2aAzmHQTMMQl_SMF7JPY_ibTf3HYcJ) — logistic, RBF-SVM, and MLP comparison with site/confound ablations
+6. [11 — A424 end-to-end CNN/Transformer](https://colab.research.google.com/drive/142dwSF1fV7d1khI2l8JADhMbtXwEcv8M) — direct time-series neural networks with completed four-fold outputs
+
+Small aggregate result tables are versioned in `results/`. Subject-level predictions and large intermediate arrays remain in Google Drive and are not committed.
+
+## Repository structure
 
 ```text
 adhd-mri-fmri/
 ├── README.md
+├── FINAL_REPORT.md
+├── MODEL_CARD.md
 ├── PROJECT_STATUS.md
-├── DATA.md
 ├── METHODS.md
 ├── RESULTS.md
 ├── LIMITATIONS.md
 ├── REPRODUCIBILITY.md
-├── ROADMAP.md
-├── requirements.txt
-├── requirements-colab.txt
-├── environment.yml
-├── .gitignore
-├── CITATION.cff
-├── LICENSE
-├── data/
-│   └── README.md
+├── DATA.md
+├── notebooks/              # original Colab-exported pipelines
+├── results/                # small aggregate result tables
 ├── docs/
-│   ├── structural_mri_pipeline.md
-│   ├── fmri_gnn_pipeline.md
-│   ├── ablation_and_site_bias.md
-│   ├── model_evaluation.md
-│   └── github_about.md
 ├── figures/
-│   └── README.md
-├── notebooks/
-│   ├── 01_t1_single_slice_baseline_colab.py
-│   ├── 02_t1_multislice_baseline_and_leakage_demo_colab.py
-│   ├── 03_t1_roi_guided_cnn_colab.py
-│   ├── 04_t1_ablation_site_bias_colab.py
-│   └── 05_fmri_connectivity_gnn_colab.py
-├── results/
-│   ├── README.md
-│   └── result_table_template.csv
-└── src/
-    └── README.md
+├── src/
+└── utils/
 ```
 
-The files in `notebooks/` are Colab-exported Python scripts. They can be uploaded back to Google Colab or converted to `.ipynb` if notebook-style presentation is preferred.
+## Data
 
----
+The project uses the ADHD-200 multi-site dataset:
 
-## Dataset
+- T1-weighted structural MRI
+- resting-state fMRI derivatives
+- phenotypic labels and demographic variables
+- motion and QC measurements where available
 
-The project uses ADHD-200 neuroimaging data in BIDS-like format.
-
-Main modalities:
-
-- **T1-weighted structural MRI** for anatomical/structural modeling
-- **Resting-state fMRI** for functional connectivity modeling
-
-Main metadata sources:
-
-- `participants.tsv` inside each site folder
-- additional ADHD-200 phenotypic CSV files when site-level labels require recovery
-
-Raw MRI/fMRI files are not included in this repository due to dataset size and data-access constraints. See [`DATA.md`](DATA.md) for the expected directory layout and manifest format.
-
----
-
-## Method Overview
-
-### 1. Structural MRI baselines
-
-The T1 branch follows a progressive baseline design:
+Raw data are not included. The final fMRI outputs are stored under:
 
 ```text
-participants.tsv
-      ↓
-subject_id ↔ ADHD/control label
-      ↓
-BIDS T1 path collection
-      ↓
-QC filtering + subject-level deduplication
-      ↓
-single-slice / multi-slice extraction
-      ↓
-2D CNN
-      ↓
-subject-level prediction + AUC/threshold analysis
+<DATA_DIR>/fmri/strict_loso_benchmark/
 ```
 
-The single-slice and multi-slice baselines test whether simple structural slices contain stable ADHD signal before adding more complex preprocessing.
+See [DATA.md](DATA.md) for the expected layout.
 
-### 2. ROI-guided structural MRI CNN
+## Reuse
 
-The ROI-guided model introduces neuroanatomical priors:
+The code and result tables can be used as a benchmark for confound-aware neuroimaging classification. They must not be presented as a clinical ADHD diagnostic system.
 
-```text
-T1 MRI
-  → rigid registration to MNI152 2mm
-  → Harvard-Oxford atlas
-  → ADHD-relevant ROI mask
-  → ROI-heavy axial slice selection
-  → 2D CNN
-  → mean aggregation across slices
-  → subject-level AUC + bootstrap CI
-```
+## Author and license
 
-ROI selection focuses on frontal cortex, cingulate regions, striatum, thalamus, pallidum, and accumbens-related circuitry.
-
-### 3. Ablation and site-bias analysis
-
-The ablation branch tests whether model performance depends on the intended components:
-
-- ROI-guided slices vs whole-brain or random slices
-- registration on/off
-- slice normalization on/off
-- mean vs max subject aggregation
-- site-only and demographic baselines
-- fold-wise consistency and out-of-fold AUC
-
-This branch is designed to detect shortcut learning, especially scanner/site-driven prediction.
-
-### 4. fMRI functional connectivity GNN
-
-The fMRI branch represents each subject as a brain connectivity graph:
-
-```text
-resting-state fMRI
-  → Harvard-Oxford ROI time series
-  → ROI × ROI correlation matrix
-  → graph construction
-  → fixed node set / zero padding when needed
-  → GCN classifier
-  → subject-level AUC
-```
-
-A key design decision is to keep a fixed ROI set across subjects. Dynamic ROI deletion can lead to inconsistent graph dimensions and severe sample loss.
-
----
-
-## Key Design Principles
-
-### Subject-level splitting
-
-All valid evaluations split data by subject, not by slice. A subject must appear in only one of train, validation, or test.
-
-### Subject-level metrics
-
-Slice-level predictions are intermediate outputs. Final reporting should aggregate predictions to the subject level.
-
-### AUC over accuracy
-
-Accuracy is unstable and often misleading in small, imbalanced medical datasets. AUC and threshold-based metrics such as recall, precision, confusion matrix, and R90-style operating points are more informative.
-
-### Confound-aware interpretation
-
-Multi-site MRI datasets often contain strong site/scanner structure. A model that performs well may still be learning site identity, intensity style, or demographic imbalance rather than ADHD-related neurobiology.
-
----
-
-## Current Findings
-
-The project has reached the following stage:
-
-- T1 single-slice CNN baseline is implemented.
-- T1 multi-slice CNN with subject-level aggregation is implemented.
-- A leakage demonstration shows why slice-level random splitting is invalid.
-- ROI-guided T1 CNN using MNI registration and Harvard-Oxford atlas is implemented.
-- Ablation experiments are implemented for ROI, registration, normalization, and aggregation.
-- Site-bias analysis suggests that site information alone can carry substantial predictive signal.
-- fMRI connectivity graph construction and GCN training are implemented, with a focus on fixed ROI representation.
-
-See [`RESULTS.md`](RESULTS.md) for the current result summary and recommended reporting format.
-
----
-
-## Quick Start
-
-### 1. Clone repository
-
-```bash
-git clone https://github.com/NingyuSUN/adhd-mri-fmri.git
-cd adhd-mri-fmri
-```
-
-### 2. Install dependencies
-
-For general Python environments:
-
-```bash
-pip install -r requirements.txt
-```
-
-For Google Colab, use:
-
-```bash
-pip install -r requirements-colab.txt
-```
-
-PyTorch Geometric may require installation from the official wheel index matching the current PyTorch and CUDA version. See [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
-
-### 3. Prepare data
-
-Expected raw data root:
-
-```text
-<DATA_DIR>/RawDataBIDS/
-```
-
-Expected structural manifest:
-
-```text
-<DATA_DIR>/manifest_all_sitefirst_strictpass_noBrown.csv
-```
-
-Expected fMRI manifest:
-
-```text
-<DATA_DIR>/fmri/fmri_manifest.csv
-```
-
-### 4. Run analyses
-
-Recommended order:
-
-```text
-01_t1_single_slice_baseline_colab.py
-02_t1_multislice_baseline_and_leakage_demo_colab.py
-03_t1_roi_guided_cnn_colab.py
-04_t1_ablation_site_bias_colab.py
-05_fmri_connectivity_gnn_colab.py
-```
-
----
-
-## Recommended GitHub About
-
-**Description**
-
-```text
-ADHD-200 MRI/fMRI classification using ROI-guided CNNs, functional connectivity GNNs, ablation studies, and site-bias analysis.
-```
-
-**Topics**
-
-```text
-adhd, mri, fmri, neuroimaging, deep-learning, graph-neural-network, medical-ai, adhd200, nilearn, tensorflow, pytorch-geometric
-```
-
----
-
-## Author
-
-**Ningyu Sun**
-
-Research interests: neuroimaging, medical AI, genomics, machine learning, and interpretable biomedical modeling.
-
----
-
-## License
-
-This repository is released under the MIT License. Dataset access and usage remain subject to the original ADHD-200 data terms.
+Ningyu Sun. Code is released under the MIT License; ADHD-200 data remain subject to their original terms.
