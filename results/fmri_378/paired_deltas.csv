@@ -1,0 +1,6 @@
+stage,candidate,reference,mean_delta,min_delta,max_delta,positive_repeats,repeats
+representation,tangent_lr,pearson_lr,0.04192893796529338,0.01670423034396351,0.06597004303517984,5,5
+representation,tangent_mlp_ens,pearson_mlp_ens,0.03566153037774533,0.024872764776719403,0.043402666885440144,5,5
+representation,tangent_mlp_ens,tangent_lr,0.010034457877949054,0.0030717679475213977,0.015339393223171793,5,5
+demographic_increment,fusion_tangent_mlp,full_covariates_lr,0.004955227981624377,-0.012377294067434819,0.01240431517287155,4,5
+demographic_increment,fusion_tangent_lr,full_covariates_lr,0.003749248916361481,-0.01263337601365766,0.019349520603267445,3,5

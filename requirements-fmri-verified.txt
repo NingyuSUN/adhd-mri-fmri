@@ -1,0 +1,14 @@
+# Recorded, locally verified Python 3.12.14 / Windows CPU environment.
+# Core broad compatibility lives in pyproject.toml. This is a reference lock,
+# not a claim of a fresh dependency installation on every OS.
+--extra-index-url https://download.pytorch.org/whl/cpu
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.0
+joblib==1.6.0
+threadpoolctl==3.6.0
+torch==2.14.0+cpu
+nilearn==0.12.1
+nibabel==5.3.2
+packaging==25.0

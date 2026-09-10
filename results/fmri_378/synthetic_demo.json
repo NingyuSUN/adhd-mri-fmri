@@ -1,0 +1,44 @@
+{
+  "data": "SYNTHETIC; no ADHD subjects; these AUCs are software demonstration values only",
+  "seed": 20260910,
+  "subjects": 120,
+  "train": 60,
+  "validation": 30,
+  "test": 30,
+  "raw_features": 24,
+  "selected_features": 12,
+  "lr_validation_selected_C": 0.1,
+  "synthetic_lr_auc": 0.7555555555555555,
+  "synthetic_mlp_auc": 0.7822222222222222,
+  "checkpoint_replay_passed": true,
+  "lr_training_seconds": 0.3202959999907762,
+  "mlp_training_seconds": 6.3021153000881895,
+  "mlp_batch30_inference_ms": 0.3281719994265586,
+  "threads": 1,
+  "platform": "Windows-10-10.0.19045-SP0",
+  "mlp": {
+    "best_epoch": 8,
+    "epochs_run": 20,
+    "best_val_auc": 0.6977777777777777,
+    "parameters": 1889
+  },
+  "environment": {
+    "python": "3.12.14",
+    "versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.5",
+      "scikit-learn": "1.9.0",
+      "torch": "2.14.0+cpu",
+      "joblib": "1.6.0",
+      "nilearn": "0.12.1",
+      "nibabel": "5.3.2",
+      "packaging": "25.0",
+      "threadpoolctl": "3.6.0"
+    },
+    "version_mismatches": {},
+    "numerical_source_sha256": "a50da2b8883df37dcefd1b7bb617aa200d38bec117cb5ed1c26a081dc8789900",
+    "numerical_source_matches": true
+  },
+  "resource_note": "Wall-clock measurements from this synthetic run only. Peak RAM and historical full-run training time were not measured."
+}

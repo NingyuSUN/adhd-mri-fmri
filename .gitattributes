@@ -1,0 +1,4 @@
+# Preserve scientific-source byte hashes across Windows/POSIX checkouts.
+src/adhd_portfolio/frozen_v1/* -text whitespace=cr-at-eol,-blank-at-eof
+docs/portfolio/*.pdf binary
+docs/portfolio/*.pptx binary

@@ -1,3 +1,7 @@
+## Current 378-person fMRI evidence
+
+`fmri_378/` holds independently replayed aggregate outputs, selected alphas, learning curves and an explicit verification record. See [current overview](../README.md). No subject-level predictions are committed. Existing tables below are historical or separate structural experiments.
+
 # Aggregate Results
 
 This folder contains small, non-identifying summary tables for the locked final fMRI benchmark.

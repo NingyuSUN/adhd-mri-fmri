@@ -1,0 +1,65 @@
+{
+  "release": "fmri-internal-v1-2026-09-08",
+  "subjects": 378,
+  "controls": 211,
+  "adhd": 167,
+  "evaluation": {
+    "repeats": 5,
+    "outer_folds": 3,
+    "train": 201,
+    "validation": 51,
+    "test": 126,
+    "repeat_seeds": [
+      3101,
+      3102,
+      3103,
+      3104,
+      3105
+    ],
+    "inner_seed": "repeat_seed*10 + fold",
+    "external_validation": false
+  },
+  "feature_selection": {
+    "method": "training-only ANOVA",
+    "top_k": 1000
+  },
+  "mlp": {
+    "hidden": [
+      64,
+      16
+    ],
+    "activation": "GELU",
+    "dropout": [
+      0.4,
+      0.3
+    ],
+    "max_epochs": 80,
+    "patience": 12,
+    "min_validation_improvement": 0.0001,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "batch_size": 16,
+    "gradient_clip": 1.0,
+    "seed_rule": [
+      "1200+fold",
+      "2200+fold",
+      "3200+fold"
+    ],
+    "ensemble": "equal mean",
+    "parameters": 65121
+  },
+  "logistic_C": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "fusion_alphas": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "selection": "validation only; earliest tie, lower C/alpha",
+  "config_role": "descriptive record of preserved implementation, not a new tunable configuration"
+}
