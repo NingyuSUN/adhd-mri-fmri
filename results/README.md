@@ -14,5 +14,7 @@ This folder contains small, non-identifying summary tables for the locked final 
 | `fmri_robustness_summary.csv` | motion-restricted, residualized, and within-site analyses |
 | `fmri_motion_scrubbing_summary.csv` | strict stage-3 `n=246` model comparison |
 | `fmri_motion_scrubbing_bootstrap.csv` | paired subject bootstrap estimates and intervals |
+| `structural_functional_fusion_summary.csv` | QC-locked structural/functional/fusion paired analysis, 17 models × 3 cohorts, mean over 5 repeats |
+| `structural_functional_fusion_paired_deltas.csv` | prespecified paired AUC / within-site deltas for the same analysis |
 
 Subject-level predictions, time series, embeddings, and large arrays are intentionally excluded. The authoritative narrative interpretation is in `../RESULTS.md` and `../FINAL_REPORT.md`.

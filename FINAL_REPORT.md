@@ -35,6 +35,8 @@ Several analyses tested whether a useful fMRI signal had been hidden by site shi
 
 These checks consistently fail to show a reproducible image-derived gain.
 
+7. A later QC-locked round retrained the structural, functional and non-imaging models together under one frozen protocol, on three prespecified cohorts (`primary` n=350, `warning_free` n=302, `include_holds` n=375) and the original 5×3 subject-level split identities (45 folds, 17 models each, all independently replay-verified). The non-imaging control reached mean AUC ≈ 0.71 in every cohort; adding functional imaging changed it by −0.013 (primary; 1 of 5 repeats positive) and adding structural volume on top changed it by −0.010 (primary; 0 of 5 positive). The only positive image-derived increment — adding structural to the image-only functional model — reached +0.017 in `primary` (5/5 repeats) but fell to +0.007 and +0.002 in the other two cohorts. Detail in `docs/structural_functional_fusion.md`.
+
 ## Decision about Transformer fine-tuning
 
 Transformer fine-tuning was considered but is not required to finish the project. A prespecified gate required the frozen pretrained representation to be competitive with simpler baselines before spending substantially more compute. It did not pass that gate.
