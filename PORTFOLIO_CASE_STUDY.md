@@ -1,97 +1,35 @@
-# Portfolio Case Study: ADHD-200 MRI/fMRI Deep Learning
+# One-page case: measuring what fMRI adds
 
-## Elevator pitch
+**Ningyu Sun · Python / PyTorch / scikit-learn / nilearn · ADHD-200**
 
-I built an end-to-end medical-imaging deep-learning project using the multi-site ADHD-200 dataset. The work covers structural MRI and resting-state fMRI data engineering, neuroimaging preprocessing, CNN/GNN/Transformer representations, subject-level evaluation, confound analysis, motion robustness, and reproducible Google Colab execution.
+I built and audited a multi-site fMRI machine-learning workflow to ask two separate questions: does the representation improve image-only prediction, and does imaging add information beyond non-imaging controls?
 
-The project demonstrates not only model implementation, but also the ability to detect data leakage and shortcut learning—two of the most important practical risks in medical AI.
+## Problem and approach
 
-## Problem
+Small, heterogeneous neuroimaging datasets can produce scores that reflect site, motion or demographics. I audited subject identity and labels, used 378 eligible participants, and compared Pearson versus tangent connectivity with logistic regression and a small PyTorch MLP. Five repeated three-fold partitions kept each participant in one role per fold; feature selection, scaling and the tangent reference were fitted using training participants only. Hyperparameters, early stopping and fusion weights used validation data.
 
-ADHD is clinically heterogeneous, and ADHD-200 combines scans from multiple hospitals, scanners, acquisition protocols, and demographic distributions. The technical challenge was to determine whether image-derived representations could classify ADHD while separating biological signal from site, age, sex, motion, and quality-control effects.
+## Results and decision
 
-## What I built
-
-### Data pipeline
-
-- discovered structural MRI and fMRI files across BIDS-like site directories
-- recovered and normalized phenotypic labels
-- removed duplicates and enforced subject-level identifiers
-- implemented QC and motion summaries
-- cached registration, ROI time series, feature banks, embeddings, and results in Google Drive
-- added checkpointing so long Colab jobs could resume safely
-
-### Structural MRI branch
-
-- single-slice and multi-slice CNN baselines
-- MNI152 registration and Harvard-Oxford ROI-guided slice selection
-- subject-level slice aggregation
-- ablations for ROI choice, registration, normalization, and aggregation
-- pretrained Swin-T transfer experiment
-- ComBat and ROI-feature baselines
-
-### fMRI branch
-
-- A424 atlas time-series extraction
-- functional-connectivity matrices and ROI summaries
-- high-dimensional edge features with training-only feature selection
-- frequency/spectral representations
-- graph neural network prototype
-- frozen BrainLM embeddings
-- end-to-end A424 temporal 1D-CNN and Transformer models
-- frame scrubbing, motion-restricted cohorts, and spatial network modules
-
-### Evaluation and reliability
-
-- subject-level splitting to prevent slice/time-window leakage
-- repeated site-and-label-stratified cross-validation for portfolio presentation
-- nested leave-one-site-out evaluation as a domain-shift stress test
-- preprocessing, feature selection, and residualization fit on training folds only
-- comparison with age, sex, site, motion, and QC baselines
-- paired bootstrap confidence intervals and site-wise analysis
-
-## Key technical decisions
-
-1. **Subject is the split unit.** All slices and fMRI windows belonging to one subject stay in the same fold.
-2. **Confounds are explicit baselines.** A high image-model score is not accepted unless it improves over demographic and acquisition variables.
-3. **Preprocessing is fold-local.** Scaling, imputation, feature selection, harmonization, and residualization never use test-fold statistics.
-4. **Model complexity is staged.** Frozen pretrained representations are evaluated before expensive fine-tuning.
-5. **Results are checkpointed.** Long-running Colab preprocessing can resume without repeating completed subjects.
-
-## Results and interpretation
-
-The presentation benchmark used 409 subjects and repeated four-fold cross-validation stratified jointly by site and diagnosis. Five repeats produced 20 outer evaluations, with regularization selected inside each training fold.
-
-| Feature set | Mean AUC ± SD |
+| Comparison | Mean AUC / change |
 |---|---:|
-| age + sex + motion/QC | 0.677 ± 0.058 |
-| motion/QC | 0.641 ± 0.057 |
-| confounds + BrainLM | 0.619 ± 0.040 |
-| FC + BrainLM | 0.595 ± 0.031 |
-| FC ROI summary | 0.583 ± 0.036 |
-| spectral | 0.570 ± 0.035 |
-| frozen BrainLM | 0.529 ± 0.043 |
+| Pearson MLP → tangent MLP | 0.6096 → 0.6453 |
+| Paired representation improvement | +0.0357; positive in 5/5 repeats |
+| Fuller non-imaging control → control + image predictions | 0.7077 → 0.7127 |
+| Paired incremental imaging gain | +0.0050; positive in 4/5 repeats |
 
-The project produced above-chance within-dataset image experiments, but the strongest result still came from demographic and motion/QC variables. Strict site-held-out evaluation then revealed substantial domain shift: in fMRI LOSO the same confound baseline reached 0.686 while frozen BrainLM reached 0.512. Structural Swin-T similarly underperformed its demographic baseline in strict LOSO.
+The representation improved image-only prediction, while the incremental gain over the fuller control was small and varied with the partition. I retained all repeats and froze the experiment instead of optimizing against the reused test results. These are internal development estimates; they do not establish external validity, causal mechanisms, or clinically useful risk prediction.
 
-This is an important medical-AI result: model architecture alone cannot compensate for heterogeneous acquisition and confounded labels. The work demonstrates the ability to diagnose why a model fails, not just train it.
+## What I can demonstrate
 
-The portfolio claim is therefore about engineering and experimental skill—not clinical accuracy: I implemented multiple deep-learning representations, designed leakage-safe comparisons, ran robustness analyses, and interpreted negative evidence responsibly.
+- A traceable path from aggregate findings to cohort version, split protocol, source hashes and model outputs.
+- Independent replay of 35,910 frozen test predictions and 60 validation-selected fusion weights, with AUC agreement at floating-point precision.
+- A portable package with a runnable synthetic LR/MLP example, checkpoint replay, environment checks and tests for data/role leakage and training-only preprocessing.
+- A compact DL implementation: 1,000 selected features → 64 → 16 → 1; **65,121 parameters**; regularization, early stopping and three-seed averaging, with saved learning curves.
 
-## Technologies
+For medical AI roles, the case demonstrates neuroimaging QC, explicit covariate controls and careful generalization claims. For general DS/MLE roles, it demonstrates data contracts, reproducible evaluation, numerical debugging, testable pipelines and resource-aware model decisions.
 
-Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch Geometric, Hugging Face Transformers, nibabel, nilearn, ANTsPy, Google Colab, Google Drive, BIDS-style neuroimaging data, Git/GitHub.
+## Boundaries and ownership
 
-## Interview discussion points
+I led the project with AI-assisted implementation and review. This release replays frozen outputs, exercises real split preparation, and runs a synthetic training demonstration; it does not claim a fresh full 15-fold training run or raw-image reconstruction. Historical 409-person and structural experiments are versioned separately.
 
-- why slice-level random splitting creates subject leakage
-- why mixed-site CV and unseen-site testing answer different questions
-- why accuracy can be misleading under site/class imbalance
-- how training-only residualization and feature selection prevent leakage
-- why a confound-only model can outperform MRI/fMRI
-- when pretrained Transformer fine-tuning is or is not justified
-- how checkpointing and caching make large neuroimaging workflows practical in Colab
-
-## Responsible-use statement
-
-This is a research and portfolio project. It is not a clinical diagnostic tool and must not be used for screening, treatment decisions, or individual risk prediction.
+[Code and quickstart](README.md) · [Evidence](results/fmri_378/verification.json) · [Technical deck](docs/portfolio/ADHD_fMRI_technical_portfolio.pptx) · [Demo](docs/portfolio/DEMO.md)

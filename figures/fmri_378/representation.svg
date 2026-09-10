@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+<rect width="1200" height="520" fill="white"/>
+<g font-family="Arial" fill="#152b3c">
+<text x="35" y="45" font-size="26">378-person fMRI: representation comparison</text>
+<text x="35" y="139" font-size="20">Pearson LR</text>
+<rect x="240" y="115" width="474.64127333866594" height="36" fill="#087e8b"/>
+<path d="M 707.9440291984206 133 H 725.2967964580431 M 707.9440291984206 122 V 144 M 725.2967964580431 122 V 144" stroke="#152b3c" fill="none"/>
+<text x="740.2967964580431" y="140" font-size="20">0.5933</text>
+<text x="35" y="215" font-size="20">Pearson MLP</text>
+<rect x="240" y="191" width="487.68276571106367" height="36" fill="#087e8b"/>
+<path d="M 721.1574495939726 209 H 733.1582409108435 M 721.1574495939726 198 V 220 M 733.1582409108435 198 V 220" stroke="#152b3c" fill="none"/>
+<text x="748.1582409108435" y="216" font-size="20">0.6096</text>
+<text x="35" y="291" font-size="20">Tangent LR</text>
+<rect x="240" y="267" width="508.18442371090066" height="36" fill="#087e8b"/>
+<path d="M 738.6601807332139 285 H 760.7200636265644 M 738.6601807332139 274 V 296 M 760.7200636265644 274 V 296" stroke="#152b3c" fill="none"/>
+<text x="775.7200636265644" y="292" font-size="20">0.6352</text>
+<text x="35" y="367" font-size="20">Tangent MLP</text>
+<rect x="240" y="343" width="516.2119900132599" height="36" fill="#087e8b"/>
+<path d="M 747.2290442374563 361 H 765.8397578995769 M 747.2290442374563 350 V 372 M 765.8397578995769 350 V 372" stroke="#152b3c" fill="none"/>
+<text x="780.8397578995769" y="368" font-size="20">0.6453</text>
+<text x="235" y="450" font-size="17">0</text>
+<text x="435.0" y="450" font-size="17">0.25</text>
+<text x="635.0" y="450" font-size="17">0.5</text>
+<text x="835.0" y="450" font-size="17">0.75</text>
+<text x="1035.0" y="450" font-size="17">1</text>
+<path d="M240 417 H1040" stroke="#526775"/>
+<text x="240" y="490" font-size="18">AUC (0–1); whiskers: repeat min–max, NOT confidence intervals</text>
+</g></svg>
