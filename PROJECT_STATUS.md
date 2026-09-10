@@ -21,6 +21,7 @@ The original goal was to test whether structural MRI and resting-state fMRI coul
 | Spatial network modules | Complete | Original and scrubbed module features tested |
 | Uncertainty analysis | Complete | Paired subject bootstrap for stage-3 contrasts |
 | Final documentation | Complete | Results, limitations, reproducibility, and model card consolidated |
+| Structural + functional late-fusion | Complete | QC-locked paired retraining on one frozen protocol, 3 cohorts, 45 folds, replay-verified; `docs/structural_functional_fusion.md` |
 
 ## Decision
 

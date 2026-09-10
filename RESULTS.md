@@ -130,6 +130,31 @@ Paired subject bootstrap estimates:
 
 The confidence intervals include no improvement. Scrubbing does not rescue the imaging model.
 
+## Structural + functional late-fusion (QC-locked paired analysis)
+
+A follow-up round retrained structural (98 region/TIV volume fractions), functional (A424 tangent connectivity) and non-imaging models **together** on one frozen protocol, three prespecified QC-locked cohorts (`primary` n=350, `warning_free` n=302, `include_holds` n=375) and the original 5×3 subject-level split identities. 45 folds, 17 models/fusions each, all independently replay-verified. Full detail: [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md); tables in `results/structural_functional_fusion_summary.csv` and `results/structural_functional_fusion_paired_deltas.csv`.
+
+`primary` cohort, mean AUC over 5 repeats:
+
+| Model | Mean AUC | Within-site AUC |
+|---|---:|---:|
+| age + sex + site + motion (+ TIV), **no imaging** | 0.712 / 0.710 | 0.673 / 0.669 |
+| control + functional (tangent) | 0.709 / 0.698 | 0.666 / 0.652 |
+| control + functional + structural (full fusion) | 0.698 / 0.690 / 0.687 | 0.657 / 0.644 / 0.645 |
+| image-only fusion (functional + structural) | 0.638 | 0.606 |
+| structural-only / functional-only | 0.62 | 0.58 |
+| TIV only | 0.501 | 0.504 |
+
+Prespecified paired increments (mean Δ AUC over 5 repeats; positive-repeat count / 5):
+
+| Contrast | primary | warning_free | include_holds |
+|---|---:|---:|---:|
+| functional − non-imaging control | −0.013 (1/5) | −0.005 (2/5) | −0.003 (2/5) |
+| full fusion − control+functional (added: structural LR) | −0.010 (0/5) | −0.006 (1/5) | −0.007 (0/5) |
+| image-only: +structural on functional | +0.017 (5/5) | +0.007 (3/5) | +0.002 (2/5) |
+
+The non-imaging control is strongest in every cohort. Neither functional nor structural imaging adds stable value on top of it. The only positive image-derived increment — adding structural to the image-only functional model — is robust only in `primary` and fades in the other two QC cohorts. This reproduces the repository's overall conclusion under a stricter, jointly-retrained design.
+
 ## Symptom regression
 
 Among `n=277` subjects with symptom measures, macro site-wise Pearson correlation was approximately 0.19, while pooled correlation was approximately zero and unstable. This is insufficient evidence for a generalizable symptom prediction model.
