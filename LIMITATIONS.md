@@ -1,29 +1,37 @@
 # Limitations
 
-## 1. ADHD signal in T1 MRI is weak
+## Dataset and labels
 
-ADHD is likely more strongly reflected in functional/network-level abnormalities than in gross anatomical T1 structure. Structural signals may be subtle, distributed, site-dependent, and difficult to capture with small-sample CNNs.
+ADHD-200 combines sites with different scanners, protocols, recruitment, class prevalence, age distributions, and sex distributions. ADHD itself is heterogeneous, and binary diagnosis labels do not capture subtype, symptom severity, comorbidity, medication, or developmental trajectories.
 
-## 2. Multi-site site bias is a major threat
+## Confounding
 
-ADHD-200 combines data from multiple acquisition sites. Site can correlate with diagnosis rate, scanner parameters, image intensity distribution, age, and sex composition. Therefore, apparent model performance may reflect site recognition rather than ADHD biology.
+Age, sex, motion, and QC variables are strongly predictive. This does not mean they are valid biomarkers. They can encode recruitment and acquisition differences or diagnosis-correlated behavior. Any model using these variables must be interpreted as a confound baseline, not a diagnostic solution.
 
-## 3. Slice-based 2D CNNs are simplified approximations
+## Site generalization
 
-2D slice models reduce computational burden and improve interpretability, but they discard 3D spatial context. They should be interpreted as baselines rather than final performance ceilings.
+Strict LOSO is intentionally difficult and better reflects transport to an unseen acquisition site. Some sites are small or single-class, so not every site contributes an estimable held-out AUC. Macro AUC is consequently uncertain and should be read together with site-wise results and bootstrap intervals.
 
-## 4. ROI priors may be incomplete
+## Structural MRI
 
-The selected fronto-striatal/cingulate regions are motivated by ADHD neurobiology, but ADHD-related differences may also involve distributed networks not captured by these ROI slices.
+The structural branch relies heavily on 2D slices and predefined ROIs, with one pretrained Swin-T experiment. These are practical baselines but do not exhaust volumetric or self-supervised methods. The matched confound baselines and strict site-held-out results nevertheless prevent interpreting the tested structural models as robust biomarkers.
 
-## 5. fMRI preprocessing is simplified in the current prototype
+## fMRI preprocessing
 
-The current fMRI scripts focus on graph construction and model feasibility. Publication-level fMRI analysis should carefully document motion correction, nuisance regression, temporal filtering, scrubbing, and site harmonization.
+The work uses public derivatives and A424 time series, with additional motion restriction and frame scrubbing in robustness analyses. Nuisance modeling, temporal filtering, atlas choice, scrubbing thresholds, and scan duration can all affect connectivity estimates. The stage-3 cohort is smaller (`n=246`), reducing precision.
 
-## 6. GNN sample size and graph definition remain bottlenecks
+## Representation and model capacity
 
-Early fMRI GNN runs are sensitive to ROI extraction, graph construction, and sample retention. Fixed ROI representation must be enforced before model performance is interpreted.
+Frozen BrainLM, connectivity summaries, spectral features, selected edges, graph prototypes, and spatial modules do not cover every possible representation. However, repeated failure across strict and within-site checks means a more complex architecture alone is not strong evidence that the current data can support robust prediction.
 
-## 7. Not clinically deployable
+## Metrics
 
-This project is a research investigation. It is not validated for clinical diagnosis, screening, or treatment decision-making.
+AUC measures ranking, not calibration or clinical utility. Pooled AUC can be inflated or suppressed by site prevalence, so macro site AUC is primary. Confidence intervals remain wide for several comparisons.
+
+## External validation
+
+The project has no prospective, independently collected external test cohort. The analyses therefore support only a research conclusion within the documented ADHD-200 setting.
+
+## Clinical restriction
+
+No output is validated for diagnosis, screening, treatment selection, or individual risk communication.
