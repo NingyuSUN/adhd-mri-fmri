@@ -43,6 +43,7 @@ The analyses do not support a reliable cross-site ADHD predictor from the availa
 - The best tested image-only fMRI result was frozen BrainLM at **0.512** macro LOSO AUC; spectral, FC-summary, and full-edge models were approximately chance or worse.
 - Adding BrainLM to confounds reduced performance from **0.686** to **0.622**.
 - Training-fold residualization, within-site validation, strict motion restriction, frame scrubbing, and spatial network aggregation did not reveal a stable image-derived gain.
+- A QC-locked round retraining structural, functional and non-imaging models together on one frozen protocol and three prespecified cohorts (350 / 302 / 375) gave the same picture: non-imaging control **≈ 0.71**, adding functional imaging **−0.013 (1/5 repeats positive)**, adding structural on top **−0.010 (0/5)**. See [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md).
 
 The defensible interpretation is that the dataset contains strong demographic/site/motion structure, while the tested neuroimaging features do not generalize reliably to unseen sites.
 
@@ -87,6 +88,7 @@ The repository contains the original structural and connectivity prototypes. The
 4. [09 — portfolio site-stratified CV](https://colab.research.google.com/drive/1CkXQKR3tfbdIsuM41ML1YNPULmv9HFU2) — one-click comparison with completed outputs
 5. [10 — mixed-site fMRI model sweep](https://colab.research.google.com/drive/1Qh2aAzmHQTMMQl_SMF7JPY_ibTf3HYcJ) — logistic, RBF-SVM, and MLP comparison with site/confound ablations
 6. [11 — A424 end-to-end CNN/Transformer](https://colab.research.google.com/drive/142dwSF1fV7d1khI2l8JADhMbtXwEcv8M) — direct time-series neural networks with completed four-fold outputs
+7. Structural + functional late-fusion — QC-locked paired retraining of structural, functional and non-imaging models on one frozen protocol; see [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md)
 
 Small aggregate result tables are versioned in `results/`. Subject-level predictions and large intermediate arrays remain in Google Drive and are not committed.
 
