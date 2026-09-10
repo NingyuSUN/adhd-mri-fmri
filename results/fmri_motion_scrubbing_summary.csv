@@ -1,0 +1,8 @@
+feature_set,n,macro_auc
+confounds,246,0.621560
+original_fc_summary,246,0.532055
+scrubbed_fc_summary,246,0.506217
+confounds_plus_scrubbed_fc,246,0.489643
+original_spatial_modules,246,0.492988
+scrubbed_spatial_modules,246,0.440836
+confounds_plus_scrubbed_spatial_modules,246,0.541135

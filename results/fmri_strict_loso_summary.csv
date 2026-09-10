@@ -1,0 +1,10 @@
+rank,cohort,evaluation,feature_set,n,macro_auc,interpretation
+1,locked_full,strict_nested_loso,age_sex_motion_qc,409,0.686,confound baseline
+2,locked_full,strict_nested_loso,motion_qc,409,0.664,confound baseline
+3,locked_full,strict_nested_loso,confounds_plus_brainlm,409,0.622,below confounds alone
+4,locked_full,strict_nested_loso,age_sex,409,0.583,demographic baseline
+5,locked_full,strict_nested_loso,brainlm_frozen,409,0.512,approximately chance
+6,locked_full,strict_nested_loso,fc_plus_brainlm,409,0.501,approximately chance
+7,locked_full,strict_nested_loso,spectral,409,0.492,approximately chance
+8,locked_full,strict_nested_loso,fc_roi_summary,409,0.477,below chance
+9,locked_full,strict_nested_loso,full_fc_edges_top2000,409,0.430,below chance
