@@ -1,0 +1,16 @@
+analysis,feature_set,n,macro_auc,conclusion
+motion_restricted,confounds,351,0.657,confounds remain strongest
+motion_restricted,confounds_plus_spectral,351,0.564,no incremental gain
+motion_restricted,confounds_plus_brainlm,351,0.532,no incremental gain
+motion_restricted,brainlm,351,0.406,below chance
+training_fold_residualization,confounds_plus_residualized_brainlm,409,0.604640,below original confounds
+training_fold_residualization,confounds_plus_residualized_spectral,409,0.545254,below original confounds
+training_fold_residualization,confounds_plus_residualized_fc,409,0.493572,below original confounds
+training_fold_residualization,residualized_spectral,409,0.489838,approximately chance
+training_fold_residualization,residualized_brainlm,409,0.474839,below chance
+training_fold_residualization,residualized_fc,409,0.461080,below chance
+within_site_nested_cv,confounds,409,0.663400,confounds remain strongest
+within_site_nested_cv,confounds_plus_brainlm,409,0.574237,no incremental gain
+within_site_nested_cv,spectral,409,0.501459,approximately chance
+within_site_nested_cv,fc,409,0.459246,below chance
+within_site_nested_cv,brainlm,409,0.442529,below chance

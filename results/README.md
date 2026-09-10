@@ -1,25 +1,18 @@
-# Results Folder
+# Aggregate Results
 
-Store only small, summary-level result files here. Do not commit subject-level raw predictions if they expose restricted metadata.
+This folder contains small, non-identifying summary tables for the locked final fMRI benchmark.
 
-Recommended files:
+| File | Contents |
+|---|---|
+| `structural_mri_summary.csv` | locked structural MRI results and matched baselines |
+| `fmri_portfolio_stratified_cv_summary.csv` | repeated site+label-stratified 4-fold CV, five repeats |
+| `fmri_mixed_site_model_sweep_cv.csv` | follow-up mixed-site logistic/SVM/MLP comparison |
+| `fmri_mixed_site_model_sweep_holdout.csv` | pre-specified 80/20 comparison split |
+| `fmri_end_to_end_summary.csv` | image-only A424 1D-CNN and temporal Transformer summary |
+| `fmri_end_to_end_fold_metrics.csv` | fold-level end-to-end neural-network metrics |
+| `fmri_strict_loso_summary.csv` | primary `n=409` nested LOSO comparison |
+| `fmri_robustness_summary.csv` | motion-restricted, residualized, and within-site analyses |
+| `fmri_motion_scrubbing_summary.csv` | strict stage-3 `n=246` model comparison |
+| `fmri_motion_scrubbing_bootstrap.csv` | paired subject bootstrap estimates and intervals |
 
-```text
-t1_single_slice_summary.csv
-t1_multislice_summary.csv
-t1_roi_guided_summary.csv
-t1_ablation_results.csv
-site_bias_baselines.csv
-fmri_gnn_summary.csv
-foldwise_metrics.csv
-```
-
-Every result table should include:
-
-- experiment name
-- split strategy
-- number of subjects
-- number of sites
-- AUC
-- confidence interval if available
-- notes on confound controls
+Subject-level predictions, time series, embeddings, and large arrays are intentionally excluded. The authoritative narrative interpretation is in `../RESULTS.md` and `../FINAL_REPORT.md`.
