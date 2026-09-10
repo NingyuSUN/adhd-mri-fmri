@@ -1,39 +1,33 @@
 # Project Status
 
-This is an active research repository for ADHD classification using structural MRI and resting-state fMRI.
+**Status: completed deep-learning portfolio case study (September 2026).**
 
-## Completed Components
+The original goal was to test whether structural MRI and resting-state fMRI could support an ADHD prediction model. That question has been evaluated with subject-level and site-held-out protocols. The project is complete as a research result, although the final result is not a clinically useful predictor.
 
-| Component | Status | Notes |
+## Completion checklist
+
+| Component | Status | Outcome |
 |---|---:|---|
-| BIDS T1 path collection | Done | Site-wise subject and image discovery implemented |
-| Label extraction from `participants.tsv` | Done | Handles text diagnosis labels and encoding issues |
-| QC filtering | Done | Uses anatomical QC pass where available |
-| Subject-level deduplication | Done | Prevents duplicate T1 runs from creating leakage |
-| Single-slice T1 CNN | Done | Baseline for pipeline validation |
-| Multi-slice T1 CNN | Done | Uses subject-level split and mean aggregation |
-| Leakage demonstration | Done | Shows why slice-level random split is invalid |
-| MNI152 2mm rigid registration | Done | ANTsPy-based registration with caching |
-| Harvard-Oxford ROI-guided slice selection | Done | Frontal/cingulate/subcortical ROI prior |
-| ROI-guided T1 CNN | Done | Slice-level training, subject-level evaluation |
-| Ablation experiments | Done | ROI, registration, normalization, aggregation |
-| Site-bias baselines | In progress | Site-only and site+age+sex models included |
-| fMRI manifest construction | Done | Scans BIDS fMRI and recovers labels where possible |
-| fMRI connectivity graph construction | Done | Harvard-Oxford ROI time series and correlation graphs |
-| GNN model for fMRI | Prototype | GCN prototype with fixed ROI graph representation |
+| Structural MRI baselines | Complete | CNN, multi-slice, ROI-guided, ablation, and strict LOSO analyses performed |
+| Structural leakage controls | Complete | Subject-level splitting and aggregation enforced |
+| fMRI cohort and A424 extraction | Complete | 445 usable A424 subjects; 409 in evaluable two-class held-out sites |
+| Classical fMRI baselines | Complete | FC summaries, selected edges, and spectral features tested |
+| Pretrained representation | Complete | Frozen BrainLM embeddings tested; fine-tuning stopped by prespecified gate |
+| Confound baselines | Complete | Age, sex, motion/QC, and combined baselines tested |
+| Strict nested LOSO | Complete | Training-only preprocessing and model selection |
+| Motion robustness | Complete | Restricted cohort, frame scrubbing, and QC analysis |
+| Residualization robustness | Complete | Residualization fit within each training fold |
+| Within-site validation | Complete | Tested to separate site shift from within-site signal |
+| Spatial network modules | Complete | Original and scrubbed module features tested |
+| Uncertainty analysis | Complete | Paired subject bootstrap for stage-3 contrasts |
+| Final documentation | Complete | Results, limitations, reproducibility, and model card consolidated |
 
-## Current Interpretation
+## Decision
 
-The structural MRI branch suggests that simple T1 slice-based models produce weak and unstable ADHD discrimination under strict subject-level evaluation. The ablation and site-bias analyses indicate that apparent performance must be interpreted cautiously because site/scanner information can provide non-biological predictive shortcuts.
+No tested image-derived model demonstrated stable, confound-independent generalization across sites. The project therefore stops before costly Transformer fine-tuning. The frozen representation failed the prespecified transfer gate, and simpler image features also failed multiple robustness checks.
 
-The fMRI branch is now the more promising direction because ADHD may be better represented as a functional/network-level condition than as a purely structural anatomical pattern.
+This is a valid scientific endpoint and a strong portfolio outcome: it documents a complete multimodal deep-learning workflow, prevents overclaiming, and provides a reproducible benchmark for future work.
 
-## Next Milestones
+## Optional future research
 
-1. Convert Colab-exported `.py` scripts into clean `.ipynb` notebooks.
-2. Save all result tables into `results/` as summary CSV files.
-3. Add pipeline figures under `figures/`.
-4. Run leave-one-site-out validation for structural MRI models.
-5. Run fMRI graph models across all available sites, not only NYU.
-6. Compare GNN against simpler connectivity baselines such as logistic regression and random forest on vectorized FC matrices.
-7. Add confidence intervals and fold-wise result tables for every major experiment.
+Future work is not required to consider this project complete. If the question is reopened, the most valuable changes would be a larger harmonized dataset, prospective external validation, improved phenotyping, and acquisition-balanced sampling—not merely a more complex neural network.

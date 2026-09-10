@@ -1,0 +1,5 @@
+contrast,estimate,ci_low,ci_high
+original_fc,0.533419,0.399324,0.660134
+scrubbed_fc,0.507301,0.408008,0.622632
+scrubbed_minus_original,-0.026118,-0.149374,0.071966
+scrubbed_minus_confounds,-0.112884,-0.254211,0.037795
