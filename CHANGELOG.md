@@ -1,3 +1,10 @@
+## 2026-09-10 — fMRI career portfolio packaging
+
+- Added current 378-person representation and demographic-control evidence, separate from 409-person and structural history.
+- Preserved scientific source hashes; added CLI evidence replay, synthetic demo and path-only runtime wrappers.
+- Added correctness tests, reproduction levels, case study, technical deck and demo walkthrough.
+- Replayed frozen predictions; no new full fMRI training or changes to the running structural v2.
+
 # Changelog
 
 ## 2026-09-10 — Structural + functional late-fusion analysis

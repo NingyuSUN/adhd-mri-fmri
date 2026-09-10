@@ -1,0 +1,55 @@
+{
+  "tested_date": "2026-09-10",
+  "tests": {
+    "tests_run": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "package": "installed final wheel",
+    "environment": "existing recorded Windows CPU dependencies"
+  },
+  "installation": {
+    "wheel_import": "passed",
+    "scientific_modules": 12,
+    "dependency_environment": "existing recorded Windows CPU runtime, not fresh dependency installation",
+    "stages": [
+      {
+        "stage": "representation",
+        "missing_inputs": 0,
+        "environment_matches": true,
+        "execution": "preflight only"
+      },
+      {
+        "stage": "site_motion_increment",
+        "missing_inputs": 0,
+        "environment_matches": true,
+        "execution": "preflight only"
+      },
+      {
+        "stage": "demographic_increment",
+        "missing_inputs": 0,
+        "environment_matches": true,
+        "execution": "preflight only"
+      }
+    ]
+  },
+  "wheel_sha256": "6e85cfb605252b43bd2c34cc188f32dd56b1f374a5a08979823b8bc3f3f40e0b",
+  "artifact_review": {
+    "editable_slides": 10,
+    "chinese_speaker_notes": 10,
+    "pdf_pages": 1,
+    "all_pages_rendered_and_visually_checked": true
+  },
+  "independent_review": {
+    "important_findings": 1,
+    "addressed": "Ignore both subject-level validation CSV patterns",
+    "remaining_important_findings": 0
+  },
+  "not_performed": [
+    "Complete original real-data training rerun",
+    "Raw MRI to cache reconstruction",
+    "Clean dependency installation on another OS",
+    "GitHub-hosted CI run"
+  ]
+}

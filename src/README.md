@@ -1,15 +1,5 @@
-# Source Code Folder
+# Source package
 
-The current repository stores Colab-exported scripts in `notebooks/`.
+`adhd_portfolio/` supplies the current evidence replay CLI, synthetic LR/MLP demo and portable frozen runtime wrapper. Its `frozen_v1/` modules preserve historical scientific source bytes. See [reproduction guide](../REPRODUCIBILITY.md) and [source inventory](adhd_portfolio/frozen_v1/sources.json).
 
-For a more maintainable package, future refactoring could move reusable functions here:
-
-```text
-src/
-├── data_io.py          # BIDS scanning, label loading, manifest creation
-├── preprocessing.py    # slice extraction, normalization, registration helpers
-├── models.py           # CNN and GNN model definitions
-├── evaluation.py       # AUC, bootstrap CI, aggregation, threshold metrics
-├── graphs.py           # fMRI ROI time series and graph construction
-└── configs.py          # path and experiment configuration
-```
+Historical Colab notebooks remain in `notebooks/`; they are not a substitute for the current versioned entry point.
