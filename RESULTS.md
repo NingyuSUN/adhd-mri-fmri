@@ -1,5 +1,8 @@
 # Final Results
 
+**Interpretation update (2026-09-11):** The original v2 primary equivalence hypothesis was not confirmed. Post hoc QC decomposition and corrected reporting are in [the statistical audit](docs/paper/STATISTICAL_INTERPRETATION.md) and [sensitivity tables](results/paper_readiness_20260911/). Original numerical results and frozen decisions are preserved; older causal explanations are superseded by this audit.
+
+
 ## Portfolio benchmark
 
 The portfolio-facing endpoint is mean AUC across repeated four-fold cross-validation stratified jointly by site and diagnosis (`n=409`, five repeats, 20 outer evaluations). Imputation, scaling, and logistic-regression regularization selection are refit inside the training data of every outer fold.
@@ -159,8 +162,8 @@ The non-imaging control is strongest in every cohort. Neither functional nor str
 
 A pre-registered confirmatory round ([`docs/analysis_v2_protocol.md`](docs/analysis_v2_protocol.md), [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)) re-ran the fusion analysis with a repeat-dependent MLP seed, a symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), a Nadeau–Bengio corrected interval for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict LOSO re-run. Independently consistency-verified (66 units).
 
-- **Mixed-site CV:** every confound-plus-imaging contrast is point-negative in all three cohorts, matching this section's numbers. But the Nadeau–Bengio 90% interval for the primary contrast is [−0.040, +0.017] at `n=350` — it does not fit inside ±0.02, so *formal* equivalence is **underpowered**. The honest statement is "no meaningful positive increment; equivalence cannot be established", not "structural MRI adds nothing".
-- **Strict LOSO is uninformative here.** The primary-contrast LOSO estimate is +0.028 [+0.009, +0.046] in `primary` but −0.086 and −0.043 in the two other QC cohorts (which overlap in >85% of subjects). NYU carries ~40% of the pair weight and its held-out ΔAUC swings ±0.15 across the three near-identical cohorts; the two smallest sites (n=14, n=6) contribute only noise. With 7 acquisition sites — one dominant, two below n=15 — strict LOSO in ADHD-200 cannot adjudicate a ΔAUC of order 0.01–0.02. This is the empirical reason the repository uses repeated site-and-label-stratified CV as the primary endpoint and treats LOSO as a qualitative stress test.
+- **Mixed-site CV:** primary ΔAUC −0.011, original corrected 90% interval [−0.040,+0.017]. Equivalence to ±0.02 was not established. The pre-specified df=2 sensitivity extends to +0.036, and an additional actual-fit-ratio sensitivity gives about [−0.043,+0.020]. See the audit for the different correction conventions.
+- **Strict LOSO:** primary ΔAUC +0.028 [+0.009,+0.046], with negative estimates in the other two QC cohorts. This supports a positive conditional primary contrast but does not establish a benefit exceeding +0.02, nor does sign reversal prove LOSO invalid. NYU contributes 67.07% of primary case-control pairs. Matched-subject and fixed-weight analyses show most QC-related change persists after evaluation composition is held fixed; final validation-selected structural fusion weights contribute strongly. These later analyses are explicitly post hoc.
 
 Tables: `results/v2_*.csv`. Figures: `figures/v2_F1_loso_forest.png` (per-site ΔAUC), `figures/v2_F2_cv_bars.png`, `figures/v2_F3_reliability.png`.
 

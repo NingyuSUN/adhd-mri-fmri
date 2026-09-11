@@ -1,5 +1,7 @@
 # Reproducibility Guide
 
+For the current multimodal v2 workflow, use [the complete reproduction package](reproduction/README.md). The legacy notebook instructions below concern earlier rounds. Reproduction levels and measured outcomes are documented separately; saved-prediction recomputation is not model retraining.
+
 ## Final analysis order
 
 The original structural and graph prototypes are stored in `notebooks/`. The final fMRI analysis is represented by four Colab notebooks:

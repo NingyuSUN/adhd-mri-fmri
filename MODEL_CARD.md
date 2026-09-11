@@ -22,7 +22,7 @@ This repository contains research models for ADHD-versus-control classification 
 
 ADHD-200 multi-site structural MRI, resting-state fMRI derivatives, phenotypic labels, demographics, and motion/QC variables. Raw data are not distributed by this repository.
 
-## Evaluation
+## Historical n=409 benchmark evaluation
 
 - primary design: strict nested leave-one-site-out validation
 - split unit: subject/site
@@ -57,3 +57,7 @@ The tested image representations do not provide stable incremental value beyond 
 ## Release decision
 
 No deployable trained model is released. Research code and aggregate results are provided to document the benchmark and its negative/boundary conclusion.
+
+## Later multimodal v2 analysis
+
+The three QC cohorts (350/302/375) use paired multimodal comparisons under repeated CV and site-held-out evaluation. The primary equivalence criterion was not met. Interpretations are updated in [the statistical audit](docs/paper/STATISTICAL_INTERPRETATION.md); the earlier n=409 metrics above should not be treated as paired baselines for this later cohort.
