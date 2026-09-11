@@ -51,6 +51,10 @@ The correct conclusion is not that MRI and fMRI have no relationship with ADHD. 
 
 The project is therefore complete as a well-controlled negative or boundary result. It contributes a reproducible evaluation framework and demonstrates why apparent performance in multi-site neuroimaging must be compared with demographic, site, motion, and QC baselines.
 
+## Confirmatory statistics and the limits of strict LOSO
+
+A pre-registered confirmatory round (`docs/analysis_v2_results.md`) added a Nadeau–Bengio corrected interval, a TOST equivalence test (±0.02 AUC), a repeat-dependent MLP seed, a symmetric primary contrast, and a full strict-LOSO re-run, then independently consistency-verified all 66 units. It confirms the point-estimate direction (every confound-plus-imaging contrast is negative in all three QC cohorts) but shows that (a) at n = 350 the corrected CV interval for the primary contrast is [−0.040, +0.017] — formal equivalence to ±0.02 is underpowered, and (b) strict LOSO cannot contribute: the held-out summary ΔAUC is +0.028 in one QC cohort and −0.086 / −0.043 in two others sharing >85% of subjects, because NYU carries ~40% of the weight and its held-out ΔAUC alone swings ±0.15 across the cohorts. The responsible phrasing is "no meaningful positive increment; equivalence and cross-site transport are both underpowered in ADHD-200", not "imaging adds nothing".
+
 ## Intended use of outputs
 
 The notebooks and result tables are suitable for research benchmarking, methods development, and a thesis/project report. They are not suitable for clinical screening, diagnosis, treatment decisions, or individual risk communication.
