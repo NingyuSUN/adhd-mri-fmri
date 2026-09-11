@@ -16,5 +16,9 @@ This folder contains small, non-identifying summary tables for the locked final 
 | `fmri_motion_scrubbing_bootstrap.csv` | paired subject bootstrap estimates and intervals |
 | `structural_functional_fusion_summary.csv` | QC-locked structural/functional/fusion paired analysis, 17 models × 3 cohorts, mean over 5 repeats |
 | `structural_functional_fusion_paired_deltas.csv` | prespecified paired AUC / within-site deltas for the same analysis |
+| `v2_cv_contrast_stats.csv` | analysis v2: mixed-site CV paired deltas with Nadeau–Bengio 90% intervals (df 14 and conservative df 2) |
+| `v2_loso_contrast_stats.csv` | analysis v2: strict LOSO paired deltas (pair-weighted / macro) with site-stratified subject-bootstrap 90% intervals |
+| `v2_loso_per_site_deltas.csv` | analysis v2: per-held-out-site ΔAUC and within-site bootstrap 95% CI (forest plot F1) |
+| `v2_calibration_summary.csv` | analysis v2: ECE, Brier, Brier skill score for four report models × three cohorts |
 
 Subject-level predictions, time series, embeddings, and large arrays are intentionally excluded. The authoritative narrative interpretation is in `../RESULTS.md` and `../FINAL_REPORT.md`.
