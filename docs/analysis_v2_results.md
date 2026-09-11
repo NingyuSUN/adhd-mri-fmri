@@ -18,47 +18,34 @@ Same frozen QC lock / features / covariances / 5×3 splits as `20260909`. The pr
 contrast was made **symmetric** — `full_fusion_structural_mlp` − `full_functional_mlp`
 (both add an MLP-derived modality) — and the MLP seed was made repeat-dependent.
 
-## Headline: ADHD-200 cannot support strict LOSO for a small AUC effect
+## Primary hypothesis not confirmed; QC sensitivity requires a narrower interpretation
 
-The pre-registered decision rule compares the primary contrast under both frameworks:
+**Interpretation updated 2026-09-11 after a post hoc audit.** The frozen protocol, numerical results and original machine-readable decision remain unchanged. See [the statistical audit](paper/STATISTICAL_INTERPRETATION.md) and [aggregate sensitivity results](../results/paper_readiness_20260911/).
 
-| Framework | ΔAUC | 90% interval | Pre-registered branch |
+| Framework | ΔAUC | Original 90% interval | Supported interpretation |
 |---|---:|---|---|
-| Mixed-site CV (Nadeau–Bengio, df = 14) | −0.011 | [−0.040, +0.017] | inconclusive / underpowered |
-| Strict LOSO (pair-weighted, site-stratified subject bootstrap) | +0.028 | [+0.009, +0.046] | **meaningful increment** |
+| Mixed-site CV (Nadeau–Bengio, df = 14) | −0.011 | [−0.040, +0.017] | Equivalence to ±0.02 not established |
+| Strict LOSO (pair-weighted, site-stratified subject bootstrap) | +0.028 | [+0.009, +0.046] | Positive conditional contrast; a benefit larger than 0.02 is not established |
 
-The two frameworks disagree, which the protocol flags for audit. **The audit shows the LOSO
-result is a small-sample artifact of the ADHD-200 site structure, not a real effect:**
+The protocol required equivalence under both frameworks. That criterion was not met, and the original decision explicitly triggered an audit. The original `B2_meaningful_increment` program label means a meaningful benefit could not be excluded; it is not evidence that the benefit exceeds 0.02. Keep the original endpoint result visible rather than treating a conflicting result as automatically invalid.
 
-| Prespecified QC cohort (overlap > 85% of subjects) | LOSO pair-weighted ΔAUC, primary contrast |
+| Prespecified QC cohort | LOSO pair-weighted ΔAUC, primary contrast |
 |---|---:|
-| `primary` (n = 350) | **+0.028** [+0.009, +0.046] |
-| `warning_free` (n = 302) | **−0.086** [−0.161, −0.010] |
-| `include_holds` (n = 375) | **−0.043** [−0.074, −0.011] |
+| `primary` (n = 350) | +0.028 [+0.009, +0.046] |
+| `warning_free` (n = 302) | −0.086 [−0.161, −0.010] |
+| `include_holds` (n = 375) | −0.043 [−0.074, −0.011] |
 
-Three cohorts differing by at most 48 subjects swing the estimate by 0.11 AUC and flip the
-pre-registered branch from "increment" to "decrement". The mechanism is visible in
-[`figures/v2_F1_loso_forest.png`](../figures/v2_F1_loso_forest.png) and
-[`results/v2_loso_per_site_deltas.csv`](../results/v2_loso_per_site_deltas.csv):
+The signs are sensitive to QC cohort. This does not by itself prove a small-sample artifact, rule out leakage, or establish that LOSO is categorically uninformative. CV and LOSO answer different generalization questions; the later change in narrative emphasis is post hoc.
 
-- **NYU** carries ~40% of the pair weight. Its held-out ΔAUC for the *same* contrast is
-  0.000 in `primary`, −0.145 in `warning_free`, −0.051 in `include_holds` — a ±0.15 AUC
-  swing on the same held-out site, driven only by which subjects the QC cohort includes.
-  The LOSO summary sign follows NYU.
-- The two smallest held-out sites, **Peking_2** (n = 14) and **Peking_3** (n = 6), have
-  95% within-site bootstrap intervals spanning roughly ±0.5 to ±1.0 — no information.
-- In `primary`, the +0.028 is carried by two mid-size sites (KKI +0.11, OHSU +0.15) whose
-  held-out AUC on a 32–82-subject test set is itself a high-variance quantity.
+The earlier report confused NYU's subject fraction with its pair weight: NYU is 139/350 = 39.7% of the primary sample, but contributes 4,774/7,118 = **67.07% of case-control pairs**. The underlying published pair counts and numeric summaries were correct.
 
-There is no leakage path — the held-out site never touches any fit, and inner
-hyperparameter selection is confined to the six training sites; a leak would help all three
-cohorts, not flip the sign. **With 7 acquisition sites (one dominant, two below n = 15),
-strict LOSO in ADHD-200 cannot adjudicate a ΔAUC on the order of 0.01–0.02. The held-out
-summary is hostage to the subject composition of the largest site.** This is why the
-repository uses **repeated site-and-label-stratified subject-level CV as the primary
-endpoint** and treats LOSO as a qualitative domain-shift stress test only.
+Matched-subject decomposition now separates evaluation composition, site weights and changes in the fitted pipelines. For primary → warning_free, the native ΔAUC shift is −0.11319. Its components are −0.11889 from changed pipelines evaluated on the same 302 subjects, +0.00379 from evaluation composition, and +0.00191 from site weights. Thus the earlier claim that the reversal was driven only by which test subjects were included is unsupported.
 
-## Mixed-site CV — the confirmatory result
+A further symmetric post hoc decomposition of the common-subject term assigns +0.00398 to changed base/structural predictions and −0.12287 to the final validation-selected fusion weight. NYU's structural weight changes from 0 to 1. These are descriptive allocations including nonlinear interaction, not causal estimates or evidence of an independently replicated biological mechanism.
+
+LOSO uncertainty here conditions on fixed sites and fitted models. It does not capture sampling new sites or retraining uncertainty. The tiny sites contribute little to a pair-weighted summary but can strongly affect a macro summary; report the estimand and weighting explicitly.
+
+## Mixed-site CV — results of the planned reanalysis
 
 | Cohort | Contrast | ΔAUC | 90% CI (df 14) | 90% CI (df 2, conservative) |
 |---|---|---:|---|---|
@@ -71,12 +58,11 @@ endpoint** and treats LOSO as a qualitative domain-shift stress test only.
 | primary | E1 structural MLP − structural LR | +0.008 | [−0.033, +0.049] | [−0.060, +0.076] |
 
 - **Every confound-plus-imaging contrast (P, S1, S2, S3, S5) has a negative point estimate**
-  and an upper bound ≤ +0.03, in all three cohorts. The point-estimate picture matches
-  `20260909` exactly.
+  in all three cohorts. Report each interval rather than using the shared sign as evidence of equivalence.
 - **No contrast establishes formal equivalence.** The Nadeau–Bengio correction — which
   accounts for the training-set overlap across the 15 folds — widens every 90% interval
-  past −0.02 at n = 350. So the honest CV statement is *no meaningful positive increment;
-  equivalence to within ±0.02 is underpowered*. The `20260909` "0 of 5 repeats positive"
+  past −0.02 at n = 350. So the honest CV statement is *no stable positive increment established across analyses;
+  equivalence to within ±0.02 remains unconfirmed*. The `20260909` "0 of 5 repeats positive"
   descriptor overstated the certainty.
 - The one positive point estimate, **S4**, is the image-only "add structural to functional"
   contrast (+0.020, 11/15 folds positive) — the same effect as `20260909` (+0.017). Under
@@ -89,7 +75,7 @@ Figure [`v2_F2_cv_bars.png`](../figures/v2_F2_cv_bars.png).
 
 ## Calibration
 
-Pooled CV test-fold predictions, per cohort. All four report models are poorly calibrated:
+Pooled CV test-fold predictions, per cohort. Calibration is descriptive and does not establish clinical risk validity:
 
 | Model (primary cohort) | ECE | Brier skill score vs prevalence |
 |---|---:|---:|
@@ -104,19 +90,13 @@ read as individual diagnostic risk. Table:
 [`results/v2_calibration_summary.csv`](../results/v2_calibration_summary.csv); figure
 [`v2_F3_reliability.png`](../figures/v2_F3_reliability.png).
 
-## What v2 changes about the project's conclusion
+## What v2 changes about the project conclusion
 
-Nothing in the direction of the conclusion — it sharpens the wording and adds the LOSO
-justification:
+The original primary equivalence hypothesis was not confirmed. Negative CV point estimates do not establish absence of useful imaging information, and the positive primary LOSO result should remain visible alongside its QC sensitivity. The most defensible conclusion concerns instability of the specified fitted pipelines on reused ADHD-200 cohorts.
 
-1. Mixed-site CV point estimates continue to show that adding functional or structural MRI
-   to age + sex + site + motion does not raise AUC. But at n = 350 the corrected intervals
-   cannot *prove* equivalence to ±0.02 — the responsible phrasing is "no meaningful positive
-   increment, equivalence underpowered", not "structural MRI adds nothing".
-2. Strict LOSO cannot contribute evidence for or against the hypothesis at this sample size;
-   its estimate is dominated by the subject composition of the largest held-out site. This
-   is a documented result, and it is the reason LOSO is a stress test rather than the
-   primary endpoint in this repository.
+The original CV df=2 sensitivity extends to +0.036. An additional post hoc sensitivity using actual model-fit rows in the NB ratio gives a primary df=14 interval about [−0.043,+0.020]. Neither establishes equivalence. These estimator sensitivities should accompany any assertion about excluding a positive increment.
+
+Three overlapping QC cohorts are not independent replications. No clinical, external-validation, or causal claim follows from these analyses.
 
 ## Files
 

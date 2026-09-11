@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-11 — Post hoc statistical interpretation and sensitivity audit
+
+- Preserved the original v2 protocol and numerical decisions; corrected the interpretation to state that the primary equivalence hypothesis was not confirmed.
+- Corrected NYU's primary case-control pair weight to 67.07%; approximately 40% was its participant fraction.
+- Added matched-subject/fixed-weight QC decomposition, a symmetric final-fusion-weight decomposition, and validation-only conditional selector stability.
+- Recomputed the five original statistical/calibration tables and original decision exactly in a clean statistics environment.
+- Added the full source/dependency closure and a separate fresh-fit runner. Full-training completion is recorded by its execution report, not inferred from this changelog.
+- This audit supersedes the causal and LOSO-validity interpretations in the historical entry below. The three pairwise cohort overlaps are 86.3%, 93.3%, and 80.5% when expressed as intersection/union, not all above 85%.
+
+
 ## 2026-09-11 — Analysis v2: pre-registered confirmatory statistics
 
 - Re-ran the structural + functional late-fusion analysis under a pre-registered protocol (`docs/analysis_v2_protocol.md`, finalized after an independent methods/statistics review): repeat-dependent MLP seed, symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), Nadeau–Bengio corrected 90% intervals for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict leave-one-site-out re-run.
