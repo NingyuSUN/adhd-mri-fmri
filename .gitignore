@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+reproduction/private/
+reproduction/run_outputs/
+**/validation.csv
+**/test.csv
+**/predictions.csv
+*.joblib
+*.pt
+*.npz
+*.npy
