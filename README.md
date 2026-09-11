@@ -75,6 +75,7 @@ For portfolio presentation, the primary within-dataset experiment uses repeated 
 - The portfolio benchmark uses repeated four-fold CV stratified jointly by site and label; imputation, scaling, and regularization selection are fit inside each training fold.
 - The reported portfolio number is the mean AUC across 20 outer folds, with standard deviation across folds.
 - LOSO is reported separately as an unseen-site stress test; held-out sites are not used for scaling, feature selection, residualization, or hyperparameter selection.
+- The pre-registered confirmatory round ([`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)) shows *why* LOSO is a stress test and not the primary endpoint: with 7 acquisition sites — NYU carrying ~40% of the weight, two sites below n=15 — the held-out summary ΔAUC swings by 0.11 (and flips sign) across three QC cohorts that share >85% of subjects. Strict LOSO in ADHD-200 cannot resolve a ΔAUC on the order of 0.01–0.02.
 - Every image model is compared with non-image confound baselines.
 - A model is not considered useful merely because its AUC is above 0.5; it must add stable out-of-site information beyond confounds.
 
@@ -89,6 +90,7 @@ The repository contains the original structural and connectivity prototypes. The
 5. [10 — mixed-site fMRI model sweep](https://colab.research.google.com/drive/1Qh2aAzmHQTMMQl_SMF7JPY_ibTf3HYcJ) — logistic, RBF-SVM, and MLP comparison with site/confound ablations
 6. [11 — A424 end-to-end CNN/Transformer](https://colab.research.google.com/drive/142dwSF1fV7d1khI2l8JADhMbtXwEcv8M) — direct time-series neural networks with completed four-fold outputs
 7. Structural + functional late-fusion — QC-locked paired retraining of structural, functional and non-imaging models on one frozen protocol; see [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md)
+8. Analysis v2 — pre-registered confirmatory statistics (Nadeau–Bengio corrected CV intervals, TOST equivalence, full strict LOSO re-run); see [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)
 
 Small aggregate result tables are versioned in `results/`. Subject-level predictions and large intermediate arrays remain in Google Drive and are not committed.
 
