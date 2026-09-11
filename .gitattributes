@@ -1,0 +1,3 @@
+# Frozen third-party and historical source: preserve exact SHA256-bound bytes.
+# Review the immutable snapshot through legacy_manifest.json; new code stays textual.
+reproduction/legacy/** -text -diff

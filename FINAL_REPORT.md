@@ -51,9 +51,13 @@ The correct conclusion is not that MRI and fMRI have no relationship with ADHD. 
 
 The project is therefore complete as a well-controlled negative or boundary result. It contributes a reproducible evaluation framework and demonstrates why apparent performance in multi-site neuroimaging must be compared with demographic, site, motion, and QC baselines.
 
-## Confirmatory statistics and the limits of strict LOSO
+## Planned v2 reanalysis and subsequent interpretation audit
 
-A pre-registered confirmatory round (`docs/analysis_v2_results.md`) added a Nadeau–Bengio corrected interval, a TOST equivalence test (±0.02 AUC), a repeat-dependent MLP seed, a symmetric primary contrast, and a full strict-LOSO re-run, then independently consistency-verified all 66 units. It confirms the point-estimate direction (every confound-plus-imaging contrast is negative in all three QC cohorts) but shows that (a) at n = 350 the corrected CV interval for the primary contrast is [−0.040, +0.017] — formal equivalence to ±0.02 is underpowered, and (b) strict LOSO cannot contribute: the held-out summary ΔAUC is +0.028 in one QC cohort and −0.086 / −0.043 in two others sharing >85% of subjects, because NYU carries ~40% of the weight and its held-out ΔAUC alone swings ±0.15 across the cohorts. The responsible phrasing is "no meaningful positive increment; equivalence and cross-site transport are both underpowered in ADHD-200", not "imaging adds nothing".
+The 66-unit v2 reanalysis did not confirm the pre-specified primary equivalence hypothesis. CV gave ΔAUC −0.011 with a corrected 90% interval [−0.040,+0.017]; primary-cohort LOSO gave +0.028 [+0.009,+0.046]. The latter supports a positive conditional contrast, not a demonstrated increment above +0.02. The other two QC cohorts gave negative LOSO contrasts.
+
+The [2026-09-11 audit](docs/paper/STATISTICAL_INTERPRETATION.md) corrects the earlier explanations: NYU contributes 67.07% of primary within-site pairs, not approximately 40%; matched-subject analyses show the reversal is not explained chiefly by evaluation sample composition. The primary→warning_free total change −0.11319 decomposes into changed-pipeline −0.11889, evaluation-composition +0.00379, and site-weight +0.00191 contributions. A symmetric post hoc decomposition attributes much of the changed-pipeline term to the final fusion weight, conditional on saved predictions. This is evidence of pipeline sensitivity, not a proof that LOSO fails or that imaging contains no useful information.
+
+Original protocols and machine-readable decisions are retained. New analyses are explicitly post hoc; external replication remains absent.
 
 ## Intended use of outputs
 
