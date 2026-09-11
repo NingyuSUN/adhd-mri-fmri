@@ -155,6 +155,15 @@ Prespecified paired increments (mean Δ AUC over 5 repeats; positive-repeat coun
 
 The non-imaging control is strongest in every cohort. Neither functional nor structural imaging adds stable value on top of it. The only positive image-derived increment — adding structural to the image-only functional model — is robust only in `primary` and fades in the other two QC cohorts. This reproduces the repository's overall conclusion under a stricter, jointly-retrained design.
 
+## Confirmatory statistics (analysis v2) and why LOSO is not the primary endpoint
+
+A pre-registered confirmatory round ([`docs/analysis_v2_protocol.md`](docs/analysis_v2_protocol.md), [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)) re-ran the fusion analysis with a repeat-dependent MLP seed, a symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), a Nadeau–Bengio corrected interval for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict LOSO re-run. Independently consistency-verified (66 units).
+
+- **Mixed-site CV:** every confound-plus-imaging contrast is point-negative in all three cohorts, matching this section's numbers. But the Nadeau–Bengio 90% interval for the primary contrast is [−0.040, +0.017] at `n=350` — it does not fit inside ±0.02, so *formal* equivalence is **underpowered**. The honest statement is "no meaningful positive increment; equivalence cannot be established", not "structural MRI adds nothing".
+- **Strict LOSO is uninformative here.** The primary-contrast LOSO estimate is +0.028 [+0.009, +0.046] in `primary` but −0.086 and −0.043 in the two other QC cohorts (which overlap in >85% of subjects). NYU carries ~40% of the pair weight and its held-out ΔAUC swings ±0.15 across the three near-identical cohorts; the two smallest sites (n=14, n=6) contribute only noise. With 7 acquisition sites — one dominant, two below n=15 — strict LOSO in ADHD-200 cannot adjudicate a ΔAUC of order 0.01–0.02. This is the empirical reason the repository uses repeated site-and-label-stratified CV as the primary endpoint and treats LOSO as a qualitative stress test.
+
+Tables: `results/v2_*.csv`. Figures: `figures/v2_F1_loso_forest.png` (per-site ΔAUC), `figures/v2_F2_cv_bars.png`, `figures/v2_F3_reliability.png`.
+
 ## Symptom regression
 
 Among `n=277` subjects with symptom measures, macro site-wise Pearson correlation was approximately 0.19, while pooled correlation was approximately zero and unstable. This is insufficient evidence for a generalizable symptom prediction model.
