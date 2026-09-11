@@ -28,9 +28,13 @@ Frozen BrainLM, connectivity summaries, spectral features, selected edges, graph
 
 AUC measures ranking, not calibration or clinical utility. Pooled AUC can be inflated or suppressed by site prevalence, so macro site AUC is primary. Confidence intervals remain wide for several comparisons.
 
-## Leave-one-site-out power
+## Leave-one-site-out uncertainty and QC sensitivity
 
-The pre-registered confirmatory round ([`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)) quantified this: ADHD-200 has 7 usable acquisition sites, NYU carries ~40% of the within-site pair weight, and two sites have n = 14 and n = 6. Under strict LOSO the held-out summary ΔAUC for the primary structural-vs-functional contrast is +0.028 in one prespecified QC cohort and −0.086 / −0.043 in two others that overlap in >85% of subjects. The estimate is dominated by the subject composition of the largest held-out site and cannot resolve a ΔAUC of order 0.01–0.02. LOSO is therefore a qualitative domain-shift stress test in this repository, not a quantitative endpoint. Even the mixed-site CV, with a Nadeau–Bengio corrected interval, is underpowered to establish formal equivalence (±0.02 AUC) at these cohort sizes.
+The planned v2 reanalysis did not establish its primary equivalence hypothesis. Its primary LOSO increment was positive (+0.028), while two other QC cohorts gave negative estimates. The original site-stratified bootstrap conditions on fixed sites and models; it omits uncertainty from training and unseen-site sampling. The sign changes do not prove LOSO is invalid or establish the cause of instability.
+
+A [post hoc audit](docs/paper/STATISTICAL_INTERPRETATION.md) corrects NYU's primary pair weight to 67.07% (39.7% is its participant fraction). On common subjects with fixed weights, most of the QC-related shift persists. Further descriptive decomposition implicates the selected final fusion weight. This does not isolate all sources of training/tuning variability or establish causation.
+
+The original corrected CV interval and its df=2 sensitivity do not establish equivalence to ±0.02. Cohorts and repeated folds reuse participants, and the many secondary comparisons are exploratory without family-wise error control.
 
 ## External validation
 
