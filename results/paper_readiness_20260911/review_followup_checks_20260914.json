@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "checks": {
+    "C_selection_units_matched": 66,
+    "role_disjoint_units": 66,
+    "prediction_role_model_blocks": 2244,
+    "loso_site_model_order_blocks": 357,
+    "cv_repeat_coverage": 15,
+    "prediction_comparisons": 132,
+    "max_abs_prediction_difference": 0.0
+  },
+  "covariance_log_evidence": {
+    "first_unit.log": {
+      "covariance_line_count": 8,
+      "first": [
+        "COVARIANCE 0 /378",
+        "COVARIANCE 50 /378"
+      ],
+      "last": [
+        "COVARIANCE 300 /378",
+        "COVARIANCE 350 /378"
+      ]
+    },
+    "all_units.log": {
+      "covariance_line_count": 0,
+      "first": [],
+      "last": []
+    }
+  }
+}

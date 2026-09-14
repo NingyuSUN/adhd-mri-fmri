@@ -1,0 +1,175 @@
+{
+  "source_root": "privatereproduction workspace (path redacted for publication)",
+  "files": [
+    {
+      "path": "fresh_statistics_verified/REPORT_stats.md",
+      "bytes": 5121,
+      "sha256": "2898bc054a2577b718b017bb92f9515f0df11275c6928d1eae14589239d2c3f1"
+    },
+    {
+      "path": "fresh_statistics_verified/calibration.csv",
+      "bytes": 9172,
+      "sha256": "cd99454a0da2112bf6f6650fddc970a7bc35e7522dbbf704382c5b67829018f4"
+    },
+    {
+      "path": "fresh_statistics_verified/calibration_summary.csv",
+      "bytes": 1645,
+      "sha256": "b6c906c71b33abddd62a7b3bad81a58a4b9d02f6adc54eacfa69cdbbb0012904"
+    },
+    {
+      "path": "fresh_statistics_verified/cv_contrast_stats.csv",
+      "bytes": 8129,
+      "sha256": "d9cd56d6370b3f198b396c2b6938c6c599ca602576879736abfa9487d0172fea"
+    },
+    {
+      "path": "fresh_statistics_verified/cv_primary_summary.csv",
+      "bytes": 2299,
+      "sha256": "ce2c080268bd4097d2553db3e369bb800d7e68e74192dfbe2bd2030878cd9480"
+    },
+    {
+      "path": "fresh_statistics_verified/decision.json",
+      "bytes": 1157,
+      "sha256": "671f7ad31e77738049494a7343b2d98e03cac31a9642e1b41bbb5f9b209f8f73"
+    },
+    {
+      "path": "fresh_statistics_verified/figures/v2_F1_loso_forest.png",
+      "bytes": 87811,
+      "sha256": "fec9972e68ef99676d7e11d7c8a23e7460f1cc3202e894bdc75583a4d166a40f"
+    },
+    {
+      "path": "fresh_statistics_verified/figures/v2_F2_cv_bars.png",
+      "bytes": 72354,
+      "sha256": "7f4d47155982c7d1dfc61b157871bf040f0f2b9a3beb6b55497e7b093da72ac6"
+    },
+    {
+      "path": "fresh_statistics_verified/figures/v2_F3_reliability.png",
+      "bytes": 78063,
+      "sha256": "5c4da659e5303aef72574a0fd15c3c90df380fe9a107328b3c99f2581f9490de"
+    },
+    {
+      "path": "fresh_statistics_verified/loso_contrast_stats.csv",
+      "bytes": 9312,
+      "sha256": "65a231bf9ff8caaaa2cd27c9c0b492a9daeab9b0d0d25fb7e4df527cac21b1ad"
+    },
+    {
+      "path": "fresh_statistics_verified/loso_per_site_deltas.csv",
+      "bytes": 10435,
+      "sha256": "f0eee09d3cca34bd8a00481ebfb6ff0eee691cbc5bd4f01b7e210ac227df11a8"
+    },
+    {
+      "path": "fresh_statistics_verified/loso_primary_summary.csv",
+      "bytes": 2033,
+      "sha256": "d2e63a88d856700851d57463a0acaddec264eff0fc45add001063819c0a1026e"
+    },
+    {
+      "path": "fresh_statistics_verified/recomputation_verification.json",
+      "bytes": 789,
+      "sha256": "23aa69d008c61d16f62897c1ba6b1afa5f30b804343ae33204c10da987a76032"
+    },
+    {
+      "path": "fresh_v2/verified_reproduction.json",
+      "bytes": 40877,
+      "sha256": "f5c0b35a1145ff2e4941353c37178dbf00ec64e8554a0c806d3c3fe68f10b01f"
+    },
+    {
+      "path": "fresh_v2/reproduction_status.json",
+      "bytes": 174,
+      "sha256": "edf6a737b2f94b1abe73c823582dc2b337ebe24479921f04fc5b14459a44af2c"
+    },
+    {
+      "path": "fresh_v2/pipeline_status.json",
+      "bytes": 95,
+      "sha256": "f596e4ac64b71312086ab032e80f16bd6941b9cf309404673ed3ab57bf036bd6"
+    },
+    {
+      "path": "fresh_v2/verification_status.json",
+      "bytes": 74,
+      "sha256": "8b16a3b809f378ec1b6420c2a4a57d6a7dab4fb52969f58abf0c52d3c7a465c6"
+    },
+    {
+      "path": "fresh_v2/reproduction_manifest.json",
+      "bytes": 1578,
+      "sha256": "97f18b60e6550797c97026af07521c4c32c76953117b1134f7d7072444386cde"
+    },
+    {
+      "path": "fresh_v2/covariance_comparison.json",
+      "bytes": 98,
+      "sha256": "f16cf9b77c104f859d471d7ae4656fb45e0da1faaf89d75c134318d189e6af64"
+    },
+    {
+      "path": "fresh_v2/cv/primary/summary.csv",
+      "bytes": 2306,
+      "sha256": "a8e2058a58f4d7451eb3cb8656fe21b3bdd742356e56da76f3bbdc0b2f4312fe"
+    },
+    {
+      "path": "fresh_v2/cv/primary/fold_metrics.csv",
+      "bytes": 30730,
+      "sha256": "479d61658c4cb9cd0ee8a26ca78545193b92bf8254754f72bc9c96aef42338f4"
+    },
+    {
+      "path": "fresh_v2/cv/primary/repeat_metrics.csv",
+      "bytes": 9773,
+      "sha256": "254a694048e6d02d9c503389d469b05f500545afde4b6fcb664701c9bede91c6"
+    },
+    {
+      "path": "fresh_v2/cv/warning_free/summary.csv",
+      "bytes": 2312,
+      "sha256": "17ae9bdad7f4d0c693354f3b526481e073717b00e1f452babb63a5b186d09a15"
+    },
+    {
+      "path": "fresh_v2/cv/warning_free/fold_metrics.csv",
+      "bytes": 30618,
+      "sha256": "dac50e391acb2704b94bf0fd38130f2d08f472db07792aadf5331fedf741629f"
+    },
+    {
+      "path": "fresh_v2/cv/warning_free/repeat_metrics.csv",
+      "bytes": 9792,
+      "sha256": "72e80b426b0d8a53384b1e1d4e45e9c5074e7b2aa9b0c73b78b81876c1382b4c"
+    },
+    {
+      "path": "fresh_v2/cv/include_holds/summary.csv",
+      "bytes": 2306,
+      "sha256": "341796e2cc2488f7fdd79678c9377821886557c4cd9598a270df5c66f6619327"
+    },
+    {
+      "path": "fresh_v2/cv/include_holds/fold_metrics.csv",
+      "bytes": 30760,
+      "sha256": "9908a386bb8ecf7613a2912f689c8885174dd546dd5edabcc0f8c3edc243423c"
+    },
+    {
+      "path": "fresh_v2/cv/include_holds/repeat_metrics.csv",
+      "bytes": 9786,
+      "sha256": "0dbd07165180fa0814edd1b8e68bf3b4a434f68f45ae5f33686ae21dbfa30496"
+    },
+    {
+      "path": "fresh_v2/loso/primary/summary.csv",
+      "bytes": 2035,
+      "sha256": "69b3b1d580750519fa4d345a5b638bc982e3acecaa648410229e47410fc47748"
+    },
+    {
+      "path": "fresh_v2/loso/primary/site_metrics.csv",
+      "bytes": 6304,
+      "sha256": "cbb8296c8d32d0a7b1048fcdbad2d3be03ac065d1089d36c70a00708056b25c2"
+    },
+    {
+      "path": "fresh_v2/loso/warning_free/summary.csv",
+      "bytes": 2034,
+      "sha256": "956903b8291f1b6d55966e5ec23a26abf596137854c250885ba973fbe7c4bb44"
+    },
+    {
+      "path": "fresh_v2/loso/warning_free/site_metrics.csv",
+      "bytes": 5870,
+      "sha256": "26d8fb607bd69796aa916c9bb4ee3d4e0ff222d067212585b540fcdefb757e2b"
+    },
+    {
+      "path": "fresh_v2/loso/include_holds/summary.csv",
+      "bytes": 2021,
+      "sha256": "8075e0d7312c4558c4c0d241da326c59b9549df2bb55578992135b4b76c462ee"
+    },
+    {
+      "path": "fresh_v2/loso/include_holds/site_metrics.csv",
+      "bytes": 6270,
+      "sha256": "52bf96a1ad90360e3eeb88fa8597dc361866a68aace05210b960f0b11b075f50"
+    }
+  ]
+}

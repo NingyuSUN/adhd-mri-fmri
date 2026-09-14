@@ -1,0 +1,8 @@
+Model,CV mean fold AUC,LOSO within-site pair-weighted AUC,LOSO equal-site macro AUC
+full_covariates_lr,0.7103,0.6706,0.7109
+structural_lr,0.6176,0.5986,0.5680
+structural_mlp,0.6256,0.5704,0.5755
+tangent_lr,0.6152,0.6285,0.5558
+tangent_mlp,0.6205,0.6418,0.6021
+full_functional_mlp,0.7035,0.6832,0.6807
+full_fusion_structural_mlp,0.6921,0.7107,0.6653
