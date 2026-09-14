@@ -12,7 +12,7 @@ Level 3 is independent execution of hash-identical training code in a fresh envi
 
 ## Source and third-party provenance
 
-`legacy/` contains the exact transitive local source closure needed to import and run v2, including the seven modules missing from the earlier public snapshot. The nine protocol-listed source files match their frozen SHA256 values. `legacy_manifest.json` covers all packaged files. The code is retained without modifying its frozen path constants; the new runner explicitly supplies separate input/output locations and invokes only the needed functions.
+`legacy/` contains the exact transitive local source closure needed to import and run v2, including the seven modules missing from the earlier public snapshot. Despite its historical name, it is an active dependency of the maintained runner, not an alternate project version. The nine protocol-listed source files match their frozen SHA256 values. `legacy_manifest.json` covers all packaged files. The code is retained without modifying its frozen path constants; the new runner explicitly supplies separate input/output locations and invokes only the needed functions.
 
 The original patched Nilearn 0.12.1, NiBabel 5.3.2 and Packaging 25.0 sources are under `legacy/vendor/connectome0121/`. Tests and bytecode are excluded. Their original license notices are retained under the corresponding `.dist-info/licenses/` directories. These third-party licenses apply separately from the project's MIT license. Vendoring preserves the exact geometry implementation rather than substituting an unverified upstream version.
 

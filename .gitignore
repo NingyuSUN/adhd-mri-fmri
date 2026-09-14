@@ -4,6 +4,8 @@ build/
 __pycache__/
 *.pyc
 .pytest_cache/
+.ipynb_checkpoints/
+notebooks/
 reproduction/private/
 reproduction/run_outputs/
 **/validation.csv

@@ -2,7 +2,7 @@
 
 Pre-registration: [`analysis_v2_protocol.md`](analysis_v2_protocol.md) (finalized after an
 independent methods/statistics review). Deviations: [`analysis_v2_deviations.md`](analysis_v2_deviations.md).
-Independent consistency verification (`notebooks/verify_v2.py`): **verified** — 66 units
+Independent consistency verification (`reproduction/legacy/verify_v2.py`): **verified** — 66 units
 (45 mixed-site CV folds + 21 LOSO units) hash-checked; every fold/site summary and the
 statistics re-derivation reproduce.
 
@@ -104,7 +104,8 @@ Three overlapping QC cohorts are not independent replications. No clinical, exte
 - `results/v2_cv_contrast_stats.csv`, `results/v2_loso_contrast_stats.csv`,
   `results/v2_loso_per_site_deltas.csv`, `results/v2_calibration_summary.csv`
 - `figures/v2_F1_loso_forest.png`, `figures/v2_F2_cv_bars.png`, `figures/v2_F3_reliability.png`
-- `notebooks/run_structural_fusion_v2.py`, `notebooks/analyze_v2_stats.py`,
-  `notebooks/calibration_v2.py`, `notebooks/verify_v2.py`, `notebooks/figures_v2.py`
+- Frozen source closure: `reproduction/legacy/run_structural_fusion_v2.py`,
+  `reproduction/legacy/analyze_v2_stats.py`, `reproduction/legacy/calibration_v2.py`,
+  `reproduction/legacy/verify_v2.py`, `reproduction/legacy/figures_v2.py`
 - Full run outputs (per-fold predictions, `protocol_v2.json`, `verification.json`) are kept
   with the run directory and not committed, consistent with the rest of `results/`.
