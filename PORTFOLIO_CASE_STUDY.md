@@ -82,6 +82,17 @@ The portfolio claim is therefore about engineering and experimental skill—not 
 
 Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch Geometric, Hugging Face Transformers, nibabel, nilearn, ANTsPy, Google Colab, Google Drive, BIDS-style neuroimaging data, Git/GitHub.
 
+## Engineering delivery
+
+The repository also exposes a small aggregate-only quickstart so a reviewer can run a useful path without private ADHD-200 data:
+
+```bash
+python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart
+python tools/validate_public_artifacts.py
+```
+
+The public artifact validator checks manifest hashes, table/figure counts, CSV schemas, and private-path redaction. GitHub Actions runs the locked statistics tests, quickstart schema check, public-artifact validation, and Python syntax parsing. The full 66-unit replay remains a separately gated workflow because it requires authorized private derivatives.
+
 ## Interview discussion points
 
 - why slice-level random splitting creates subject leakage

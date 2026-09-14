@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-14 — Portfolio engineering release
+
+- Added an aggregate-only quickstart CLI and deterministic JSON/Markdown report for reviewers without private MRI access.
+- Added public-artifact validation for manifest hashes, table/figure counts, schema safety, and private-path redaction.
+- Added locked-environment CI, a `Makefile`, engineering documentation, and a five-minute reviewer path.
+- Kept raw MRI, subject-level predictions, checkpoints, and full replay inputs outside the public repository.
+
 ## 2026-09-11 — Post hoc statistical interpretation and sensitivity audit
 
 - Preserved the original v2 protocol and numerical decisions; corrected the interpretation to state that the primary equivalence hypothesis was not confirmed.
