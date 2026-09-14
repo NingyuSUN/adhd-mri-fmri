@@ -8,7 +8,7 @@ import pytest
 ROOT = Path(__file__).parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.portfolio_quickstart import build_summary, render_markdown, write_report
-from tools.validate_public_artifacts import validate_manifest, validate_tables
+from tools.validate_public_artifacts import validate_manifest, validate_no_notebooks, validate_tables
 
 
 def test_quickstart_reads_committed_aggregate_contract():
@@ -38,3 +38,7 @@ def test_table_headers_have_no_individual_prediction_columns():
         with path.open(newline="", encoding="utf-8") as handle:
             header = set(next(csv.reader(handle)))
         assert not {"subject_id", "participant_id", "prediction", "score"} & header
+
+
+def test_final_package_contains_no_notebooks():
+    assert validate_no_notebooks() == 0

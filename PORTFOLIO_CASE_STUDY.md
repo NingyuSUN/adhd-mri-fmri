@@ -2,7 +2,7 @@
 
 ## Elevator pitch
 
-I built an end-to-end medical-imaging deep-learning project using the multi-site ADHD-200 dataset. The work covers structural MRI and resting-state fMRI data engineering, neuroimaging preprocessing, CNN/GNN/Transformer representations, subject-level evaluation, confound analysis, motion robustness, and reproducible Google Colab execution.
+I built an end-to-end medical-imaging deep-learning project using the multi-site ADHD-200 dataset. The work covers structural MRI and resting-state fMRI data engineering, neuroimaging preprocessing, CNN/GNN/Transformer representations, subject-level evaluation, confound analysis, motion robustness, and reproducible training and verification workflows.
 
 The project demonstrates not only model implementation, but also the ability to detect data leakage and shortcut learning—two of the most important practical risks in medical AI.
 
@@ -19,7 +19,7 @@ ADHD is clinically heterogeneous, and ADHD-200 combines scans from multiple hosp
 - removed duplicates and enforced subject-level identifiers
 - implemented QC and motion summaries
 - cached registration, ROI time series, feature banks, embeddings, and results in Google Drive
-- added checkpointing so long Colab jobs could resume safely
+- added checkpointing so long-running compute jobs could resume safely
 
 ### Structural MRI branch
 
@@ -56,7 +56,7 @@ ADHD is clinically heterogeneous, and ADHD-200 combines scans from multiple hosp
 2. **Confounds are explicit baselines.** A high image-model score is not accepted unless it improves over demographic and acquisition variables.
 3. **Preprocessing is fold-local.** Scaling, imputation, feature selection, harmonization, and residualization never use test-fold statistics.
 4. **Model complexity is staged.** Frozen pretrained representations are evaluated before expensive fine-tuning.
-5. **Results are checkpointed.** Long-running Colab preprocessing can resume without repeating completed subjects.
+5. **Results are checkpointed.** Long-running preprocessing can resume without repeating completed subjects.
 
 ## Results and interpretation
 
@@ -80,7 +80,7 @@ The portfolio claim is therefore about engineering and experimental skill—not 
 
 ## Technologies
 
-Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch Geometric, Hugging Face Transformers, nibabel, nilearn, ANTsPy, Google Colab, Google Drive, BIDS-style neuroimaging data, Git/GitHub.
+Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch Geometric, Hugging Face Transformers, nibabel, nilearn, ANTsPy, Google Drive, Linux compute, BIDS-style neuroimaging data, Git/GitHub, GitHub Actions.
 
 ## Engineering delivery
 
@@ -101,7 +101,7 @@ The public artifact validator checks manifest hashes, table/figure counts, CSV s
 - how training-only residualization and feature selection prevent leakage
 - why a confound-only model can outperform MRI/fMRI
 - when pretrained Transformer fine-tuning is or is not justified
-- how checkpointing and caching make large neuroimaging workflows practical in Colab
+- how checkpointing and caching make large neuroimaging workflows practical on remote compute
 
 ## Responsible-use statement
 
