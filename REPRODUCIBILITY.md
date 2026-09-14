@@ -1,29 +1,26 @@
 # Reproducibility Guide
 
-For the current multimodal v2 workflow, use [the complete reproduction package](reproduction/README.md). The legacy notebook instructions below concern earlier rounds. Reproduction levels and measured outcomes are documented separately; saved-prediction recomputation is not model retraining.
+The supported reproduction path is code-based and tested. Exploratory notebooks have been removed from the final branch; Git history retains them for provenance.
 
-## Final analysis order
+## Supported execution paths
 
-The original structural and graph prototypes are stored in `notebooks/`. The final fMRI analysis is represented by four Colab notebooks:
+For a public, aggregate-only check that does not require ADHD-200 data:
 
-1. [06 — strict LOSO benchmark](https://colab.research.google.com/drive/1Zkrj4btEB2YrWDjYOx9vmlLCvHxPrCfM)
-2. [07 — site/motion robustness](https://colab.research.google.com/drive/1jdFe7GRn7mIKcVtGig7_66qdZhbBsnqe)
-3. [08 — motion scrubbing and spatial modules](https://colab.research.google.com/drive/12ez3NKRvs88YrmLIfNT-tNgBcU3MpbzE)
-4. [09 — repeated site-and-label-stratified portfolio benchmark](https://colab.research.google.com/drive/1CkXQKR3tfbdIsuM41ML1YNPULmv9HFU2)
-
-Notebook 06 defines the locked unseen-site benchmark. Notebook 07 tests residualization and within-site behavior. Notebook 08 performs the strict motion-scrubbing and spatial-module analysis. Notebook 09 provides the presentation-friendly within-dataset comparison with 20 outer evaluations.
-
-## Expected Drive locations
-
-```text
-/content/drive/MyDrive/ADHD200-data/
-/content/drive/MyDrive/ADHD200-data/fmri/brainlm_a424/
-/content/drive/MyDrive/ADHD200-data/fmri/strict_loso_benchmark/
-/content/drive/MyDrive/ADHD200-data/fmri/strict_loso_benchmark/stage3_scrubbing_network/
-/content/drive/MyDrive/ADHD200-data/fmri/portfolio_site_stratified_cv/
+```bash
+make quickstart
+make validate-public
+make test
 ```
 
-Large arrays and subject-level predictions remain in Drive. Only aggregate, non-identifying tables are committed to `results/`.
+For the complete multimodal v2 workflow, use [the reproduction package](reproduction/README.md). It distinguishes statistical recomputation, sensitivity analysis, and fresh model fitting. Saved-prediction recomputation is not model retraining.
+
+The final table and figure package is assembled by the scripts in [`reporting/`](reporting/) and bound by [`PACKAGE_MANIFEST.json`](results/tables_figures_20260914/PACKAGE_MANIFEST.json).
+
+## Private inputs
+
+Authorized ADHD-200 derivatives, large arrays, subject-level predictions, and model checkpoints stay outside the repository. Exact private inputs and output isolation requirements are documented in [`reproduction/README.md`](reproduction/README.md).
+
+The directory `reproduction/legacy/` is retained because the current fresh-fit runner imports and hash-verifies that frozen source closure. `reproduction/execution_history/` is retained because the final verifier recognizes the exact driver used by the completed server run. Both are active provenance dependencies of the maintained reproduction path.
 
 ## Leakage controls
 
@@ -39,9 +36,9 @@ Large arrays and subject-level predictions remain in Drive. Only aggregate, non-
 
 For portfolio presentation, the primary within-dataset metric is mean AUC across 20 outer folds from repeated site-and-label-stratified CV. For the unseen-site stress test, macro AUC is the unweighted mean of valid held-out-site AUC values. These metrics answer different questions and must not be substituted for each other.
 
-## Randomness
+## Randomness and environments
 
-The notebooks use fixed seeds where supported. Bootstrap analyses use a fixed generator seed. Exact floating-point values can vary slightly across Colab library or GPU versions; the scientific conclusion should be evaluated from the full comparison pattern, not the final decimal place.
+The maintained analysis uses fixed seeds where supported and pinned environments in `reproduction/requirements-statistics.lock` and `reproduction/requirements-runtime.lock`. Fresh outputs are checked against the frozen reference with explicit numerical tolerances; aggregate statistics and artifact hashes are verified separately.
 
 ## Verification checklist
 
@@ -62,4 +59,4 @@ The notebooks use fixed seeds where supported. Bootstrap analyses use a fixed ge
 
 ## Reproducing the final claim
 
-Reproduction does not require the exact same winning regularization parameter. It requires recovering the qualitative result that confound-only features outperform tested image-only representations and that imaging features do not add stable cross-site value.
+The accepted 66-unit replay checks all model outputs, validation-selected fusion weights, summaries, statistical tables, the decision, and figures against the frozen reference. This establishes computational reproducibility for the specified pipeline. It does not establish external validity, clinical utility, or a general absence of imaging signal.

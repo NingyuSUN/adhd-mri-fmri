@@ -1,6 +1,6 @@
 # ADHD-200 MRI/fMRI Classification
 
-This portfolio project demonstrates an end-to-end deep-learning workflow for structural MRI and resting-state fMRI: data engineering, neuroimaging preprocessing, CNN/GNN/Transformer modeling, leakage-safe evaluation, robustness analysis, and reproducible Colab execution.
+This portfolio project demonstrates an end-to-end deep-learning workflow for structural MRI and resting-state fMRI: data engineering, neuroimaging preprocessing, CNN/GNN/Transformer modeling, leakage-safe evaluation, robustness analysis, and reproducible scripted execution.
 
 **Project status: completed deep-learning case study.** The technical objective is to demonstrate the ability to build and evaluate real medical-AI pipelines—not to claim a clinically deployable ADHD diagnostic system.
 
@@ -92,19 +92,16 @@ For portfolio presentation, the primary within-dataset experiment uses repeated 
 - Every image model is compared with non-image confound baselines.
 - A model is not considered useful merely because its AUC is above 0.5; it must add stable out-of-site information beyond confounds.
 
-## Analysis sequence
+## Maintained project entrypoints
 
-The repository contains the original structural and connectivity prototypes. The final fMRI benchmark was completed in Colab:
+The final package keeps executable, tested code and reviewed aggregate evidence. Exploratory notebooks and their unused support code are available through Git history rather than the current branch.
 
-1. [06 — strict LOSO benchmark](https://colab.research.google.com/drive/1Zkrj4btEB2YrWDjYOx9vmlLCvHxPrCfM)
-2. [07 — site/motion robustness](https://colab.research.google.com/drive/1jdFe7GRn7mIKcVtGig7_66qdZhbBsnqe)
-3. [08 — motion scrubbing and spatial modules](https://colab.research.google.com/drive/12ez3NKRvs88YrmLIfNT-tNgBcU3MpbzE)
-4. [09 — portfolio site-stratified CV](https://colab.research.google.com/drive/1CkXQKR3tfbdIsuM41ML1YNPULmv9HFU2) — one-click comparison with completed outputs
-5. [10 — mixed-site fMRI model sweep](https://colab.research.google.com/drive/1Qh2aAzmHQTMMQl_SMF7JPY_ibTf3HYcJ) — logistic, RBF-SVM, and MLP comparison with site/confound ablations
-6. [11 — A424 end-to-end CNN/Transformer](https://colab.research.google.com/drive/142dwSF1fV7d1khI2l8JADhMbtXwEcv8M) — direct time-series neural networks with completed four-fold outputs
-7. Structural + functional late-fusion — QC-locked paired retraining of structural, functional and non-imaging models on one frozen protocol; see [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md)
-8. Analysis v2 — pre-registered confirmatory statistics (Nadeau–Bengio corrected CV intervals, TOST equivalence, full strict LOSO re-run); see [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)
-9. 2026-09-14 evidence package — post hoc statistical interpretation, QC sensitivity decomposition, selector stability, 14 aggregate tables, 9 figures, and full feature-level replay evidence; see [`docs/paper/`](docs/paper/) and [`results/tables_figures_20260914/`](results/tables_figures_20260914/).
+1. Aggregate-only reviewer path: `make quickstart` and `make validate-public`.
+2. Fresh feature-level replay and saved-prediction analyses: [`reproduction/README.md`](reproduction/README.md).
+3. Table and figure assembly: [`reporting/`](reporting/).
+4. Structural + functional late-fusion method and results: [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md).
+5. Confirmatory v2 analysis and post hoc audit: [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md) and [`docs/paper/`](docs/paper/).
+6. Publication-ready aggregate package: [`results/tables_figures_20260914/`](results/tables_figures_20260914/).
 
 Aggregate tables, figures, manifests, and non-subject-level replay summaries are versioned in `results/`. Subject-level predictions, model checkpoints, raw MRI, and large intermediate arrays remain private and are not committed.
 
@@ -121,7 +118,7 @@ adhd-mri-fmri/
 ├── LIMITATIONS.md
 ├── REPRODUCIBILITY.md
 ├── DATA.md
-├── notebooks/              # original Colab-exported pipelines
+├── reproduction/           # maintained fitting, statistics, verification, and tests
 ├── reporting/              # reproducible table and figure assembly scripts
 ├── tools/                  # aggregate-only quickstart and public-artifact validator
 ├── demo/                   # five-minute recruiter-safe demo contract
@@ -130,9 +127,7 @@ adhd-mri-fmri/
 ├── results/                # aggregate tables, figures, and replay summaries
 ├── docs/paper/              # statistical interpretation, evidence, and validation notes
 ├── docs/
-├── figures/
-├── src/
-└── utils/
+└── figures/
 ```
 
 ## Data
