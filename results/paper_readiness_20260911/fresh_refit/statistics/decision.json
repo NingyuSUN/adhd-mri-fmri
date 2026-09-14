@@ -1,0 +1,28 @@
+{
+  "margin": 0.02,
+  "primary_contrast": "P (full_fusion_structural_mlp - full_functional_mlp)",
+  "cohort": "primary",
+  "frameworks": {
+    "cv": {
+      "lo": -0.040030736609559976,
+      "hi": 0.01724892269157175,
+      "point": -0.01139090695899411,
+      "branch": "B4_inconclusive_underpowered"
+    },
+    "loso": {
+      "lo": 0.00947044516697943,
+      "hi": 0.0462579353028791,
+      "point": 0.0275358246698511,
+      "branch": "B2_meaningful_increment"
+    }
+  },
+  "verdict": "FALSIFICATION TRIGGERED in at least one framework: audit before interpreting.",
+  "cv_wording": "The data cannot establish equivalence: the 90% interval extends beyond +/-0.02. Point estimate reported; a small effect in the crossed direction cannot be excluded.",
+  "loso_wording": "A methodologically meaningful positive increment cannot be ruled out and the estimate is positive; audit for leakage / confound imbalance before any positive claim.",
+  "H2_functional_vs_confound": {
+    "cv_branch": "B4_inconclusive_underpowered",
+    "cv_point": -0.006760279824322871,
+    "loso_branch": "B4_inconclusive_underpowered",
+    "loso_point": 0.012644001123911248
+  }
+}

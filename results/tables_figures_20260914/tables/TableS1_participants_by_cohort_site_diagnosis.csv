@@ -1,0 +1,238 @@
+Cohort,Site,Characteristic,All,Control (label 0),ADHD (label 1)
+primary,ALL,"Participants, n",350,197,153
+primary,ALL,"Recorded male sex, n (%)",213 (60.9%),97 (49.2%),116 (75.8%)
+primary,ALL,"Recorded female sex, n (%)",137 (39.1%),100 (50.8%),37 (24.2%)
+primary,ALL,"Age (years), mean (SD)",11.34 (2.87); missing 0,11.36 (2.85); missing 0,11.31 (2.91); missing 0
+primary,ALL,"Age (years), median [Q1, Q3]","10.81 [9.17, 12.79]; missing 0","10.82 [9.25, 12.77]; missing 0","10.78 [9.17, 12.79]; missing 0"
+primary,ALL,"Mean FD (metadata scale), median [Q1, Q3]","0.129 [0.096, 0.188]; missing 3","0.115 [0.090, 0.164]; missing 2","0.152 [0.102, 0.203]; missing 1"
+primary,ALL,"Frames with FD > 0.2 (%), median [Q1, Q3]","13.7 [5.2, 28.6]; missing 3","10.0 [4.6, 21.2]; missing 2","18.5 [7.9, 33.6]; missing 1"
+primary,ALL,"Mean DVARS (metadata scale), median [Q1, Q3]","1.111 [1.063, 1.177]; missing 3","1.117 [1.073, 1.197]; missing 2","1.102 [1.055, 1.162]; missing 1"
+primary,ALL,"TIV (mL), mean (SD)",1537.5 (134.4); missing 0,1533.7 (138.4); missing 0,1542.4 (129.2); missing 0
+primary,ALL,"KKI, n (%)",82 (23.4%),60 (30.5%),22 (14.4%)
+primary,ALL,"NYU, n (%)",139 (39.7%),62 (31.5%),77 (50.3%)
+primary,ALL,"NeuroIMAGE, n (%)",28 (8.0%),15 (7.6%),13 (8.5%)
+primary,ALL,"OHSU, n (%)",32 (9.1%),19 (9.6%),13 (8.5%)
+primary,ALL,"Peking_1, n (%)",49 (14.0%),33 (16.8%),16 (10.5%)
+primary,ALL,"Peking_2, n (%)",14 (4.0%),5 (2.5%),9 (5.9%)
+primary,ALL,"Peking_3, n (%)",6 (1.7%),3 (1.5%),3 (2.0%)
+primary,KKI,"Participants, n",82,60,22
+primary,KKI,"Recorded male sex, n (%)",46 (56.1%),34 (56.7%),12 (54.5%)
+primary,KKI,"Recorded female sex, n (%)",36 (43.9%),26 (43.3%),10 (45.5%)
+primary,KKI,"Age (years), mean (SD)",10.26 (1.35); missing 0,10.27 (1.28); missing 0,10.22 (1.56); missing 0
+primary,KKI,"Age (years), median [Q1, Q3]","10.13 [9.09, 11.10]; missing 0","10.21 [9.26, 11.09]; missing 0","10.06 [9.01, 11.50]; missing 0"
+primary,KKI,"Mean FD (metadata scale), median [Q1, Q3]","0.150 [0.106, 0.225]; missing 0","0.139 [0.094, 0.219]; missing 0","0.182 [0.139, 0.230]; missing 0"
+primary,KKI,"Frames with FD > 0.2 (%), median [Q1, Q3]","17.5 [7.9, 36.4]; missing 0","14.6 [7.1, 30.8]; missing 0","31.3 [15.9, 43.1]; missing 0"
+primary,KKI,"Mean DVARS (metadata scale), median [Q1, Q3]","1.122 [1.071, 1.165]; missing 0","1.113 [1.072, 1.160]; missing 0","1.131 [1.075, 1.170]; missing 0"
+primary,KKI,"TIV (mL), mean (SD)",1559.0 (125.5); missing 0,1573.5 (123.7); missing 0,1519.6 (124.6); missing 0
+primary,NYU,"Participants, n",139,62,77
+primary,NYU,"Recorded male sex, n (%)",92 (66.2%),30 (48.4%),62 (80.5%)
+primary,NYU,"Recorded female sex, n (%)",47 (33.8%),32 (51.6%),15 (19.5%)
+primary,NYU,"Age (years), mean (SD)",11.51 (2.82); missing 0,11.93 (3.05); missing 0,11.17 (2.59); missing 0
+primary,NYU,"Age (years), median [Q1, Q3]","11.28 [9.05, 13.34]; missing 0","11.71 [9.00, 14.41]; missing 0","10.78 [9.16, 12.72]; missing 0"
+primary,NYU,"Mean FD (metadata scale), median [Q1, Q3]","0.118 [0.090, 0.174]; missing 3","0.111 [0.089, 0.147]; missing 2","0.134 [0.095, 0.191]; missing 1"
+primary,NYU,"Frames with FD > 0.2 (%), median [Q1, Q3]","11.1 [4.0, 23.4]; missing 3","8.3 [3.9, 18.4]; missing 2","14.6 [4.4, 30.0]; missing 1"
+primary,NYU,"Mean DVARS (metadata scale), median [Q1, Q3]","1.072 [1.040, 1.106]; missing 3","1.076 [1.034, 1.101]; missing 2","1.063 [1.041, 1.110]; missing 1"
+primary,NYU,"TIV (mL), mean (SD)",1532.2 (144.8); missing 0,1514.4 (161.0); missing 0,1546.5 (129.6); missing 0
+primary,NeuroIMAGE,"Participants, n",28,15,13
+primary,NeuroIMAGE,"Recorded male sex, n (%)",17 (60.7%),7 (46.7%),10 (76.9%)
+primary,NeuroIMAGE,"Recorded female sex, n (%)",11 (39.3%),8 (53.3%),3 (23.1%)
+primary,NeuroIMAGE,"Age (years), mean (SD)",16.72 (3.01); missing 0,16.84 (2.70); missing 0,16.57 (3.43); missing 0
+primary,NeuroIMAGE,"Age (years), median [Q1, Q3]","17.48 [14.46, 19.18]; missing 0","17.46 [15.00, 19.16]; missing 0","17.50 [13.33, 19.15]; missing 0"
+primary,NeuroIMAGE,"Mean FD (metadata scale), median [Q1, Q3]","0.134 [0.102, 0.182]; missing 0","0.129 [0.102, 0.147]; missing 0","0.153 [0.114, 0.224]; missing 0"
+primary,NeuroIMAGE,"Frames with FD > 0.2 (%), median [Q1, Q3]","14.4 [8.8, 22.1]; missing 0","12.3 [8.8, 20.2]; missing 0","19.2 [9.2, 26.2]; missing 0"
+primary,NeuroIMAGE,"Mean DVARS (metadata scale), median [Q1, Q3]","1.088 [1.065, 1.125]; missing 0","1.090 [1.071, 1.124]; missing 0","1.085 [1.056, 1.125]; missing 0"
+primary,NeuroIMAGE,"TIV (mL), mean (SD)",1573.8 (111.0); missing 0,1568.3 (105.9); missing 0,1580.1 (120.6); missing 0
+primary,OHSU,"Participants, n",32,19,13
+primary,OHSU,"Recorded male sex, n (%)",17 (53.1%),8 (42.1%),9 (69.2%)
+primary,OHSU,"Recorded female sex, n (%)",15 (46.9%),11 (57.9%),4 (30.8%)
+primary,OHSU,"Age (years), mean (SD)",8.74 (1.22); missing 0,8.74 (1.21); missing 0,8.72 (1.29); missing 0
+primary,OHSU,"Age (years), median [Q1, Q3]","8.46 [7.98, 9.21]; missing 0","8.50 [8.08, 9.04]; missing 0","8.42 [7.92, 9.17]; missing 0"
+primary,OHSU,"Mean FD (metadata scale), median [Q1, Q3]","0.170 [0.103, 0.240]; missing 0","0.115 [0.103, 0.223]; missing 0","0.173 [0.105, 0.273]; missing 0"
+primary,OHSU,"Frames with FD > 0.2 (%), median [Q1, Q3]","21.6 [5.2, 44.5]; missing 0","10.5 [5.2, 40.3]; missing 0","23.4 [9.1, 58.4]; missing 0"
+primary,OHSU,"Mean DVARS (metadata scale), median [Q1, Q3]","1.280 [1.222, 1.327]; missing 0","1.281 [1.224, 1.349]; missing 0","1.278 [1.225, 1.308]; missing 0"
+primary,OHSU,"TIV (mL), mean (SD)",1523.3 (139.9); missing 0,1526.1 (133.6); missing 0,1519.1 (154.3); missing 0
+primary,Peking_1,"Participants, n",49,33,16
+primary,Peking_1,"Recorded male sex, n (%)",21 (42.9%),10 (30.3%),11 (68.8%)
+primary,Peking_1,"Recorded female sex, n (%)",28 (57.1%),23 (69.7%),5 (31.2%)
+primary,Peking_1,"Age (years), mean (SD)",10.98 (1.75); missing 0,11.08 (1.87); missing 0,10.76 (1.51); missing 0
+primary,Peking_1,"Age (years), median [Q1, Q3]","10.42 [9.75, 12.00]; missing 0","10.42 [9.75, 12.00]; missing 0","10.46 [9.56, 11.38]; missing 0"
+primary,Peking_1,"Mean FD (metadata scale), median [Q1, Q3]","0.121 [0.097, 0.148]; missing 0","0.101 [0.085, 0.132]; missing 0","0.145 [0.121, 0.191]; missing 0"
+primary,Peking_1,"Frames with FD > 0.2 (%), median [Q1, Q3]","9.4 [4.3, 17.5]; missing 0","6.8 [1.7, 14.5]; missing 0","17.0 [9.9, 31.5]; missing 0"
+primary,Peking_1,"Mean DVARS (metadata scale), median [Q1, Q3]","1.198 [1.126, 1.257]; missing 0","1.203 [1.141, 1.266]; missing 0","1.135 [1.114, 1.227]; missing 0"
+primary,Peking_1,"TIV (mL), mean (SD)",1480.7 (121.2); missing 0,1472.6 (115.1); missing 0,1497.6 (135.1); missing 0
+primary,Peking_2,"Participants, n",14,5,9
+primary,Peking_2,"Recorded male sex, n (%)",14 (100.0%),5 (100.0%),9 (100.0%)
+primary,Peking_2,"Recorded female sex, n (%)",0 (0.0%),0 (0.0%),0 (0.0%)
+primary,Peking_2,"Age (years), mean (SD)",11.75 (1.80); missing 0,11.57 (1.62); missing 0,11.85 (1.97); missing 0
+primary,Peking_2,"Age (years), median [Q1, Q3]","11.29 [10.23, 13.29]; missing 0","11.25 [11.17, 11.33]; missing 0","11.33 [10.00, 13.33]; missing 0"
+primary,Peking_2,"Mean FD (metadata scale), median [Q1, Q3]","0.131 [0.100, 0.165]; missing 0","0.117 [0.107, 0.151]; missing 0","0.146 [0.099, 0.169]; missing 0"
+primary,Peking_2,"Frames with FD > 0.2 (%), median [Q1, Q3]","12.3 [7.0, 23.5]; missing 0","7.7 [6.8, 18.7]; missing 0","15.3 [8.1, 24.7]; missing 0"
+primary,Peking_2,"Mean DVARS (metadata scale), median [Q1, Q3]","1.172 [1.083, 1.196]; missing 0","1.196 [1.117, 1.204]; missing 0","1.161 [1.082, 1.184]; missing 0"
+primary,Peking_2,"TIV (mL), mean (SD)",1581.9 (96.4); missing 0,1535.8 (83.0); missing 0,1607.6 (97.9); missing 0
+primary,Peking_3,"Participants, n",6,3,3
+primary,Peking_3,"Recorded male sex, n (%)",6 (100.0%),3 (100.0%),3 (100.0%)
+primary,Peking_3,"Recorded female sex, n (%)",0 (0.0%),0 (0.0%),0 (0.0%)
+primary,Peking_3,"Age (years), mean (SD)",12.83 (1.08); missing 0,12.89 (0.30); missing 0,12.78 (1.68); missing 0
+primary,Peking_3,"Age (years), median [Q1, Q3]","12.96 [12.66, 13.13]; missing 0","12.92 [12.75, 13.04]; missing 0","13.00 [12.00, 13.66]; missing 0"
+primary,Peking_3,"Mean FD (metadata scale), median [Q1, Q3]","0.131 [0.102, 0.163]; missing 0","0.094 [0.080, 0.109]; missing 0","0.170 [0.155, 0.178]; missing 0"
+primary,Peking_3,"Frames with FD > 0.2 (%), median [Q1, Q3]","11.3 [5.7, 26.4]; missing 0","4.3 [2.6, 7.2]; missing 0","31.1 [21.7, 32.1]; missing 0"
+primary,Peking_3,"Mean DVARS (metadata scale), median [Q1, Q3]","1.196 [1.148, 1.259]; missing 0","1.277 [1.206, 1.328]; missing 0","1.188 [1.143, 1.196]; missing 0"
+primary,Peking_3,"TIV (mL), mean (SD)",1632.0 (92.5); missing 0,1679.2 (98.6); missing 0,1584.9 (70.9); missing 0
+warning_free,ALL,"Participants, n",302,182,120
+warning_free,ALL,"Recorded male sex, n (%)",182 (60.3%),90 (49.5%),92 (76.7%)
+warning_free,ALL,"Recorded female sex, n (%)",120 (39.7%),92 (50.5%),28 (23.3%)
+warning_free,ALL,"Age (years), mean (SD)",11.53 (2.87); missing 0,11.41 (2.85); missing 0,11.70 (2.90); missing 0
+warning_free,ALL,"Age (years), median [Q1, Q3]","10.92 [9.45, 12.95]; missing 0","10.85 [9.31, 12.64]; missing 0","11.00 [9.58, 13.20]; missing 0"
+warning_free,ALL,"Mean FD (metadata scale), median [Q1, Q3]","0.121 [0.092, 0.172]; missing 3","0.114 [0.089, 0.157]; missing 2","0.137 [0.098, 0.188]; missing 1"
+warning_free,ALL,"Frames with FD > 0.2 (%), median [Q1, Q3]","10.8 [4.7, 23.4]; missing 3","9.6 [4.4, 19.6]; missing 2","15.4 [5.1, 27.5]; missing 1"
+warning_free,ALL,"Mean DVARS (metadata scale), median [Q1, Q3]","1.111 [1.061, 1.179]; missing 3","1.117 [1.073, 1.198]; missing 2","1.093 [1.048, 1.145]; missing 1"
+warning_free,ALL,"TIV (mL), mean (SD)",1537.7 (132.1); missing 0,1534.5 (137.0); missing 0,1542.5 (124.5); missing 0
+warning_free,ALL,"KKI, n (%)",72 (23.8%),57 (31.3%),15 (12.5%)
+warning_free,ALL,"NYU, n (%)",113 (37.4%),53 (29.1%),60 (50.0%)
+warning_free,ALL,"NeuroIMAGE, n (%)",26 (8.6%),15 (8.2%),11 (9.2%)
+warning_free,ALL,"OHSU, n (%)",26 (8.6%),17 (9.3%),9 (7.5%)
+warning_free,ALL,"Peking_1, n (%)",48 (15.9%),33 (18.1%),15 (12.5%)
+warning_free,ALL,"Peking_2, n (%)",13 (4.3%),5 (2.7%),8 (6.7%)
+warning_free,ALL,"Peking_3, n (%)",4 (1.3%),2 (1.1%),2 (1.7%)
+warning_free,KKI,"Participants, n",72,57,15
+warning_free,KKI,"Recorded male sex, n (%)",42 (58.3%),32 (56.1%),10 (66.7%)
+warning_free,KKI,"Recorded female sex, n (%)",30 (41.7%),25 (43.9%),5 (33.3%)
+warning_free,KKI,"Age (years), mean (SD)",10.37 (1.34); missing 0,10.32 (1.29); missing 0,10.57 (1.53); missing 0
+warning_free,KKI,"Age (years), median [Q1, Q3]","10.37 [9.37, 11.18]; missing 0","10.38 [9.30, 11.10]; missing 0","10.36 [9.70, 11.77]; missing 0"
+warning_free,KKI,"Mean FD (metadata scale), median [Q1, Q3]","0.139 [0.096, 0.202]; missing 0","0.132 [0.092, 0.197]; missing 0","0.164 [0.115, 0.206]; missing 0"
+warning_free,KKI,"Frames with FD > 0.2 (%), median [Q1, Q3]","15.0 [7.3, 31.7]; missing 0","13.8 [6.5, 30.1]; missing 0","22.8 [12.6, 38.6]; missing 0"
+warning_free,KKI,"Mean DVARS (metadata scale), median [Q1, Q3]","1.124 [1.076, 1.160]; missing 0","1.116 [1.077, 1.162]; missing 0","1.129 [1.080, 1.149]; missing 0"
+warning_free,KKI,"TIV (mL), mean (SD)",1573.1 (122.5); missing 0,1575.7 (123.5); missing 0,1563.3 (122.3); missing 0
+warning_free,NYU,"Participants, n",113,53,60
+warning_free,NYU,"Recorded male sex, n (%)",74 (65.5%),27 (50.9%),47 (78.3%)
+warning_free,NYU,"Recorded female sex, n (%)",39 (34.5%),26 (49.1%),13 (21.7%)
+warning_free,NYU,"Age (years), mean (SD)",11.82 (2.79); missing 0,12.06 (2.98); missing 0,11.60 (2.62); missing 0
+warning_free,NYU,"Age (years), median [Q1, Q3]","11.43 [9.53, 14.09]; missing 0","11.87 [9.53, 14.42]; missing 0","11.00 [9.49, 13.29]; missing 0"
+warning_free,NYU,"Mean FD (metadata scale), median [Q1, Q3]","0.108 [0.088, 0.163]; missing 3","0.103 [0.089, 0.133]; missing 2","0.118 [0.087, 0.176]; missing 1"
+warning_free,NYU,"Frames with FD > 0.2 (%), median [Q1, Q3]","8.9 [3.4, 22.0]; missing 3","8.0 [3.4, 16.9]; missing 2","10.3 [3.7, 23.4]; missing 1"
+warning_free,NYU,"Mean DVARS (metadata scale), median [Q1, Q3]","1.063 [1.033, 1.100]; missing 3","1.073 [1.031, 1.100]; missing 2","1.058 [1.037, 1.101]; missing 1"
+warning_free,NYU,"TIV (mL), mean (SD)",1529.9 (144.2); missing 0,1518.2 (159.7); missing 0,1540.2 (129.3); missing 0
+warning_free,NeuroIMAGE,"Participants, n",26,15,11
+warning_free,NeuroIMAGE,"Recorded male sex, n (%)",16 (61.5%),7 (46.7%),9 (81.8%)
+warning_free,NeuroIMAGE,"Recorded female sex, n (%)",10 (38.5%),8 (53.3%),2 (18.2%)
+warning_free,NeuroIMAGE,"Age (years), mean (SD)",16.77 (2.91); missing 0,16.84 (2.70); missing 0,16.68 (3.31); missing 0
+warning_free,NeuroIMAGE,"Age (years), median [Q1, Q3]","17.48 [14.79, 19.12]; missing 0","17.46 [15.00, 19.16]; missing 0","17.50 [14.91, 18.67]; missing 0"
+warning_free,NeuroIMAGE,"Mean FD (metadata scale), median [Q1, Q3]","0.132 [0.102, 0.161]; missing 0","0.129 [0.102, 0.147]; missing 0","0.151 [0.108, 0.212]; missing 0"
+warning_free,NeuroIMAGE,"Frames with FD > 0.2 (%), median [Q1, Q3]","13.1 [8.1, 20.7]; missing 0","12.3 [8.8, 20.2]; missing 0","16.9 [8.3, 20.2]; missing 0"
+warning_free,NeuroIMAGE,"Mean DVARS (metadata scale), median [Q1, Q3]","1.088 [1.069, 1.124]; missing 0","1.090 [1.071, 1.124]; missing 0","1.085 [1.063, 1.110]; missing 0"
+warning_free,NeuroIMAGE,"TIV (mL), mean (SD)",1566.5 (108.8); missing 0,1568.3 (105.9); missing 0,1564.1 (117.9); missing 0
+warning_free,OHSU,"Participants, n",26,17,9
+warning_free,OHSU,"Recorded male sex, n (%)",13 (50.0%),7 (41.2%),6 (66.7%)
+warning_free,OHSU,"Recorded female sex, n (%)",13 (50.0%),10 (58.8%),3 (33.3%)
+warning_free,OHSU,"Age (years), mean (SD)",8.84 (1.26); missing 0,8.71 (1.19); missing 0,9.08 (1.42); missing 0
+warning_free,OHSU,"Age (years), median [Q1, Q3]","8.50 [8.10, 9.29]; missing 0","8.50 [8.08, 8.75]; missing 0","8.58 [8.42, 9.83]; missing 0"
+warning_free,OHSU,"Mean FD (metadata scale), median [Q1, Q3]","0.120 [0.100, 0.218]; missing 0","0.115 [0.103, 0.218]; missing 0","0.125 [0.099, 0.191]; missing 0"
+warning_free,OHSU,"Frames with FD > 0.2 (%), median [Q1, Q3]","10.5 [5.2, 37.7]; missing 0","10.5 [5.2, 39.0]; missing 0","10.4 [5.2, 31.2]; missing 0"
+warning_free,OHSU,"Mean DVARS (metadata scale), median [Q1, Q3]","1.280 [1.203, 1.321]; missing 0","1.281 [1.216, 1.339]; missing 0","1.278 [1.189, 1.294]; missing 0"
+warning_free,OHSU,"TIV (mL), mean (SD)",1525.3 (125.6); missing 0,1519.6 (134.1); missing 0,1536.2 (114.5); missing 0
+warning_free,Peking_1,"Participants, n",48,33,15
+warning_free,Peking_1,"Recorded male sex, n (%)",20 (41.7%),10 (30.3%),10 (66.7%)
+warning_free,Peking_1,"Recorded female sex, n (%)",28 (58.3%),23 (69.7%),5 (33.3%)
+warning_free,Peking_1,"Age (years), mean (SD)",10.94 (1.74); missing 0,11.08 (1.87); missing 0,10.62 (1.45); missing 0
+warning_free,Peking_1,"Age (years), median [Q1, Q3]","10.42 [9.73, 11.94]; missing 0","10.42 [9.75, 12.00]; missing 0","10.33 [9.54, 11.00]; missing 0"
+warning_free,Peking_1,"Mean FD (metadata scale), median [Q1, Q3]","0.120 [0.096, 0.146]; missing 0","0.101 [0.085, 0.132]; missing 0","0.139 [0.120, 0.179]; missing 0"
+warning_free,Peking_1,"Frames with FD > 0.2 (%), median [Q1, Q3]","9.2 [3.9, 17.1]; missing 0","6.8 [1.7, 14.5]; missing 0","16.2 [9.6, 26.5]; missing 0"
+warning_free,Peking_1,"Mean DVARS (metadata scale), median [Q1, Q3]","1.200 [1.131, 1.260]; missing 0","1.203 [1.141, 1.266]; missing 0","1.144 [1.113, 1.230]; missing 0"
+warning_free,Peking_1,"TIV (mL), mean (SD)",1476.7 (119.1); missing 0,1472.6 (115.1); missing 0,1485.8 (131.1); missing 0
+warning_free,Peking_2,"Participants, n",13,5,8
+warning_free,Peking_2,"Recorded male sex, n (%)",13 (100.0%),5 (100.0%),8 (100.0%)
+warning_free,Peking_2,"Recorded female sex, n (%)",0 (0.0%),0 (0.0%),0 (0.0%)
+warning_free,Peking_2,"Age (years), mean (SD)",11.91 (1.76); missing 0,11.57 (1.62); missing 0,12.12 (1.92); missing 0
+warning_free,Peking_2,"Age (years), median [Q1, Q3]","11.33 [10.92, 13.33]; missing 0","11.25 [11.17, 11.33]; missing 0","12.25 [10.69, 13.37]; missing 0"
+warning_free,Peking_2,"Mean FD (metadata scale), median [Q1, Q3]","0.146 [0.103, 0.169]; missing 0","0.117 [0.107, 0.151]; missing 0","0.150 [0.101, 0.174]; missing 0"
+warning_free,Peking_2,"Frames with FD > 0.2 (%), median [Q1, Q3]","15.3 [6.8, 24.7]; missing 0","7.7 [6.8, 18.7]; missing 0","17.7 [7.2, 28.8]; missing 0"
+warning_free,Peking_2,"Mean DVARS (metadata scale), median [Q1, Q3]","1.161 [1.082, 1.196]; missing 0","1.196 [1.117, 1.204]; missing 0","1.123 [1.082, 1.186]; missing 0"
+warning_free,Peking_2,"TIV (mL), mean (SD)",1573.6 (94.9); missing 0,1535.8 (83.0); missing 0,1597.2 (99.2); missing 0
+warning_free,Peking_3,"Participants, n",4,2,2
+warning_free,Peking_3,"Recorded male sex, n (%)",4 (100.0%),2 (100.0%),2 (100.0%)
+warning_free,Peking_3,"Recorded female sex, n (%)",0 (0.0%),0 (0.0%),0 (0.0%)
+warning_free,Peking_3,"Age (years), mean (SD)",13.27 (0.75); missing 0,12.88 (0.42); missing 0,13.66 (0.94); missing 0
+warning_free,Peking_3,"Age (years), median [Q1, Q3]","13.09 [12.89, 13.46]; missing 0","12.88 [12.73, 13.02]; missing 0","13.66 [13.33, 14.00]; missing 0"
+warning_free,Peking_3,"Mean FD (metadata scale), median [Q1, Q3]","0.131 [0.110, 0.147]; missing 0","0.095 [0.080, 0.110]; missing 0","0.155 [0.147, 0.163]; missing 0"
+warning_free,Peking_3,"Frames with FD > 0.2 (%), median [Q1, Q3]","11.3 [7.9, 17.6]; missing 0","5.5 [3.2, 7.9]; missing 0","22.8 [17.6, 28.0]; missing 0"
+warning_free,Peking_3,"Mean DVARS (metadata scale), median [Q1, Q3]","1.240 [1.199, 1.302]; missing 0","1.328 [1.302, 1.353]; missing 0","1.196 [1.192, 1.199]; missing 0"
+warning_free,Peking_3,"TIV (mL), mean (SD)",1628.2 (116.4); missing 0,1683.0 (139.1); missing 0,1573.3 (96.2); missing 0
+include_holds,ALL,"Participants, n",375,210,165
+include_holds,ALL,"Recorded male sex, n (%)",229 (61.1%),104 (49.5%),125 (75.8%)
+include_holds,ALL,"Recorded female sex, n (%)",146 (38.9%),106 (50.5%),40 (24.2%)
+include_holds,ALL,"Age (years), mean (SD)",11.38 (2.91); missing 0,11.40 (2.89); missing 0,11.37 (2.93); missing 0
+include_holds,ALL,"Age (years), median [Q1, Q3]","10.83 [9.17, 12.81]; missing 0","10.82 [9.19, 12.79]; missing 0","10.90 [9.17, 12.92]; missing 0"
+include_holds,ALL,"Mean FD (metadata scale), median [Q1, Q3]","0.129 [0.096, 0.189]; missing 3","0.115 [0.089, 0.167]; missing 2","0.154 [0.102, 0.208]; missing 1"
+include_holds,ALL,"Frames with FD > 0.2 (%), median [Q1, Q3]","14.1 [5.2, 30.2]; missing 3","10.0 [4.6, 22.4]; missing 2","18.9 [8.4, 34.4]; missing 1"
+include_holds,ALL,"Mean DVARS (metadata scale), median [Q1, Q3]","1.108 [1.059, 1.172]; missing 3","1.113 [1.068, 1.196]; missing 2","1.096 [1.054, 1.154]; missing 1"
+include_holds,ALL,"TIV (mL), mean (SD)",1538.0 (135.9); missing 0,1533.8 (141.1); missing 0,1543.4 (129.1); missing 0
+include_holds,ALL,"KKI, n (%)",82 (21.9%),60 (28.6%),22 (13.3%)
+include_holds,ALL,"NYU, n (%)",160 (42.7%),72 (34.3%),88 (53.3%)
+include_holds,ALL,"NeuroIMAGE, n (%)",29 (7.7%),15 (7.1%),14 (8.5%)
+include_holds,ALL,"OHSU, n (%)",34 (9.1%),21 (10.0%),13 (7.9%)
+include_holds,ALL,"Peking_1, n (%)",50 (13.3%),34 (16.2%),16 (9.7%)
+include_holds,ALL,"Peking_2, n (%)",14 (3.7%),5 (2.4%),9 (5.5%)
+include_holds,ALL,"Peking_3, n (%)",6 (1.6%),3 (1.4%),3 (1.8%)
+include_holds,KKI,"Participants, n",82,60,22
+include_holds,KKI,"Recorded male sex, n (%)",46 (56.1%),34 (56.7%),12 (54.5%)
+include_holds,KKI,"Recorded female sex, n (%)",36 (43.9%),26 (43.3%),10 (45.5%)
+include_holds,KKI,"Age (years), mean (SD)",10.26 (1.35); missing 0,10.27 (1.28); missing 0,10.22 (1.56); missing 0
+include_holds,KKI,"Age (years), median [Q1, Q3]","10.13 [9.09, 11.10]; missing 0","10.21 [9.26, 11.09]; missing 0","10.06 [9.01, 11.50]; missing 0"
+include_holds,KKI,"Mean FD (metadata scale), median [Q1, Q3]","0.150 [0.106, 0.225]; missing 0","0.139 [0.094, 0.219]; missing 0","0.182 [0.139, 0.230]; missing 0"
+include_holds,KKI,"Frames with FD > 0.2 (%), median [Q1, Q3]","17.5 [7.9, 36.4]; missing 0","14.6 [7.1, 30.8]; missing 0","31.3 [15.9, 43.1]; missing 0"
+include_holds,KKI,"Mean DVARS (metadata scale), median [Q1, Q3]","1.122 [1.071, 1.165]; missing 0","1.113 [1.072, 1.160]; missing 0","1.131 [1.075, 1.170]; missing 0"
+include_holds,KKI,"TIV (mL), mean (SD)",1559.0 (125.5); missing 0,1573.5 (123.7); missing 0,1519.6 (124.6); missing 0
+include_holds,NYU,"Participants, n",160,72,88
+include_holds,NYU,"Recorded male sex, n (%)",105 (65.6%),35 (48.6%),70 (79.5%)
+include_holds,NYU,"Recorded female sex, n (%)",55 (34.4%),37 (51.4%),18 (20.5%)
+include_holds,NYU,"Age (years), mean (SD)",11.60 (2.88); missing 0,12.07 (3.12); missing 0,11.21 (2.62); missing 0
+include_holds,NYU,"Age (years), median [Q1, Q3]","11.32 [9.23, 13.44]; missing 0","12.00 [9.29, 14.44]; missing 0","10.86 [9.21, 12.74]; missing 0"
+include_holds,NYU,"Mean FD (metadata scale), median [Q1, Q3]","0.121 [0.089, 0.180]; missing 3","0.111 [0.089, 0.152]; missing 2","0.146 [0.096, 0.204]; missing 1"
+include_holds,NYU,"Frames with FD > 0.2 (%), median [Q1, Q3]","12.0 [4.0, 28.6]; missing 3","8.3 [3.6, 20.6]; missing 2","17.7 [4.9, 33.4]; missing 1"
+include_holds,NYU,"Mean DVARS (metadata scale), median [Q1, Q3]","1.071 [1.040, 1.101]; missing 3","1.073 [1.033, 1.100]; missing 2","1.063 [1.043, 1.107]; missing 1"
+include_holds,NYU,"TIV (mL), mean (SD)",1530.8 (145.7); missing 0,1513.8 (165.4); missing 0,1544.8 (126.5); missing 0
+include_holds,NeuroIMAGE,"Participants, n",29,15,14
+include_holds,NeuroIMAGE,"Recorded male sex, n (%)",18 (62.1%),7 (46.7%),11 (78.6%)
+include_holds,NeuroIMAGE,"Recorded female sex, n (%)",11 (37.9%),8 (53.3%),3 (21.4%)
+include_holds,NeuroIMAGE,"Age (years), mean (SD)",16.75 (2.96); missing 0,16.84 (2.70); missing 0,16.66 (3.32); missing 0
+include_holds,NeuroIMAGE,"Age (years), median [Q1, Q3]","17.50 [14.59, 19.15]; missing 0","17.46 [15.00, 19.16]; missing 0","17.64 [14.12, 18.91]; missing 0"
+include_holds,NeuroIMAGE,"Mean FD (metadata scale), median [Q1, Q3]","0.133 [0.103, 0.178]; missing 0","0.129 [0.102, 0.147]; missing 0","0.152 [0.108, 0.218]; missing 0"
+include_holds,NeuroIMAGE,"Frames with FD > 0.2 (%), median [Q1, Q3]","13.5 [9.2, 21.5]; missing 0","12.3 [8.8, 20.2]; missing 0","18.1 [9.5, 24.9]; missing 0"
+include_holds,NeuroIMAGE,"Mean DVARS (metadata scale), median [Q1, Q3]","1.085 [1.066, 1.125]; missing 0","1.090 [1.071, 1.124]; missing 0","1.084 [1.059, 1.117]; missing 0"
+include_holds,NeuroIMAGE,"TIV (mL), mean (SD)",1582.5 (118.6); missing 0,1568.3 (105.9); missing 0,1597.7 (133.3); missing 0
+include_holds,OHSU,"Participants, n",34,21,13
+include_holds,OHSU,"Recorded male sex, n (%)",18 (52.9%),9 (42.9%),9 (69.2%)
+include_holds,OHSU,"Recorded female sex, n (%)",16 (47.1%),12 (57.1%),4 (30.8%)
+include_holds,OHSU,"Age (years), mean (SD)",8.76 (1.19); missing 0,8.78 (1.16); missing 0,8.72 (1.29); missing 0
+include_holds,OHSU,"Age (years), median [Q1, Q3]","8.50 [8.02, 9.17]; missing 0","8.50 [8.08, 9.17]; missing 0","8.42 [7.92, 9.17]; missing 0"
+include_holds,OHSU,"Mean FD (metadata scale), median [Q1, Q3]","0.165 [0.103, 0.228]; missing 0","0.115 [0.103, 0.218]; missing 0","0.173 [0.105, 0.273]; missing 0"
+include_holds,OHSU,"Frames with FD > 0.2 (%), median [Q1, Q3]","21.6 [5.2, 40.9]; missing 0","10.5 [5.2, 39.0]; missing 0","23.4 [9.1, 58.4]; missing 0"
+include_holds,OHSU,"Mean DVARS (metadata scale), median [Q1, Q3]","1.280 [1.218, 1.332]; missing 0","1.281 [1.216, 1.339]; missing 0","1.278 [1.225, 1.308]; missing 0"
+include_holds,OHSU,"TIV (mL), mean (SD)",1526.9 (137.3); missing 0,1531.8 (129.5); missing 0,1519.1 (154.3); missing 0
+include_holds,Peking_1,"Participants, n",50,34,16
+include_holds,Peking_1,"Recorded male sex, n (%)",22 (44.0%),11 (32.4%),11 (68.8%)
+include_holds,Peking_1,"Recorded female sex, n (%)",28 (56.0%),23 (67.6%),5 (31.2%)
+include_holds,Peking_1,"Age (years), mean (SD)",10.94 (1.76); missing 0,11.02 (1.87); missing 0,10.76 (1.51); missing 0
+include_holds,Peking_1,"Age (years), median [Q1, Q3]","10.42 [9.69, 11.98]; missing 0","10.42 [9.75, 11.98]; missing 0","10.46 [9.56, 11.38]; missing 0"
+include_holds,Peking_1,"Mean FD (metadata scale), median [Q1, Q3]","0.122 [0.097, 0.147]; missing 0","0.106 [0.085, 0.130]; missing 0","0.145 [0.121, 0.191]; missing 0"
+include_holds,Peking_1,"Frames with FD > 0.2 (%), median [Q1, Q3]","9.2 [4.4, 17.4]; missing 0","6.8 [1.8, 14.5]; missing 0","17.0 [9.9, 31.5]; missing 0"
+include_holds,Peking_1,"Mean DVARS (metadata scale), median [Q1, Q3]","1.200 [1.128, 1.264]; missing 0","1.208 [1.142, 1.266]; missing 0","1.135 [1.114, 1.227]; missing 0"
+include_holds,Peking_1,"TIV (mL), mean (SD)",1484.9 (123.4); missing 0,1478.9 (119.2); missing 0,1497.6 (135.1); missing 0
+include_holds,Peking_2,"Participants, n",14,5,9
+include_holds,Peking_2,"Recorded male sex, n (%)",14 (100.0%),5 (100.0%),9 (100.0%)
+include_holds,Peking_2,"Recorded female sex, n (%)",0 (0.0%),0 (0.0%),0 (0.0%)
+include_holds,Peking_2,"Age (years), mean (SD)",11.75 (1.80); missing 0,11.57 (1.62); missing 0,11.85 (1.97); missing 0
+include_holds,Peking_2,"Age (years), median [Q1, Q3]","11.29 [10.23, 13.29]; missing 0","11.25 [11.17, 11.33]; missing 0","11.33 [10.00, 13.33]; missing 0"
+include_holds,Peking_2,"Mean FD (metadata scale), median [Q1, Q3]","0.131 [0.100, 0.165]; missing 0","0.117 [0.107, 0.151]; missing 0","0.146 [0.099, 0.169]; missing 0"
+include_holds,Peking_2,"Frames with FD > 0.2 (%), median [Q1, Q3]","12.3 [7.0, 23.5]; missing 0","7.7 [6.8, 18.7]; missing 0","15.3 [8.1, 24.7]; missing 0"
+include_holds,Peking_2,"Mean DVARS (metadata scale), median [Q1, Q3]","1.172 [1.083, 1.196]; missing 0","1.196 [1.117, 1.204]; missing 0","1.161 [1.082, 1.184]; missing 0"
+include_holds,Peking_2,"TIV (mL), mean (SD)",1581.9 (96.4); missing 0,1535.8 (83.0); missing 0,1607.6 (97.9); missing 0
+include_holds,Peking_3,"Participants, n",6,3,3
+include_holds,Peking_3,"Recorded male sex, n (%)",6 (100.0%),3 (100.0%),3 (100.0%)
+include_holds,Peking_3,"Recorded female sex, n (%)",0 (0.0%),0 (0.0%),0 (0.0%)
+include_holds,Peking_3,"Age (years), mean (SD)",12.83 (1.08); missing 0,12.89 (0.30); missing 0,12.78 (1.68); missing 0
+include_holds,Peking_3,"Age (years), median [Q1, Q3]","12.96 [12.66, 13.13]; missing 0","12.92 [12.75, 13.04]; missing 0","13.00 [12.00, 13.66]; missing 0"
+include_holds,Peking_3,"Mean FD (metadata scale), median [Q1, Q3]","0.131 [0.102, 0.163]; missing 0","0.094 [0.080, 0.109]; missing 0","0.170 [0.155, 0.178]; missing 0"
+include_holds,Peking_3,"Frames with FD > 0.2 (%), median [Q1, Q3]","11.3 [5.7, 26.4]; missing 0","4.3 [2.6, 7.2]; missing 0","31.1 [21.7, 32.1]; missing 0"
+include_holds,Peking_3,"Mean DVARS (metadata scale), median [Q1, Q3]","1.196 [1.148, 1.259]; missing 0","1.277 [1.206, 1.328]; missing 0","1.188 [1.143, 1.196]; missing 0"
+include_holds,Peking_3,"TIV (mL), mean (SD)",1632.0 (92.5); missing 0,1679.2 (98.6); missing 0,1584.9 (70.9); missing 0

@@ -1,0 +1,37 @@
+{
+  "status": "verified",
+  "tables": [
+    {
+      "file": "cv_contrast_stats.csv",
+      "rows": 42,
+      "max_numeric_difference": 0.0,
+      "matched": true
+    },
+    {
+      "file": "loso_contrast_stats.csv",
+      "rows": 84,
+      "max_numeric_difference": 0.0,
+      "matched": true
+    },
+    {
+      "file": "loso_per_site_deltas.csv",
+      "rows": 147,
+      "max_numeric_difference": 0.0,
+      "matched": true
+    },
+    {
+      "file": "calibration.csv",
+      "rows": 120,
+      "max_numeric_difference": 0.0,
+      "matched": true
+    },
+    {
+      "file": "calibration_summary.csv",
+      "rows": 12,
+      "max_numeric_difference": 0.0,
+      "matched": true
+    }
+  ],
+  "decision_reproduced_exactly": true,
+  "scope": "saved_prediction_statistical_recomputation"
+}
