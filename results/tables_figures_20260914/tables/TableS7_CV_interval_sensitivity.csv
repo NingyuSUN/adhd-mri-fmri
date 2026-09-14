@@ -1,0 +1,13 @@
+cohort,contrast,ratio_definition,test_train_ratio,df,mean_delta,ci90_lo,ci90_hi,equivalence_supported,positive_supported,negative_supported,meaningful_positive_supported,meaningful_negative_supported,meaningful_positive_excluded,meaningful_negative_excluded
+primary,P,original_outer_train_plus_validation,0.5,14,-0.01139090695899411,-0.040030736609559976,0.01724892269157175,False,False,False,False,False,True,False
+primary,P,original_outer_train_plus_validation,0.5,2,-0.01139090695899411,-0.058871409060713496,0.03608959514272527,False,False,False,False,False,False,False
+primary,P,actual_fit_rows_sensitivity,0.6264821904415476,14,-0.01139090695899411,-0.04306614248874172,0.020284328570753497,False,False,False,False,False,False,False
+primary,P,actual_fit_rows_sensitivity,0.6264821904415476,2,-0.01139090695899411,-0.06390365251273461,0.04112183859474639,False,False,False,False,False,False,False
+warning_free,P,original_outer_train_plus_validation,0.5,14,-0.010590027597086634,-0.05109426322598994,0.02991420803181668,False,False,False,False,False,False,False
+warning_free,P,original_outer_train_plus_validation,0.5,2,-0.010590027597086634,-0.07773991879305898,0.05655986359888572,False,False,False,False,False,False,False
+warning_free,P,actual_fit_rows_sensitivity,0.6269333174812738,14,-0.010590027597086634,-0.05540169921572755,0.03422164402155429,False,False,False,False,False,False,False
+warning_free,P,actual_fit_rows_sensitivity,0.6269333174812738,2,-0.010590027597086634,-0.08488099561017327,0.06370094041600001,False,False,False,False,False,False,False
+include_holds,P,original_outer_train_plus_validation,0.5,14,-0.002487448140177384,-0.022235071850748484,0.017260175570393717,False,False,False,False,False,True,False
+include_holds,P,original_outer_train_plus_validation,0.5,2,-0.002487448140177384,-0.03522601888356898,0.03025112260321421,False,False,False,False,False,False,False
+include_holds,P,actual_fit_rows_sensitivity,0.6269079598202076,14,-0.002487448140177384,-0.024334739883712722,0.019359843603357955,False,False,False,False,False,True,False
+include_holds,P,actual_fit_rows_sensitivity,0.6269079598202076,2,-0.002487448140177384,-0.03870695063729894,0.033732054356944166,False,False,False,False,False,False,False

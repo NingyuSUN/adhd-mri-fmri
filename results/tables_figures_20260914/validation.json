@@ -1,0 +1,18 @@
+{
+  "unique_subject_counts_match_prior_21_site_cohort_rows": true,
+  "source_manifest_hashes_match": true,
+  "table_count": 14,
+  "figure_png_count": 9,
+  "new_training": false,
+  "manuscript_written": false,
+  "group_count_sums": true,
+  "weighted_means_reconcile": true,
+  "local_links_valid": true,
+  "exported_csvs_have_no_individual_id_columns": true,
+  "all_9_figures_visually_inspected": true,
+  "remaining_limits": [
+    "FD/DVARS acquisition-unit provenance not independently confirmed",
+    "QC is sampled assistant review, not expert full-volume review",
+    "No external validation; no manuscript written"
+  ]
+}
