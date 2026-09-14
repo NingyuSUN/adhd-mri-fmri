@@ -13,3 +13,4 @@ reproduction/run_outputs/
 *.pt
 *.npz
 *.npy
+artifacts/portfolio_quickstart/
