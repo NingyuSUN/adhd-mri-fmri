@@ -31,6 +31,18 @@ flowchart LR
 
 For a concise portfolio narrative and interview-ready discussion, see [PORTFOLIO_CASE_STUDY.md](PORTFOLIO_CASE_STUDY.md).
 
+## Five-minute engineering demo
+
+This repository includes a recruiter-safe aggregate-only path that does not need private MRI data:
+
+```bash
+python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart
+cat artifacts/portfolio_quickstart/summary.md
+python tools/validate_public_artifacts.py
+```
+
+The quickstart, `Makefile`, locked statistics environment, and [CI workflow](.github/workflows/ci.yml) show the engineering path. The [engineering guide](docs/ENGINEERING.md) explains data contracts, failure modes, and the boundary between this demo and the private full replay.
+
 ## Scientific outcome
 
 The analyses do not support a reliable cross-site ADHD predictor from the available MRI/fMRI representations.
@@ -111,6 +123,10 @@ adhd-mri-fmri/
 ├── DATA.md
 ├── notebooks/              # original Colab-exported pipelines
 ├── reporting/              # reproducible table and figure assembly scripts
+├── tools/                  # aggregate-only quickstart and public-artifact validator
+├── demo/                   # five-minute recruiter-safe demo contract
+├── .github/workflows/      # automated repository checks
+├── Makefile                # local engineering entrypoints
 ├── results/                # aggregate tables, figures, and replay summaries
 ├── docs/paper/              # statistical interpretation, evidence, and validation notes
 ├── docs/
