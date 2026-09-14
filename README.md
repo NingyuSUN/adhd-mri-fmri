@@ -76,6 +76,7 @@ For portfolio presentation, the primary within-dataset experiment uses repeated 
 - The reported portfolio number is the mean AUC across 20 outer folds, with standard deviation across folds.
 - LOSO is reported separately as an unseen-site stress test; held-out sites are not used for scaling, feature selection, residualization, or hyperparameter selection.
 - The planned v2 reanalysis did not confirm its primary equivalence hypothesis: CV was inconclusive and the primary LOSO estimate was positive but changed sign across QC cohorts. A [post hoc audit](docs/paper/STATISTICAL_INTERPRETATION.md) corrects NYU's primary case-control pair weight to 67.07% (39.7% is its participant fraction) and shows that the QC shift persists on common test subjects. Final fusion-weight selection contributes strongly to that shift. The [reproduction package](reproduction/README.md) and [aggregate sensitivity results](results/paper_readiness_20260911/) document the analysis and its limits.
+- The independent feature-level replay is now accepted for all 66 units (45 CV and 21 LOSO): all 17 model outputs per unit, final fusion weights, aggregate summaries, five statistical tables, the original decision, and three figures matched the frozen reference. See [fresh reproduction status](docs/paper/FRESH_REPRODUCTION_STATUS.md) and the collected [fresh-refit evidence](results/paper_readiness_20260911/fresh_refit/).
 - Every image model is compared with non-image confound baselines.
 - A model is not considered useful merely because its AUC is above 0.5; it must add stable out-of-site information beyond confounds.
 
@@ -91,8 +92,9 @@ The repository contains the original structural and connectivity prototypes. The
 6. [11 — A424 end-to-end CNN/Transformer](https://colab.research.google.com/drive/142dwSF1fV7d1khI2l8JADhMbtXwEcv8M) — direct time-series neural networks with completed four-fold outputs
 7. Structural + functional late-fusion — QC-locked paired retraining of structural, functional and non-imaging models on one frozen protocol; see [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md)
 8. Analysis v2 — pre-registered confirmatory statistics (Nadeau–Bengio corrected CV intervals, TOST equivalence, full strict LOSO re-run); see [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)
+9. 2026-09-14 evidence package — post hoc statistical interpretation, QC sensitivity decomposition, selector stability, 14 aggregate tables, 9 figures, and full feature-level replay evidence; see [`docs/paper/`](docs/paper/) and [`results/tables_figures_20260914/`](results/tables_figures_20260914/).
 
-Small aggregate result tables are versioned in `results/`. Subject-level predictions and large intermediate arrays remain in Google Drive and are not committed.
+Aggregate tables, figures, manifests, and non-subject-level replay summaries are versioned in `results/`. Subject-level predictions, model checkpoints, raw MRI, and large intermediate arrays remain private and are not committed.
 
 ## Repository structure
 
@@ -108,7 +110,9 @@ adhd-mri-fmri/
 ├── REPRODUCIBILITY.md
 ├── DATA.md
 ├── notebooks/              # original Colab-exported pipelines
-├── results/                # small aggregate result tables
+├── reporting/              # reproducible table and figure assembly scripts
+├── results/                # aggregate tables, figures, and replay summaries
+├── docs/paper/              # statistical interpretation, evidence, and validation notes
 ├── docs/
 ├── figures/
 ├── src/

@@ -1,0 +1,47 @@
+{
+  "source_root": "privateanalysis workspace (path redacted for publication)",
+  "sources": {
+    "runs/demographic_increment_20260908_locked_v2/cohort.csv": "0f4386b216b9655da35d47a717d60437e1a18798bf8a623e4323f1c367f6b54f",
+    "runs/structural_qc_locked_20260909/qc_lock.json": "e03ad88399837fb5e894c7eae633acc806082a8cd9dfbd9c1a1180c85608ddc4",
+    "runs/structural_fusion_v2_20260910/cv/primary/cohort.csv": "e8cfe0144f780d5657051a6ba79181ff1f6a95147f10f305fc76179b7f34fc75",
+    "runs/structural_fusion_v2_20260910/loso/primary/cohort.csv": "e8cfe0144f780d5657051a6ba79181ff1f6a95147f10f305fc76179b7f34fc75",
+    "runs/structural_fusion_v2_20260910/cv/warning_free/cohort.csv": "f4a3f6f55205cf5e4d2883fa58aeb2a8f68de806159b9a9b44278e13346afddb",
+    "runs/structural_fusion_v2_20260910/loso/warning_free/cohort.csv": "f4a3f6f55205cf5e4d2883fa58aeb2a8f68de806159b9a9b44278e13346afddb",
+    "runs/structural_fusion_v2_20260910/cv/include_holds/cohort.csv": "e8cc829c1ea511c2b37e44058e5e2868e2b9bc5c6e8a7a4acd14ae7ce794535c",
+    "runs/structural_fusion_v2_20260910/loso/include_holds/cohort.csv": "e8cc829c1ea511c2b37e44058e5e2868e2b9bc5c6e8a7a4acd14ae7ce794535c"
+  },
+  "checks": {
+    "parent_n": 378,
+    "cohort_n": {
+      "primary": 350,
+      "warning_free": 302,
+      "include_holds": 375
+    },
+    "qc_counts": {
+      "coarse_review_candidate": 302,
+      "candidate_signal_warning": 48,
+      "hold_anatomical_review": 25,
+      "image_quality_failure": 3
+    },
+    "units": 66,
+    "no_conflicting_labels_age_sex": true,
+    "cohort_membership_matches_cv_and_loso": true,
+    "only_aggregates_exported": true
+  },
+  "definition": {
+    "label": "Frozen binary label 1 versus 0; clinical ascertainment not independently re-reviewed",
+    "age": "participant_age, as consumed by demographic()",
+    "sex": "participant_sex_male (1 male, 0 female); not gender identity",
+    "missing": "Raw pre-imputation non-finite values",
+    "sd": "Sample SD, ddof=1",
+    "quantiles": "pandas default linear interpolation",
+    "grouping": "Unique subjects; cohorts overlap; no group-comparison p values"
+  },
+  "files": {
+    "participant_continuous.csv": "3f461206e72b3e1f40bc230f2aa435a4551c799e14fcda439b9a3980879aab9c",
+    "participant_counts.csv": "b7e5ec5aa8006bac59df40ea1c186d792f1d39971cada89b2cf8d61e37533dff",
+    "missingness.csv": "b0312159034e86dec3e405ea47ad6e4cfb55d03953ba7c15f99ca68081f5c410",
+    "analysis_role_counts.csv": "571abec9be0173817cac5613b3237786fcc17f7cbf4913403c21656003abf1fd",
+    "qc_flow.csv": "adb0e7487519bcdf419029e84fd81fdc149a324e0652a14d521c8c8f05e89175"
+  }
+}
