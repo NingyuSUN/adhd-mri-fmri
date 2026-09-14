@@ -61,16 +61,14 @@ Original protocols and machine-readable decisions are retained. New analyses are
 
 ## Intended use of outputs
 
-The notebooks and result tables are suitable for research benchmarking, methods development, and a thesis/project report. They are not suitable for clinical screening, diagnosis, treatment decisions, or individual risk communication.
+The maintained analysis code and aggregate result tables are suitable for research benchmarking, methods development, and a thesis/project report. They are not suitable for clinical screening, diagnosis, treatment decisions, or individual risk communication.
 
 ## Reproducible artifacts
 
-- Colab 06: strict nested LOSO benchmark
-- Colab 07: site and motion robustness
-- Colab 08: frame scrubbing and spatial modules
-- Colab 09: repeated site-and-label-stratified portfolio benchmark
-- Aggregate CSV tables in `results/`
-- Full stage-3 outputs in Google Drive under `ADHD200-data/fmri/strict_loso_benchmark/stage3_scrubbing_network/`
+- Fresh fitting, statistical recomputation, and verification code in `reproduction/`
+- Table and figure assembly code in `reporting/`
+- Aggregate-only reviewer entrypoint and public-package validator in `tools/`
+- Aggregate CSV tables, figures, and replay evidence in `results/`
 - Evaluation and limitations in `RESULTS.md`, `REPRODUCIBILITY.md`, and `LIMITATIONS.md`
 
 ## If the research is extended later

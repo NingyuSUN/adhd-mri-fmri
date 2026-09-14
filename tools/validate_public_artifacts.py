@@ -53,6 +53,18 @@ def validate_figures() -> tuple[int, int]:
     return len(pngs), len(pdfs)
 
 
+def validate_no_notebooks() -> int:
+    notebooks = sorted(ROOT.rglob("*.ipynb"))
+    if notebooks:
+        relpaths = [str(path.relative_to(ROOT)) for path in notebooks]
+        raise AssertionError(f"notebooks are not part of the final package: {relpaths}")
+    retired_files = sorted(path for path in (ROOT / "notebooks").rglob("*") if path.is_file())
+    if retired_files:
+        relpaths = [str(path.relative_to(ROOT)) for path in retired_files]
+        raise AssertionError(f"retired notebook-era files are present: {relpaths}")
+    return 0
+
+
 def validate_no_private_paths() -> int:
     checked = 0
     roots = [
@@ -85,6 +97,7 @@ def main() -> int:
     manifest_files = validate_manifest()
     table_count = validate_tables()
     png_count, pdf_count = validate_figures()
+    notebook_count = validate_no_notebooks()
     checked_files = validate_no_private_paths()
     result = {
         "status": "pass",
@@ -92,6 +105,7 @@ def main() -> int:
         "aggregate_tables": table_count,
         "figure_png": png_count,
         "figure_pdf": pdf_count,
+        "notebook_files": notebook_count,
         "path_checked_files": checked_files,
     }
     print(json.dumps(result, sort_keys=True))

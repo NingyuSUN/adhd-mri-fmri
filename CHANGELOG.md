@@ -5,6 +5,7 @@
 - Added an aggregate-only quickstart CLI and deterministic JSON/Markdown report for reviewers without private MRI access.
 - Added public-artifact validation for manifest hashes, table/figure counts, schema safety, and private-path redaction.
 - Added locked-environment CI, a `Makefile`, engineering documentation, and a five-minute reviewer path.
+- Removed notebook-era exploration code, unused notebook helpers, and superseded top-level environments from the final branch; Git history retains them.
 - Kept raw MRI, subject-level predictions, checkpoints, and full replay inputs outside the public repository.
 
 ## 2026-09-11 — Post hoc statistical interpretation and sensitivity audit
@@ -20,10 +21,10 @@
 ## 2026-09-11 — Analysis v2: pre-registered confirmatory statistics
 
 - Re-ran the structural + functional late-fusion analysis under a pre-registered protocol (`docs/analysis_v2_protocol.md`, finalized after an independent methods/statistics review): repeat-dependent MLP seed, symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), Nadeau–Bengio corrected 90% intervals for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict leave-one-site-out re-run.
-- 45 mixed-site CV folds + 21 LOSO units × 3 cohorts, independently consistency-verified (`notebooks/verify_v2.py`, 66 units).
+- 45 mixed-site CV folds + 21 LOSO units × 3 cohorts, independently consistency-verified (`reproduction/legacy/verify_v2.py`, 66 units).
 - Result: mixed-site CV point estimates confirm the direction (every confound-plus-imaging contrast negative) but the corrected 90% interval for the primary contrast is [−0.040, +0.017] — formal equivalence is underpowered at n=350. Strict LOSO is uninformative: the held-out summary ΔAUC swings +0.028 / −0.086 / −0.043 across three QC cohorts sharing >85% of subjects, dominated by NYU's subject composition.
 - Documented why ADHD-200 (7 sites, one dominant, two below n=15) cannot support strict LOSO for a small AUC effect, which is the empirical basis for using repeated site-stratified CV as the primary endpoint.
-- Added `docs/analysis_v2_{protocol,results,deviations}.md`, `results/v2_*.csv`, `figures/v2_F{1,2,3}_*.png`, `notebooks/{run_structural_fusion_v2,analyze_v2_stats,calibration_v2,verify_v2,figures_v2}.py`, and a `RESULTS.md` section.
+- Added `docs/analysis_v2_{protocol,results,deviations}.md`, `results/v2_*.csv`, `figures/v2_F{1,2,3}_*.png`, the source files now retained under `reproduction/legacy/`, and a `RESULTS.md` section.
 
 ## 2026-09-10 — Structural + functional late-fusion analysis
 
@@ -35,7 +36,7 @@
 ## 2026-09-04 — Final benchmark release
 
 - Added the completed repeated site-and-label-stratified portfolio benchmark (`n=409`, 20 outer evaluations).
-- Added `09_portfolio_site_stratified_cv.ipynb` and its aggregate result table.
+- Added the repeated site-stratified analysis and its aggregate result table. Its exploratory notebook was later removed from the final branch.
 - Locked the strict nested LOSO fMRI benchmark.
 - Added confound, motion-restricted, residualized, within-site, scrubbing, and spatial-module results.
 - Documented the decision not to proceed with Transformer fine-tuning after the frozen representation failed the transfer gate.
