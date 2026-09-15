@@ -1,17 +1,13 @@
 """Audit existing sMRI/fMRI assets; write local inventory only. No training."""
 from pathlib import Path
-from datetime import datetime
 import hashlib
 import json
 import re
-import os
+import argparse
 import faulthandler
 import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).resolve().parent
-DRIVE = Path('D:/My Drive/ADHD200-data')
-FEATURES = BASE / 'runs/features_20260907_111310'
 
 
 def norm_id(value):
@@ -67,28 +63,52 @@ def table(path, id_col, label_col=None):
     return df.set_index(['site', 'subject_id'], drop=False)
 
 
-def local_t1(path):
-    prefix = '/content/drive/MyDrive/ADHD200-data/'
-    assert str(path).startswith(prefix), path
-    p = DRIVE / str(path)[len(prefix):]
-    assert Path(os.path.abspath(p)).is_relative_to(Path(os.path.abspath(DRIVE))), p
-    return p
+def local_t1(path, data_root, source_prefix):
+    """Remap a manifest path using a user-supplied original data prefix."""
+    prefix = source_prefix.replace("\\", "/").rstrip("/") + "/"
+    original = str(path).replace("\\", "/")
+    if not original.startswith(prefix):
+        raise ValueError("T1 path does not match --t1-source-prefix")
+    relative = original[len(prefix):]
+    if not relative or any(part in {"", ".."} or ":" in part for part in relative.split("/")):
+        raise ValueError("T1 path must stay within --data-root")
+    root = Path(data_root).expanduser().resolve()
+    mapped = (root / relative).resolve()
+    if not mapped.is_relative_to(root):
+        raise ValueError("T1 path must stay within --data-root")
+    return mapped
+
+
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data-root", type=Path, required=True, help="Local ADHD-200 data directory")
+    parser.add_argument("--source", type=Path, required=True, help="Private workspace containing runs/")
+    parser.add_argument("--features", type=Path, required=True, help="Feature directory containing cohort.csv")
+    parser.add_argument("--t1-source-prefix", required=True, help="Original data-root prefix recorded in the T1 manifest")
+    parser.add_argument("--roi-notebook", type=Path, required=True, help="Private original ROI notebook for provenance")
+    parser.add_argument("--swin-notebook", type=Path, required=True, help="Private original Swin notebook for provenance")
+    parser.add_argument("--out", type=Path, required=True, help="New inventory output directory")
+    return parser.parse_args(argv)
 
 
 def main():
+    args = parse_args()
+    data_root = args.data_root.expanduser().resolve()
+    source = args.source.expanduser().resolve()
+    features = args.features.expanduser().resolve()
+    out = args.out.expanduser().resolve()
     faulthandler.dump_traceback_later(90, repeat=True)
-    out = BASE / 'runs' / datetime.now().strftime('multimodal_inventory_%Y%m%d_%H%M%S')
     out.mkdir(parents=True, exist_ok=False)
     source_files = {
-        'strict_structural_manifest': DRIVE / 'manifest_all_sitefirst_strictpass_noBrown.csv',
-        'older_structural_manifest': DRIVE / 'manifest_all.csv',
-        'roi_metadata': DRIVE / 'combat_roi_metadata_clean.csv',
-        'roi_features': DRIVE / 'combat_roi_features_clean.csv',
-        'fmri_all': DRIVE / 'fmri/strict_loso_benchmark/locked_cohort_all_445.csv',
-        'fmri_primary': FEATURES / 'cohort.csv',
-        'smri_pixel_cache': DRIVE / 'transformer_first_round/triplanar_axial_224_uint8.npz',
-        'roi_notebook': DRIVE.parent / 'Colab Notebooks/ADHD_combat.ipynb',
-        'swin_notebook': DRIVE.parent / 'Colab Notebooks/ADHD_MRI_Swin_first_round.ipynb',
+        'strict_structural_manifest': data_root / 'manifest_all_sitefirst_strictpass_noBrown.csv',
+        'older_structural_manifest': data_root / 'manifest_all.csv',
+        'roi_metadata': data_root / 'combat_roi_metadata_clean.csv',
+        'roi_features': data_root / 'combat_roi_features_clean.csv',
+        'fmri_all': data_root / 'fmri/strict_loso_benchmark/locked_cohort_all_445.csv',
+        'fmri_primary': features / 'cohort.csv',
+        'smri_pixel_cache': data_root / 'transformer_first_round/triplanar_axial_224_uint8.npz',
+        'roi_notebook': args.roi_notebook.expanduser().resolve(),
+        'swin_notebook': args.swin_notebook.expanduser().resolve(),
     }
     structural = table(source_files['strict_structural_manifest'], 'sub_id', 'y')
     old = table(source_files['older_structural_manifest'], 'sub_id', 'y')
@@ -123,7 +143,7 @@ def main():
     assert structural.subject_id.nunique() == len(structural), 'ID crosses structural sites'
     assert set(pixel_ids).issubset(set(structural.subject_id))
     participants = []
-    for site_dir in sorted((DRIVE / 'RawDataBIDS').iterdir()):
+    for site_dir in sorted((data_root / 'RawDataBIDS').iterdir()):
         path = site_dir / 'participants.tsv'
         if not path.exists():
             continue
@@ -180,7 +200,7 @@ def main():
         rec['anatomical_metadata_qc_pass'] = qc_pass(rec['qc_anat_raw'])
         rec['rest_metadata_qc_pass'] = qc_pass(rec['qc_rest_raw'])
         rec['t1_path_original'] = s.t1_path if s is not None else ''
-        tp = local_t1(s.t1_path) if s is not None else None
+        tp = local_t1(s.t1_path, data_root, args.t1_source_prefix) if s is not None else None
         rec['t1_path_local'] = str(tp) if tp else ''
         # Mounted Drive may block indefinitely on online-only raw T1 stat calls.
         # Explicitly leave raw-file availability unknown; inspect keyed pixel cache instead.
@@ -196,7 +216,7 @@ def main():
         rec['smri_pixels_nonconstant'] = bool(pixel_nonconstant[pi]) if pi >= 0 else False
         rec['smri_pixels_exact_duplicate'] = bool(repeated_pixels[pi]) if pi >= 0 else False
         rec['smri_pixels_sha256'] = pixel_hashes[pi] if pi >= 0 else ''
-        fp = DRIVE / 'fmri/brainlm_a424/timeseries_raw' / (str(f.raw_id) + '.npy') if f is not None else None
+        fp = data_root / 'fmri/brainlm_a424/timeseries_raw' / (str(f.raw_id) + '.npy') if f is not None else None
         rec['fmri_timeseries_path'] = str(fp) if fp else ''
         rec['fmri_timeseries_exists'] = fp.is_file() if fp else False
         for c in ['mean_fd', 'max_fd', 'pct_fd_gt_0p2', 'mean_dvars', 'n_volumes', 'motion_status']:
@@ -246,7 +266,7 @@ def main():
     for c in ['paired_assets_445', 'paired_clean_metadata409', 'paired_rest_qc409']:
         manifest[manifest[c]].to_csv(out / (c + '.csv'), index=False)
     # Historical results are inventories, never new runs or comparable across cohorts by default.
-    repo = BASE.parent / 'adhd-mri-fmri'
+    repo = Path(__file__).resolve().parents[2]
     inventory = []
     for _, r in pd.read_csv(repo / 'results/structural_mri_summary.csv').iterrows():
         inventory.append({'modality': 'structural', 'model': r.model, 'n': r.n,
@@ -255,7 +275,7 @@ def main():
                           'source': str(repo / 'results/structural_mri_summary.csv'),
                           'evidence': 'historical_row_level_summary_affected_by_duplicate_subjects_requires_reaudit'})
     for dirname in ['paired_20260907_111654', 'connectivity_cv_20260907_112842', 'temporal_cv_20260907_114340']:
-        path = BASE / 'runs' / dirname / 'summary.csv'
+        path = source / 'runs' / dirname / 'summary.csv'
         for _, r in pd.read_csv(path).iterrows():
             inventory.append({'modality': 'functional_or_covariate_baseline', 'model': r.model, 'n': 409,
                               'evaluation': 'fixed_4fold_mixed_site_inner_validation', 'auc': r.mean_auc,
