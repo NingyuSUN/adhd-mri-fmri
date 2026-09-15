@@ -1,6 +1,6 @@
 {
   "analyze_v2_stats.py": "6420cbbc96d8343ae56057bc99a355ce34c345c488c87d74087df7a799b51d4e",
-  "build_multimodal_manifest.py": "5dd01f8908388720608aac3fb7378bcde58bda39f4b1d018552412f108da3abf",
+  "build_multimodal_manifest.py": "e19855c5a88090a18906277cd5d0aa86be36faaabe168e706db9ee3dd2d392a6",
   "calibration_v2.py": "08a01649370d9928b664b3ae0f9b17e7a1f44947f9fb771f5f4d2c7fd8363fe8",
   "figures_v2.py": "791aeb1d1a9d5a965b2d96ac82076e03be296f391f0726a60eeae3b07e00c393",
   "refine_tangent_reference.py": "3bca09e8604f6a82b4b43628db9425111b9f8960f4cbbd3e44872a07c7a18f30",

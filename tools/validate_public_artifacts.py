@@ -6,12 +6,14 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "results" / "tables_figures_20260914"
-FORBIDDEN = ("<HOME>/", "<WSL_C>/", "<WIN_USERS>/")
+FORBIDDEN = ("/home/", "/mnt/", "/Users/", "/content/")
+WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
 FORBIDDEN_COLUMNS = {"subject_id", "participant_id", "t1_path_original", "prediction", "score"}
 
 
@@ -73,6 +75,7 @@ def validate_no_private_paths() -> int:
         ROOT / "PORTFOLIO_CASE_STUDY.md",
         ROOT / "docs",
         ROOT / "reporting",
+        ROOT / "reproduction",
         ROOT / "tools",
         ROOT / "demo",
         PACKAGE,
@@ -83,13 +86,15 @@ def validate_no_private_paths() -> int:
             if (
                 not path.is_file()
                 or path.resolve() == Path(__file__).resolve()
+                # Vendored third-party sources have their own frozen hash manifest.
+                or path.is_relative_to(ROOT / "reproduction" / "legacy" / "vendor")
                 # Imports during tests cache this validator's forbidden tokens.
                 # Bytecode is generated binary data, not public source text.
                 or path.suffix.lower() in {".png", ".pdf", ".pyc", ".pyo"}
             ):
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
-            if any(token in text for token in FORBIDDEN):
+            if any(token in text for token in FORBIDDEN) or WINDOWS_ABSOLUTE_PATH.search(text):
                 raise AssertionError(f"private absolute path in public file: {path}")
             checked += 1
     return checked
