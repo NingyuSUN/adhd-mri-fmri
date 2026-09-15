@@ -139,11 +139,9 @@ The project uses the ADHD-200 multi-site dataset:
 - phenotypic labels and demographic variables
 - motion and QC measurements where available
 
-Raw data are not included. The final fMRI outputs are stored under:
-
-```text
-<DATA_DIR>/fmri/strict_loso_benchmark/
-```
+Raw data are not included. Choose your own data directory; the historical fMRI
+outputs belong under `fmri/strict_loso_benchmark/` relative to that directory.
+No particular drive mount or personal working directory is required.
 
 See [DATA.md](DATA.md) for the expected layout.
 
