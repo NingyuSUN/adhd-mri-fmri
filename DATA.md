@@ -6,7 +6,8 @@ This project uses ADHD-200 MRI/fMRI data. Raw neuroimaging files are not include
 
 ## Expected Directory Layout
 
-The scripts assume data stored in Google Drive or a similar mounted filesystem:
+Choose a local or mounted data directory and pass it to the relevant command.
+The layout below is relative to that directory; no specific drive is required:
 
 ```text
 ADHD200-data/
