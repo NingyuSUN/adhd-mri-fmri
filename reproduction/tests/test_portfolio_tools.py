@@ -62,6 +62,7 @@ def test_private_path_scan_ignores_compiled_validator(tmp_path, monkeypatch):
     "README.md", "docs/example.md", "reporting/example.py",
     "tools/example.py", "tools/__pycache__/leak.txt",
     "demo/example.json", "package/tables/example.csv",
+    "reproduction/example.py", "reproduction/legacy/example.py",
 ])
 def test_private_paths_in_public_text_still_fail(tmp_path, monkeypatch, token, relative_path):
     path = tmp_path / relative_path
@@ -76,3 +77,12 @@ def test_private_paths_in_public_text_still_fail(tmp_path, monkeypatch, token, r
 def test_complete_public_artifact_validation_after_import(capsys):
     assert validator.main() == 0
     assert json.loads(capsys.readouterr().out)["status"] == "pass"
+
+
+@pytest.mark.parametrize("separator", ["/", "\\"])
+def test_windows_drive_paths_are_rejected(tmp_path, monkeypatch, separator):
+    (tmp_path / "README.md").write_text("Z" + chr(58) + separator + "private-data", encoding="utf-8")
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    monkeypatch.setattr(validator, "PACKAGE", tmp_path / "package")
+    with pytest.raises(AssertionError, match="private absolute path"):
+        validator.validate_no_private_paths()
