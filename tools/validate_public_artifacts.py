@@ -83,7 +83,9 @@ def validate_no_private_paths() -> int:
             if (
                 not path.is_file()
                 or path.resolve() == Path(__file__).resolve()
-                or path.suffix.lower() in {".png", ".pdf"}
+                # Imports during tests cache this validator's forbidden tokens.
+                # Bytecode is generated binary data, not public source text.
+                or path.suffix.lower() in {".png", ".pdf", ".pyc", ".pyo"}
             ):
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
