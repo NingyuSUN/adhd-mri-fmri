@@ -1,5 +1,8 @@
 # ADHD-200 MRI/fMRI Classification
 
+[![Repository checks](https://github.com/NingyuSUN/adhd-mri-fmri/actions/workflows/ci.yml/badge.svg)](https://github.com/NingyuSUN/adhd-mri-fmri/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 This portfolio project demonstrates an end-to-end deep-learning workflow for structural MRI and resting-state fMRI: data engineering, neuroimaging preprocessing, CNN/GNN/Transformer modeling, leakage-safe evaluation, robustness analysis, and reproducible scripted execution.
 
 **Project status: completed deep-learning case study.** The technical objective is to demonstrate the ability to build and evaluate real medical-AI pipelines—not to claim a clinically deployable ADHD diagnostic system.

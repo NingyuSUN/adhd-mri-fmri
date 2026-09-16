@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-16 — Portfolio/discoverability polish
+
+- Set the GitHub repository description and topics (previously blank, which hurt discoverability).
+- Added a CI-status badge and an MIT license badge to `README.md`.
+- Retitled `CITATION.cff` from a result-implying title to a neutral, TRIPOD+AI-aligned one (title previously read as a positive-result claim; the finding is a confound-aware negative/boundary result).
+- Added a "Confirmatory statistics and self-audit (analysis v2)" section to `PORTFOLIO_CASE_STUDY.md` — the pre-registration, external review, strict-LOSO re-analysis, and public self-correction of a reporting error were previously undocumented there.
+
 ## 2026-09-14 — Portfolio engineering release
 
 - Added an aggregate-only quickstart CLI and deterministic JSON/Markdown report for reviewers without private MRI access.

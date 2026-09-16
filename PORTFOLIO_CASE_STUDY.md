@@ -78,6 +78,18 @@ This is an important medical-AI result: model architecture alone cannot compensa
 
 The portfolio claim is therefore about engineering and experimental skill—not clinical accuracy: I implemented multiple deep-learning representations, designed leakage-safe comparisons, ran robustness analyses, and interpreted negative evidence responsibly.
 
+## Confirmatory statistics and self-audit (analysis v2)
+
+A follow-up round treated the fusion result as a hypothesis to confirm, not a finding to report as-is:
+
+- **Pre-registered a protocol before running anything**: a symmetric primary contrast, a Nadeau–Bengio corrected confidence interval for the cross-validation estimate, and a pre-registered TOST equivalence test (±0.02 AUC) with a mutually-exclusive, exhaustive decision rule.
+- **Had the protocol reviewed by an independent model (Gemini 3.1 Pro) before running it** — the review caught a real overlap bug in the decision table and an invalid statistical-design choice (a 7-cluster bootstrap), both fixed pre-registration.
+- **Ran a full strict leave-one-site-out re-analysis** alongside the cross-validation, then **audited my own result** when the two frameworks disagreed, rather than reporting the more favorable one.
+- **Found and published a correction to my own published number**: I had reported one site's contribution to the leave-one-site-out estimate as "~40% of subjects", which conflated participant share with the actual AUC pair-weight; the corrected figure is 67.07%. The correction, its derivation, and its effect on every downstream claim are committed to the repository (`docs/paper/STATISTICAL_INTERPRETATION.md`) rather than silently edited away.
+- **Self-audited against TRIPOD+AI**, the published reporting standard for AI clinical-prediction studies, to map exactly what a submission-ready manuscript would still need (`docs/paper/TRIPOD_AI_GAPS_20260914.md`).
+
+This is the part of the project I'd point to first in an interview about statistical rigor: not that the numbers looked clean, but that the process was built to catch — and publicly correct — my own mistakes before anyone else had to.
+
 ## Technologies
 
 Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch Geometric, Hugging Face Transformers, nibabel, nilearn, ANTsPy, Google Drive, Linux compute, BIDS-style neuroimaging data, Git/GitHub, GitHub Actions.
