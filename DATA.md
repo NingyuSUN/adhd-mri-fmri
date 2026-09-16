@@ -1,5 +1,12 @@
 # Data Documentation
 
+## Data license
+
+This repository's code is MIT-licensed (see [`LICENSE`](LICENSE)). **The MIT license covers
+the code only.** ADHD-200 MRI/fMRI data, phenotypic labels, and derivatives remain subject to
+their own original data-use terms from the contributing sites and the ADHD-200 Global
+Competition/consortium, independent of this repository's license.
+
 ## Dataset
 
 This project uses ADHD-200 MRI/fMRI data. Raw neuroimaging files are not included in this repository.
