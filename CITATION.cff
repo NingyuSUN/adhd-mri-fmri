@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "ADHD Classification from Brain MRI using Deep Learning"
+title: "A Confound-Aware ADHD-200 MRI/fMRI Benchmark: Structural, Functional, and Fusion Evaluation"
 authors:
   - family-names: Sun
     given-names: Ningyu
