@@ -36,7 +36,7 @@ For a concise case study, see [CASE_STUDY.md](CASE_STUDY.md).
 
 ## Five-minute engineering demo
 
-This repository includes a aggregate-only path that does not need private MRI data:
+This repository includes a public aggregate-only path that does not need private MRI data:
 
 ```bash
 python tools/quickstart.py --output-dir artifacts/quickstart

@@ -1,7 +1,7 @@
 # Analysis v2 — deviations from the pre-registered protocol
 
 Protocol: `docs/analysis_v2_protocol.md` (finalized 2026-09-10 after Gemini review).
-Run started 2026-09-10 ~11:45 JST on the analysis server. Deviations logged before results were
+Run started 2026-09-10 ~11:45 JST on the training server. Deviations logged before results were
 inspected (training still running, all `test.csv` withheld from summarisation).
 
 ## D1 — LOSO inner selection: single stratified holdout, not inner 3-fold
