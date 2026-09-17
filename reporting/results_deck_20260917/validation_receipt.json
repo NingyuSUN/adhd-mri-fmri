@@ -1,0 +1,394 @@
+{
+  "slide_count": 53,
+  "main_slides": 26,
+  "notes_match": true,
+  "notes_chars": 48774,
+  "native_tables": 37,
+  "native_charts": 3,
+  "source_metadata": {
+    "title": "ADHD 结果提取与论文主线",
+    "date": "2026-09-17",
+    "main_slides": 26,
+    "total_slides": 53,
+    "local_evidence_commit": "ed50a60c6da9f898160fb6a17ba4faa3cf0011a8",
+    "github_main_checked": "3f39504e08141dee9aa751f66a1eb08973b56961",
+    "source_files": [
+      {
+        "name": "ADHD_fMRI.pptx",
+        "sha256": "eaa74f034502cc871ca23d563b6ad4a95b1e1c143becaa1e4bf6c1096c01106c"
+      },
+      {
+        "name": "ADHD_结构MRI与多模态融合_图表讲解版_20260914.pptx",
+        "sha256": "03a1f1a705ac67ea44c1bbd134dd9c15bbfdcf1a8cae6ae804fb9f8cf328e07f"
+      }
+    ],
+    "notes": "GitHub main与本地results/tables_figures_20260914没有差异；本地审阅和文献补充不冒充GitHub已发布成果。"
+  },
+  "per_slide": [
+    {
+      "slide": 1,
+      "notes_chars": 375,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 2,
+      "notes_chars": 448,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 3,
+      "notes_chars": 1198,
+      "tables": 0,
+      "charts": 1
+    },
+    {
+      "slide": 4,
+      "notes_chars": 1026,
+      "tables": 0,
+      "charts": 1
+    },
+    {
+      "slide": 5,
+      "notes_chars": 1067,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 6,
+      "notes_chars": 1202,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 7,
+      "notes_chars": 548,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 8,
+      "notes_chars": 573,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 9,
+      "notes_chars": 1077,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 10,
+      "notes_chars": 1164,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 11,
+      "notes_chars": 1145,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 12,
+      "notes_chars": 1299,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 13,
+      "notes_chars": 1021,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 14,
+      "notes_chars": 1179,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 15,
+      "notes_chars": 878,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 16,
+      "notes_chars": 729,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 17,
+      "notes_chars": 988,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 18,
+      "notes_chars": 666,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 19,
+      "notes_chars": 897,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 20,
+      "notes_chars": 739,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 21,
+      "notes_chars": 715,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 22,
+      "notes_chars": 514,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 23,
+      "notes_chars": 482,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 24,
+      "notes_chars": 543,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 25,
+      "notes_chars": 1237,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 26,
+      "notes_chars": 619,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 27,
+      "notes_chars": 974,
+      "tables": 0,
+      "charts": 1
+    },
+    {
+      "slide": 28,
+      "notes_chars": 888,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 29,
+      "notes_chars": 846,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 30,
+      "notes_chars": 875,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 31,
+      "notes_chars": 976,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 32,
+      "notes_chars": 893,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 33,
+      "notes_chars": 931,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 34,
+      "notes_chars": 1101,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 35,
+      "notes_chars": 1076,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 36,
+      "notes_chars": 1089,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 37,
+      "notes_chars": 700,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 38,
+      "notes_chars": 704,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 39,
+      "notes_chars": 905,
+      "tables": 0,
+      "charts": 0
+    },
+    {
+      "slide": 40,
+      "notes_chars": 790,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 41,
+      "notes_chars": 1309,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 42,
+      "notes_chars": 1215,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 43,
+      "notes_chars": 756,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 44,
+      "notes_chars": 988,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 45,
+      "notes_chars": 864,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 46,
+      "notes_chars": 985,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 47,
+      "notes_chars": 985,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 48,
+      "notes_chars": 985,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 49,
+      "notes_chars": 1307,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 50,
+      "notes_chars": 1082,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 51,
+      "notes_chars": 1074,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 52,
+      "notes_chars": 1074,
+      "tables": 1,
+      "charts": 0
+    },
+    {
+      "slide": 53,
+      "notes_chars": 1073,
+      "tables": 1,
+      "charts": 0
+    }
+  ],
+  "pptx_sha256": "dd798357767f55e6f9a2657daf8d8577bd44944468cb1cf02d451bdb80c3085e",
+  "visual_review": "All 53 rendered pages inspected in five contact sheets; dense Table S8 additionally inspected at full resolution. No clipping or overlap observed. Rendering uses artifact-tool, not Microsoft PowerPoint.",
+  "source_table_slides_checked": [
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    17,
+    19,
+    28,
+    31,
+    32,
+    35,
+    36,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+  ],
+  "source_table_count": 30,
+  "new_summary_table_from_source_text": [
+    22
+  ],
+  "nine_frozen_figures_byte_identical": true,
+  "native_chart_values_match": true,
+  "opc_relationships_valid": true,
+  "shape_bounds_valid": true,
+  "original_decks_unchanged": [
+    "ADHD_fMRI.pptx",
+    "ADHD_结构MRI与多模态融合_图表讲解版_20260914.pptx"
+  ],
+  "rendered_pages": 53
+}
