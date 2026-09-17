@@ -1,12 +1,12 @@
 {
   "date": "2026-09-14",
   "head": "40a4bb9673dc87d72208352f219c1275a4bcff2e",
-  "scope": "Tables and figures only; local research package",
+  "scope": "Tables and figures only; published aggregate results package",
   "files": [
     {
       "path": "README_\u56fe\u8868\u53e3\u5f84\u4e0e\u56fe\u6ce8.md",
-      "sha256": "4f489a7d7f0f5698c7e80065b106ac35c126dcfbce9bb890bc7e0bc261319b9b",
-      "bytes": 5284
+      "sha256": "a4ae5335598825b8e6a5a0b44763e6cf47fda2b7effd45cdf9e97d6bd30d82cf",
+      "bytes": 5325
     },
     {
       "path": "figures/Figure1_participant_flow.pdf",
@@ -105,13 +105,13 @@
     },
     {
       "path": "scripts/organize_tables_figures_20260914.py",
-      "sha256": "021f3a6604d1d2fd3c8f8515d971b8489dd7ad14f27ed361619b6c3cd3efd363",
-      "bytes": 12787
+      "sha256": "f2c05a00b7b044cf722e19fbc8893ecaa16150d668155ab7c55632050993e34e",
+      "bytes": 12828
     },
     {
       "path": "scripts/package_tables_figures_20260914.py",
-      "sha256": "09b419de5c216e8cfabc2d0dcb125bb9f747bd4a79b8b7d0736ce8f7e651d30e",
-      "bytes": 4561
+      "sha256": "d52b0d0af233dfa6e9133057dfc5a7a7c7f7b259af7d55c815983c050224b154",
+      "bytes": 4574
     },
     {
       "path": "scripts/render_summary_figures_20260914.py",
