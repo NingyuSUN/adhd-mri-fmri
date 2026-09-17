@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-17 — Update stale methodology docs
+
+- Rewrote `METHODS.md`, which still described only the project's original single-slice/ROI-CNN plan from May 2026. It now documents the actual final pipeline: A424-based fMRI representations (FC, spectral, GNN, frozen BrainLM, end-to-end temporal models), the structural branch through pretrained Swin-T, structural+functional late fusion, and the two-framework evaluation design (repeated site-stratified CV as the primary portfolio metric, strict LOSO as the robustness stress test) plus the v2 statistical framework (Nadeau–Bengio intervals, TOST equivalence).
+- Removed `docs/structural_mri_pipeline.md`, `docs/fmri_gnn_pipeline.md`, `docs/model_evaluation.md`, and `docs/ablation_and_site_bias.md` — orphaned early-design notes (referenced from nowhere else in the repository) describing the same superseded pipeline; their still-valid content is folded into the rewritten `METHODS.md`.
+- Fixed `MODEL_CARD.md`, which labeled strict LOSO as the "primary design" (contradicting `README.md`'s actual framing of repeated CV as the primary portfolio metric and LOSO as the stress test) and omitted the CV-portfolio and structural-MRI headline numbers entirely.
+
 ## 2026-09-17 — Remove internal working notes; neutral wording
 
 - Removed six `docs/paper/` files that were internal AI-assisted-workflow logs rather than reader-facing documentation (a cross-session handoff note, a raw AI reviewer transcript and its adjudication table, a task-authorization log, a package-validation log, and a post hoc analysis plan written as an internal checklist). Their non-redundant scientific content (the NYU pair-weight correction, methods deviations, TRIPOD+AI gaps) is already preserved in `STATISTICAL_INTERPRETATION.md`, `CLAIMS_EVIDENCE_20260914.md`, `SENSITIVITY_RESULTS.md`, `METHODS_CLARIFICATION_20260914.md`, and `TRIPOD_AI_GAPS_20260914.md`.
