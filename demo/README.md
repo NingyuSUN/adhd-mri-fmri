@@ -1,6 +1,6 @@
 # Aggregate-only demo
 
-This demo is the recruiter-safe entry point for the repository. It runs without ADHD-200 data, private Google Drive paths, raw MRI, or subject-level predictions:
+This demo is the aggregate-only entry point for the repository. It runs without ADHD-200 data, private Google Drive paths, raw MRI, or subject-level predictions:
 
 ```bash
 python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart

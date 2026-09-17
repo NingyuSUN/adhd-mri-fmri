@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-17 — Remove internal working notes; neutral wording
+
+- Removed six `docs/paper/` files that were internal AI-assisted-workflow logs rather than reader-facing documentation (a cross-session handoff note, a raw AI reviewer transcript and its adjudication table, a task-authorization log, a package-validation log, and a post hoc analysis plan written as an internal checklist). Their non-redundant scientific content (the NYU pair-weight correction, methods deviations, TRIPOD+AI gaps) is already preserved in `STATISTICAL_INTERPRETATION.md`, `CLAIMS_EVIDENCE_20260914.md`, `SENSITIVITY_RESULTS.md`, `METHODS_CLARIFICATION_20260914.md`, and `TRIPOD_AI_GAPS_20260914.md`.
+- Removed `docs/github_about.md`, a stale pre-launch scratch note superseded by the repository's actual description/topics/badges.
+- Replaced "recruiter-safe" wording in `README.md`, `demo/README.md`, `docs/ENGINEERING.md`, and `tools/portfolio_quickstart.py` with neutral technical language ("aggregate-only" / "public").
+- Replaced the internal server codename with generic wording in `docs/analysis_v2_deviations.md`, `docs/analysis_v2_protocol.md`, `docs/paper/FRESH_REPRODUCTION_STATUS.md`, and two source manifests (with a matching `PACKAGE_MANIFEST.json` hash/byte-count update for the one manifest that is itself hash-verified).
+
 ## 2026-09-16 — Portfolio/discoverability polish
 
 - Set the GitHub repository description and topics (previously blank, which hurt discoverability).

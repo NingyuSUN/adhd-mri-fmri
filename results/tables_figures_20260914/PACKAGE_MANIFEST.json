@@ -135,8 +135,8 @@
     },
     {
       "path": "source_aggregates/participant_aggregation_manifest.json",
-      "sha256": "2f17620673be1bfa51f043153df7f43639d7cdb8a20ad20ce4fcdca665f3b254",
-      "bytes": 2619
+      "sha256": "8c7f669297213b8dcd0a723344d4f067a94433fa2ce9b90ce161673418e85ba9",
+      "bytes": 2613
     },
     {
       "path": "source_aggregates/participant_continuous.csv",

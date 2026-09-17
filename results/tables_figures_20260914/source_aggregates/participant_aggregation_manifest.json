@@ -1,5 +1,5 @@
 {
-  "source_root": "privateanalysis workspace (path redacted for publication)",
+  "source_root": "private analysis workspace (path redacted for publication)",
   "sources": {
     "runs/demographic_increment_20260908_locked_v2/cohort.csv": "0f4386b216b9655da35d47a717d60437e1a18798bf8a623e4323f1c367f6b54f",
     "runs/structural_qc_locked_20260909/qc_lock.json": "e03ad88399837fb5e894c7eae633acc806082a8cd9dfbd9c1a1180c85608ddc4",
