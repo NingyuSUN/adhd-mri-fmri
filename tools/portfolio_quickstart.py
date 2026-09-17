@@ -3,7 +3,7 @@
 
 This command intentionally does not need ADHD-200 data, model checkpoints, or
 scientific Python dependencies. It reads committed summary CSVs and produces a
-small report that a recruiter or reviewer can reproduce after cloning the repo.
+small report that a reviewer can reproduce after cloning the repo.
 """
 
 from __future__ import annotations
