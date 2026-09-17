@@ -52,16 +52,40 @@
 
 1. **这不是逐区域的一一因果证明**。上述文献是"额叶-纹状体-丘脑环路"这个大类假说的支持证据，其中大部分是跨多项原始研究的**元分析/综述**，报告的是**群体层面统计效应**，不是"这个区域在 ADHD 个体预测里一定有判别力"的保证——事实上本仓库自己的实验结果（strict LOSO 下 ROI-CNN pooled OOF AUC 仅 0.470，年龄+性别基线 0.619 更高）已经说明"生物学假说成立"和"该假说能支撑可靠的个体预测"是两件不同的事，不能互相替代（呼应 handoff.md 第1节"分类权重、归因图、统计关联不等于因果机制"）。
 2. **无法证明这就是作者当年查阅的原始文献**。以上6篇是本轮基于笔记本论证内容检索到的、内容高度吻合的经典/权威文献，但笔记本本身没有留下引用记录，不能倒推"作者当时读的就是这几篇"。如果后续要在论文里正式引用，应以这些文献的科学内容是否站得住脚为准，而不是声称"這是原始依据"。
-3. **20列历史ROI特征、98项后期结构特征、424维功能特征三者的图谱关系尚未追溯完成**：
-   - 20列历史特征＝Harvard-Oxford，15个命名区域（本文档已核实，见第1节）。
-   - 98项结构特征（`run_structural_fusion_v2.py`/`run_structural_fusion_locked.py` 里的 `volume_fractions`，docs/structural_functional_fusion.md 描述为"98 region/TIV fractions"）——**代码里只消费一个预计算好的 `.npz` 数组，本轮未追到这98个区域来自哪个图谱/分割工具（是否仍是 Harvard-Oxford，还是换成了更细的解剖分割如 Desikan-Killiany/FreeSurfer 风格的68皮层+30皮层下）**。这是与早期 ROI 假说是否还能对应上的关键缺口，需要下一步专门追。
-   - 424维功能特征＝A424 图谱，与 Harvard-Oxford 是完全不同的图谱体系，两者之间没有区域级别的直接映射，不能假设"结构侧选的额叶区域"和"功能侧A424的对应区域"是同一套解剖定义。
+3. **20列历史ROI特征、98项后期结构特征、424维功能特征——三条路线的图谱关系，本轮追到两条，第三条确认追不到（见下）**：
+
+### 3a. 20列历史特征＝Harvard-Oxford（VERIFIED，见第1节）
+
+15个命名区域（10皮层+5×2皮层下），本轮已从 `utils/roi.py` 逐字核实。
+
+### 3b. 424维功能特征＝BrainLM 的 "AAL-424" 图谱（VERIFIED，本轮新查）
+
+`reproduction/legacy/build_multimodal_manifest.py:199` 里时间序列路径写的是 `fmri/brainlm_a424/timeseries_raw`，命名直接指向 BrainLM 这个 fMRI 基础模型。经网络检索交叉核对两个独立来源：
+
+- BrainLM 官方 Hugging Face 模型卡（`vandijklab/brainlm`）原文："Brain Parcellation: AAL-424 atlas is used to divide the brain into 424 regions."
+- BrainLM 论文相关检索结果同样确认 424 分区来自 "AAL-424" 图谱。
+
+**结论**：A424 = BrainLM 使用的 "AAL-424" 图谱，424个功能分区，是比经典 AAL(116区)细得多的一套独立分区方案。**它和结构侧用的 Harvard-Oxford 完全是两套不同的图谱体系，区域之间没有直接对应关系**——这印证了第58行原本的推测，现在有据可查。
+**未核实到的部分**：AAL-424 具体由谁在何时基于什么方法从原始 AAL 扩展而来、有没有独立的图谱论文/引用，两个信息来源都没有给出，只说"BrainLM 用它"。如果论文里要写这个图谱的方法学出处，还需要再查一轮（可能要找 BrainLM 官方 GitHub 仓库或论文正文的 supplementary）。
+
+### 3c. 98项后期结构特征——本轮确认追不到，原因写清楚（NOT VERIFIED，非因偷懒）
+
+排查过程：
+
+1. `run_structural_fusion_v2.py`、`run_structural_fusion_locked.py`（这两个文件是仓库里仅有的、和"98项结构特征"相关的、被 `code_hashes` 锁定的代码）**只读取一个预先算好的 `volume_fractions` 数组**，代码本身不包含任何分割/图谱定义逻辑。
+2. `reproduction/legacy_manifest.json`、`reference_manifest.json` 里也没有任何指向"结构分割脚本"的条目。
+3. 逐个检查了 Google Drive `Colab Notebooks/` 目录下全部 ADHD 相关笔记本（`ADHD_sliceCNN`、`ADHD_ROI-guided`、`ADHD_abalation`、`ADHD_combat`、`ADHD-fmri`、`ADHD_fMRI_BrainLM_A424`、`ADHD_MRI_Swin_first_round`、`ADHD_recap`、`06_fmri_reproducible_benchmark`、`Peking1_ADHD200`），搜索 aparc/aseg/FreeSurfer/FastSurfer/SynthSeg/Desikan/volume_fraction/98 region/intracranial 等关键词，**没有一本包含98项结构特征的生成代码**。
+4. `docs/structural_functional_fusion.md` 提到该分析的"完整冻结规格"记在一个 `protocol.json`（"release bundle"）里，但这个文件本轮在 git 仓库和 Drive 里都没找到，可能只存在于服务器上。
+5. 服务器访问信息在 `reproduction/private/PRIVATE_LOCATIONS.md`（本地、已被 `.gitignore` 排除），本轮**没有登录服务器去找**——这需要你确认是否要为此专门登录（handoff.md 明确要求"不因交接重新启动训练"，登录只读查文件本身风险很低，但仍属于超出"本地归档梳理"范围的操作，先确认再做）。
+
+**目前能确定的**："68 cortical + 30 subcortical/CSF" 这个数字组合（`docs/structural_functional_fusion.md` 原文）在结构影像里是一个常见特征模式——68=34×2，是 FreeSurfer 标准皮层分割（Desikan-Killiany atlas）的典型区域数，30 也接近 FreeSurfer `aseg` 标准皮层下+脑室结构计数。**但这只是基于数字的推测（INFERRED），不是从代码里核实出来的结论，不能写进论文当作事实**。真正的分割工具名称，需要服务器上的脚本或该 `protocol.json` 才能实锤。
 
 ## 5. 建议的下一步（PROPOSED，未执行）
 
-1. 追查98项结构特征的生成脚本/图谱来源（很可能在私有服务器预处理流程或另一个 Colab 笔记本里，不在当前 git 树）。
-2. 如果98项结构特征确认是另一套图谱，需要在论文方法部分明确写清楚："早期 ROI-CNN 的假说驱动区域选择"和"后期结构+功能融合分析的全脑自动分割"是两种不同设计哲学，不能暗示后者继承了前者的解剖假设。
-3. 如果用户希望论文正式引用本文档第3节的文献，建议逐篇由用户或人类审阅者复核摘要匹配度后再定稿引用列表（本文档的检索由 PubMed 工具完成，DOI 已核验存在，但未做全文通读式的引用适配审查）。
+1. **98项结构特征的图谱溯源**：需要你决定是否授权登录服务器只读查找该分割脚本/`protocol.json`；如果你自己记得当时用的是什么工具（FreeSurfer？FastSurfer？其他？），直接告诉我比翻服务器更快。
+2. 如果确认98项特征是全脑自动分割（不是假说驱动的15区选择），需要在论文方法部分明确写清楚："早期 ROI-CNN 的假说驱动区域选择"和"后期结构+功能融合分析的全脑自动分割"是两种不同设计哲学，不能暗示后者继承了前者的解剖假设。
+3. AAL-424 图谱本身的方法学出处（谁做的扩展、有没有独立引用）如果论文需要写，再查一轮 BrainLM 官方仓库/论文附录。
+4. 如果用户希望论文正式引用本文档第3节的文献，建议逐篇由用户或人类审阅者复核摘要匹配度后再定稿引用列表（本文档的检索由 PubMed 工具完成，DOI 已核验存在，但未做全文通读式的引用适配审查）。
 
 ## 参考文献索引
 
