@@ -79,7 +79,29 @@ for i in range(1, nParcels + 1):
 
 **结论**：A424 是 BrainLM 团队自己定义的复合图谱（Glasser HCP-MMP 皮层 + 类 Tian/Melbourne 命名风格的皮层下 + 标准小脑叶），和结构侧用的 Harvard-Oxford（ROI-CNN）、SynthSeg/Desikan-Killiany（98项结构特征）**是第三套完全独立的图谱体系**，区域定义、命名规则、粒度都不同，三者之间没有共享的解剖学定义可以直接对应。
 
-**下一步要做但本轮未做**：360个 Glasser 皮层区域的缩写代码（如 `p24`、`a32pr`、`8Av`、`47l` 等）需要按照权威的"Glasser 区域→脑叶/功能模块"对照表（该表在 Glasser 2016 论文的补充材料或社区维护的对照CSV里）才能可靠地筛出"前额叶/扣带回"子集——本轮没有找这张表，**没有凭缩写代码自己猜哪些属于PFC/扣带**，因为猜错的代价是让整个功能侧对照实验建立在错误的区域选择上。皮层下+丘脑部分（36个区域）因为命名本身就是完整单词（thalamus/caudate/putamen/pallidum/accumbens的对应缩写），可以直接可靠匹配，不需要额外查表。
+### 3c. Glasser 360皮层区域 → 前额叶/扣带回子集：找到权威对照表，已完成映射并零缺失核实（VERIFIED，2026-09-18）
+
+用的是神经影像学界长期引用的社区维护对照表 `HCP-MMP1_UniqueRegionList.csv`（`bitbucket.org/dpat/tools`），其分组和 Glasser et al. 2016（*Nature*，[DOI](https://doi.org/10.1038/nature18933)）论文补充材料里的22个功能模块一致，不是自己拍脑袋分的。已存档：[reproduction/exploratory/a424_atlas_reference/HCP-MMP1_UniqueRegionList.csv](../../reproduction/exploratory/a424_atlas_reference/HCP-MMP1_UniqueRegionList.csv)。
+
+**选定的5个皮层模块**（对应原 Harvard-Oxford 假说里的前额叶+扣带回，明确排除岛叶、运动皮层、体感皮层等不在原假说范围内的模块）：
+
+| Glasser 模块 | 每侧区域数 | 对应原假说 |
+|---|---:|---|
+| Anterior_Cingulate_and_Medial_Prefrontal | 16 | 前扣带回 + 额内侧皮层 |
+| Dorsolateral_Prefrontal | 13 | 额上回/额中回 |
+| Inferior_Frontal | 9 | 额下回三角部/盖部 |
+| Orbital_and_Polar_Frontal | 9 | 额极 + 额眶部皮层 |
+| Posterior_Cingulate | 13 | 后扣带回 |
+
+共60个区域/侧 × 2侧 = **120个皮层节点**。
+
+**映射方法与核实**：A424 图谱的节点命名格式是 `{L|R}_{区域代码}_ROI`（如 `L_a24_ROI`），与对照表的 `LR` + `region` 列可以直接拼接核对。用代码把对照表里5个目标模块的每一行构造成 `{LR}_{region}_ROI`，逐一去424个真实标签里查——**120个全部命中，零缺失**，不存在拼不上的名字。
+
+**加上之前已核实的皮层下+丘脑28个节点**（尾状核腹/背侧、壳核腹内侧/背外侧、苍白球、伏隔核、8对功能丘脑分区，各左右一个；不含杏仁核海马，与结构侧的排除标准一致），**功能侧生物学子集总计 148 个节点，占全部424个的35%**——和结构侧36/98≈37%的比例接近，两边的"收窄幅度"大致可比。
+
+完整节点索引已存档：[reproduction/exploratory/a424_atlas_reference/a424_biological_subset_node_indices.txt](../../reproduction/exploratory/a424_atlas_reference/a424_biological_subset_node_indices.txt)。
+
+**下一步（PROPOSED，未执行）**：要真正跑功能侧的对照实验，比结构侧复杂得多——不是简单换列，功能特征是节点两两之间的连接（边），需要在148×148的协方差子矩阵上重新做 geometric mean + tangent space 变换（不能直接从已算好的424维tangent向量里切子集），还要决定原冻结流程里的"ANOVA top-1000边选择"这一步在边总数骤降之后要不要等比例缩小阈值。这是一次新的、工程量更大的实验，需要先确认要不要做。
 
 ### 3c. 98项后期结构特征＝SynthSeg 2.0（VERIFIED，2026-09-17 服务器只读核实）
 
