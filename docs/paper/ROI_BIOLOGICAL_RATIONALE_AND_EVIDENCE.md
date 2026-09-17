@@ -59,15 +59,27 @@
 
 15个命名区域（10皮层+5×2皮层下），本轮已从 `utils/roi.py` 逐字核实。
 
-### 3b. 424维功能特征＝BrainLM 的 "AAL-424" 图谱（VERIFIED，本轮新查）
+### 3b. 424维功能特征＝BrainLM 官方 A424 图谱：Glasser HCP-MMP皮层 + 皮层下 + 小脑（VERIFIED，2026-09-18 用原始图谱文件核实，纠正此前记录）
 
-`reproduction/legacy/build_multimodal_manifest.py:199` 里时间序列路径写的是 `fmri/brainlm_a424/timeseries_raw`，命名直接指向 BrainLM 这个 fMRI 基础模型。经网络检索交叉核对两个独立来源：
+**纠正**：本文档早前版本写"A424 = AAL-424 图谱"，依据的是网络检索的二手转述（BrainLM Hugging Face 模型卡文字）。这轮直接找到并解析了 BrainLM 官方仓库（`github.com/vandijklab/BrainLM`，`ADHD_fMRI_BrainLM_A424.ipynb` 第4个 cell 里明确 `git clone` 的正是这个仓库）里的原始图谱定义文件 `toolkit/atlases/A424.dlabel.nii`（CIFTI 格式，自带424个区域的解剖标签表），**确认"AAL-424"这个说法是不准确的二手转述，真实图谱另有其名**：
 
-- BrainLM 官方 Hugging Face 模型卡（`vandijklab/brainlm`）原文："Brain Parcellation: AAL-424 atlas is used to divide the brain into 424 regions."
-- BrainLM 论文相关检索结果同样确认 424 分区来自 "AAL-424" 图谱。
+- **索引1-360（皮层，共360个区域）**：命名格式为 `R_V1_ROI`、`L_p24_ROI`、`R_8Av_ROI` 等——这是 **Glasser et al. 2016（HCP Multi-Modal Parcellation, MMP1.0）** 的标准180区/侧命名，不是 AAL 命名（AAL 区域名类似 "Frontal_Sup_L"，和这里完全不同）。
+- **索引361-396（皮层下+丘脑，共36个区域）**：`mAmyg/lAmyg`（杏仁核内侧/外侧）、`rHipp/cHipp`（海马前/后）、`vCa/dCa`（尾状核腹侧/背侧）、`GP`（苍白球）、`NAC`（伏隔核）、`vmPu/dlPu`（壳核腹内侧/背外侧）、以及8对功能连接定义的丘脑分区（`mPFtha`内侧前额叶连接丘脑、`mPMtha`内侧运动前区连接丘脑、`Stha`躯体感觉连接丘脑、`rTtha/cTtha`颞叶连接丘脑、`PPtha`后顶叶连接丘脑、`Otha`枕叶连接丘脑、`lPFtha`外侧前额叶连接丘脑，各左右一对）——命名风格符合基于皮层连接目标定义丘脑分区的经典方法（如 Behrens et al. 概率纤维束成像丘脑连接分区），具体引用本轮未做穷尽式核实。
+- **索引397-424（小脑，共28个区域）**：`Left/Right/Vermis_I-IV`、`_V`、`_VI`、`_Crus_I`、`_Crus_II`、`_VIIb`、`_VIIIa`、`_VIIIb`、`_IX`、`_X`——标准小脑叶分区命名（左/右半球+蚓部，按小叶）。
+- 360+36+28 = **424**，与项目实际使用的维度精确吻合。
 
-**结论**：A424 = BrainLM 使用的 "AAL-424" 图谱，424个功能分区，是比经典 AAL(116区)细得多的一套独立分区方案。**它和结构侧用的 Harvard-Oxford 完全是两套不同的图谱体系，区域之间没有直接对应关系**——这印证了第58行原本的推测，现在有据可查。
-**未核实到的部分**：AAL-424 具体由谁在何时基于什么方法从原始 AAL 扩展而来、有没有独立的图谱论文/引用，两个信息来源都没有给出，只说"BrainLM 用它"。如果论文里要写这个图谱的方法学出处，还需要再查一轮（可能要找 BrainLM 官方 GitHub 仓库或论文正文的 supplementary）。
+**列序映射已 100% 核实，不是推测**：BrainLM 官方工具脚本 `toolkit/BrainLM_Toolkit.py` 里 `convert_fMRIvols_to_A424()` 函数的抽取循环是：
+```python
+for i in range(1, nParcels + 1):
+    ind = (label == i)
+    ...
+    pmTS[:, i - 1] = np.nanmean(y, axis=1)
+```
+即输出的第 `i-1` 列（0基）对应图谱整数标签值 `i`（1基），与 dlabel 文件里标签表的键值编号完全一致。因此：**本项目 `timeseries.npz` 里的第 j 列（j=0..423），解剖名字就是 dlabel 标签表里键值 j+1 对应的名字**——这条映射链是从"这个项目实际克隆的官方仓库→官方抽取代码→官方标签表"逐环核实的，不是猜测或近似。
+
+**结论**：A424 是 BrainLM 团队自己定义的复合图谱（Glasser HCP-MMP 皮层 + 类 Tian/Melbourne 命名风格的皮层下 + 标准小脑叶），和结构侧用的 Harvard-Oxford（ROI-CNN）、SynthSeg/Desikan-Killiany（98项结构特征）**是第三套完全独立的图谱体系**，区域定义、命名规则、粒度都不同，三者之间没有共享的解剖学定义可以直接对应。
+
+**下一步要做但本轮未做**：360个 Glasser 皮层区域的缩写代码（如 `p24`、`a32pr`、`8Av`、`47l` 等）需要按照权威的"Glasser 区域→脑叶/功能模块"对照表（该表在 Glasser 2016 论文的补充材料或社区维护的对照CSV里）才能可靠地筛出"前额叶/扣带回"子集——本轮没有找这张表，**没有凭缩写代码自己猜哪些属于PFC/扣带**，因为猜错的代价是让整个功能侧对照实验建立在错误的区域选择上。皮层下+丘脑部分（36个区域）因为命名本身就是完整单词（thalamus/caudate/putamen/pallidum/accumbens的对应缩写），可以直接可靠匹配，不需要额外查表。
 
 ### 3c. 98项后期结构特征＝SynthSeg 2.0（VERIFIED，2026-09-17 服务器只读核实）
 
@@ -85,7 +97,7 @@
 
 1. （可选）如果需要论文正文精确到"98个区域分别叫什么名字"，可以进一步在服务器上读一份具体输出 CSV 的列名（`runs/standard_2026090*/*.csv` 一类路径），核对 SynthSeg 内置皮层图谱的具体区域命名规则；本轮未做，因为工具身份的核心问题已经解决，不是当前论文主线的阻塞项。
 2. 论文方法部分需明确写清楚："早期 ROI-CNN 的假说驱动区域选择（Harvard-Oxford，15区）"和"后期结构+功能融合分析的全脑自动分割（SynthSeg 2.0，全脑无先验筛选）"是两种不同设计哲学，后者不继承前者的解剖假设。
-3. AAL-424 图谱本身的方法学出处（谁做的扩展、有没有独立引用）如果论文需要写，再查一轮 BrainLM 官方仓库/论文附录。
+3. 需要找到权威的"Glasser HCP-MMP 区域→脑叶/功能模块"对照表，才能可靠筛出360个皮层区域里的前额叶/扣带回子集（见3b节末尾）；皮层下+丘脑的36个区域已可直接匹配，不需要这一步。
 4. 如果用户希望论文正式引用本文档第3节的文献，建议逐篇由用户或人类审阅者复核摘要匹配度后再定稿引用列表（本文档的检索由 PubMed 工具完成，DOI 已核验存在，但未做全文通读式的引用适配审查）。
 
 ## 6. 探索性对照实验：生物学子集 vs 全自动分割（2026-09-18，CV only）
