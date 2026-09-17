@@ -2,7 +2,7 @@
 
 **VERIFIED on 2026-09-14: complete, with full feature-level reproduction acceptance passed.**
 
-Source: the verified reproduction proof from the private SV002 workspace. The proof file modification time is 2026-09-11 07:39:31 UTC (16:39:31 Japan time); this is a file timestamp, not a separately recorded training-finish timestamp.
+Source: the verified reproduction proof from the private reproduction workspace. The proof file modification time is 2026-09-11 07:39:31 UTC (16:39:31 Japan time); this is a file timestamp, not a separately recorded training-finish timestamp.
 
 - 66/66 units: 45 CV and 21 LOSO; 17 model outputs per unit.
 - All validation/test prediction comparisons: maximum absolute score difference 0.0.
