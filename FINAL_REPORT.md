@@ -59,6 +59,15 @@ The [2026-09-11 audit](docs/paper/STATISTICAL_INTERPRETATION.md) corrects the ea
 
 Original protocols and machine-readable decisions are retained. New analyses are explicitly post hoc; external replication remains absent.
 
+## Biologically-motivated feature subset vs. full automatic feature set (exploratory, 2026-09-18)
+
+The original ROI-guided CNN's region choice (frontal cortex, cingulate, thalamus, caudate, putamen, pallidum, accumbens) corresponds to a real, literature-supported hypothesis — the fronto-striatal-thalamic circuit model of ADHD — recovered from project notebooks and matched to PubMed-verified citations in [`docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md`](docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md). That document also traces, for the first time, which atlas each later feature set actually uses (SynthSeg 2.0 for the 98 structural volume features; BrainLM's own Glasser HCP-MMP + subcortical + cerebellar A424 atlas for the 424 functional features), and uses that mapping to test the hypothesis directly: does restricting either feature set to the same literature-motivated regions do as well as the full automatic set, under an otherwise identical CV protocol?
+
+- **Structural** (36 of 98 SynthSeg regions, ≈37%): mean CV AUC fell from 0.618 (LR) / 0.624 (MLP) on the full region set to 0.567 / 0.567 on the biological subset — consistently worse in all 5 of 5 CV repeats for both models.
+- **Functional** (148 of 424 A424 nodes, ≈35%): mean CV AUC on the biological subset (0.621 LR / 0.625 MLP) was roughly on par with the full node set (0.615 / 0.621) — a small, inconsistent edge favoring the subset (3 of 5 repeats for both models), the opposite direction from structural.
+
+Both comparisons reused the frozen, hash-verified splits, cohorts, and covariances and reproduced the published full-feature CV baselines almost exactly (internal validity check) before comparing arms. **These are single exploratory CV runs**, not run through this project's confirmatory statistical framework (no Nadeau–Bengio corrected interval, no TOST equivalence test, no LOSO) — the 5:0 and 3:2 counts are descriptive, not significance claims. The most defensible reading is not "the hypothesis is right for function and wrong for structure"; it is that narrowing a feature set to a literature-motivated region list changes structural and functional representations asymmetrically, for reasons partly diagnosed in the same document (diffuse, age-correlated structures such as white matter and ventricles appear to inflate the full structural model's apparent advantage; connectivity features already pass through an ANOVA edge-selection step that limits how much the full node set can add). Full design, diagnostics, and caveats are in the linked document.
+
 ## Intended use of outputs
 
 The maintained analysis code and aggregate result tables are suitable for research benchmarking, methods development, and a thesis/project report. They are not suitable for clinical screening, diagnosis, treatment decisions, or individual risk communication.
@@ -70,6 +79,7 @@ The maintained analysis code and aggregate result tables are suitable for resear
 - Aggregate-only reviewer entrypoint and public-package validator in `tools/`
 - Aggregate CSV tables, figures, and replay evidence in `results/`
 - Evaluation and limitations in `RESULTS.md`, `REPRODUCIBILITY.md`, and `LIMITATIONS.md`
+- Biological ROI/node rationale and exploratory subset-vs-full comparisons in [`docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md`](docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md) and `reproduction/exploratory/`
 
 ## If the research is extended later
 
