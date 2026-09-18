@@ -59,6 +59,7 @@ The analyses do not support a reliable cross-site ADHD predictor from the availa
 - Adding BrainLM to confounds reduced performance from **0.686** to **0.622**.
 - Training-fold residualization, within-site validation, strict motion restriction, frame scrubbing, and spatial network aggregation did not reveal a stable image-derived gain.
 - A QC-locked round retraining structural, functional and non-imaging models together on one frozen protocol and three prespecified cohorts (350 / 302 / 375) gave the same picture: non-imaging control **≈ 0.71**, adding functional imaging **−0.013 (1/5 repeats positive)**, adding structural on top **−0.010 (0/5)**. See [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md).
+- An exploratory follow-up restricted the structural and functional feature sets to a literature-motivated fronto-striatal-thalamic subset (36 of 98 SynthSeg regions; 148 of 424 A424 nodes). The subset performed consistently worse for structural volumes (**0.567 vs. 0.618–0.624 AUC**, 5/5 CV repeats) but was roughly on par for functional connectivity (**0.621–0.625 vs. 0.615–0.621 AUC**, 3/5 repeats) — an asymmetric result, not a confirmed positive or negative finding. See [`docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md`](docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md).
 
 The defensible interpretation is that the dataset contains strong demographic/site/motion structure, while the tested neuroimaging features do not generalize reliably to unseen sites.
 
@@ -105,6 +106,7 @@ The final package keeps executable, tested code and reviewed aggregate evidence.
 4. Structural + functional late-fusion method and results: [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md).
 5. Confirmatory v2 analysis and post hoc audit: [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md) and [`docs/paper/`](docs/paper/).
 6. Publication-ready aggregate package: [`results/tables_figures_20260914/`](results/tables_figures_20260914/).
+7. Biological ROI/node rationale and exploratory subset-vs-full comparisons: [`docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md`](docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md) and [`reproduction/exploratory/`](reproduction/exploratory/).
 
 Aggregate tables, figures, manifests, and non-subject-level replay summaries are versioned in `results/`. Subject-level predictions, model checkpoints, raw MRI, and large intermediate arrays remain private and are not committed.
 
