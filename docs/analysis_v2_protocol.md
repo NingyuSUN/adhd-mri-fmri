@@ -247,7 +247,7 @@ Any deviation from this document after the run starts is logged in
 primary contrast, margin, and decision rules are fixed once the run starts.
 
 ## 12. Compute
-- 5A re-run: ~10 h CPU on SV002 (like 20260909).
+- 5A re-run: ~10 h CPU on the training server (like 20260909).
 - 5B LOSO: 7 outer × 3 cohorts, inner 3-fold selection; estimate ~6–10 h CPU.
 - Stats / calibration / figures: local, minutes.
 - Total wall-clock ~1 day of unattended server time + ~2–3 days analysis/writeup.

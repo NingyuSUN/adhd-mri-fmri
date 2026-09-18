@@ -119,7 +119,7 @@ for i in range(1, nParcels + 1):
 
 ### 3c. 98项后期结构特征＝SynthSeg 2.0（VERIFIED，2026-09-17 服务器只读核实）
 
-本地 git 仓库和 Google Drive Colab 笔记本里确实找不到（排查过程见上一版本的记录，结论不变：`run_structural_fusion_v2.py`/`run_structural_fusion_locked.py` 只消费一个预先算好的 `volume_fractions` 数组，两份 manifest 也没有分割脚本条目，10本 ADHD Colab 笔记本逐一搜过 aparc/aseg/FreeSurfer/FastSurfer/SynthSeg/Desikan 等关键词均无结果）。经你授权，只读登录 SV002 服务器（未修改、未重跑任何东西），在 `~/ML/synthseg_pilot_20260907/` 找到了完整的生成链路：
+本地 git 仓库和 Google Drive Colab 笔记本里确实找不到（排查过程见上一版本的记录，结论不变：`run_structural_fusion_v2.py`/`run_structural_fusion_locked.py` 只消费一个预先算好的 `volume_fractions` 数组，两份 manifest 也没有分割脚本条目，10本 ADHD Colab 笔记本逐一搜过 aparc/aseg/FreeSurfer/FastSurfer/SynthSeg/Desikan 等关键词均无结果）。经你授权，只读登录训练服务器（未修改、未重跑任何东西），在 `~/ML/synthseg_pilot_20260907/` 找到了完整的生成链路：
 
 - **工具**：SynthSeg 2.0，通过 FreeSurfer 官方分发的模型权重运行（`model_provenance.json` 记录了 `synthseg_2.0.h5`、`synthseg_parc_2.0.h5`、`synthseg_qc_2.0.h5` 三个权重文件，均从 `surfer.nmr.mgh.harvard.edu` 官方服务器下载并 SHA256 校验通过，指向 FreeSurfer 官方仓库 `github.com/freesurfer/freesurfer`）。
 - **运行方式**：`protocol.json` 明确写"SynthSeg2.0 standard with parcellation, volumes, QC, resampled image"——即标准（非 fast/robust/crop）模式，开启皮层分区（`--parc`）、体积输出、自动QC。

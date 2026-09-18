@@ -33,7 +33,7 @@ For a concise portfolio narrative and interview-ready discussion, see [PORTFOLIO
 
 ## Five-minute engineering demo
 
-This repository includes a recruiter-safe aggregate-only path that does not need private MRI data:
+This repository includes a public aggregate-only path that does not need private MRI data:
 
 ```bash
 python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart
@@ -121,7 +121,7 @@ adhd-mri-fmri/
 ├── reproduction/           # maintained fitting, statistics, verification, and tests
 ├── reporting/              # reproducible table and figure assembly scripts
 ├── tools/                  # aggregate-only quickstart and public-artifact validator
-├── demo/                   # five-minute recruiter-safe demo contract
+├── demo/                   # five-minute aggregate-only demo contract
 ├── .github/workflows/      # automated repository checks
 ├── Makefile                # local engineering entrypoints
 ├── results/                # aggregate tables, figures, and replay summaries

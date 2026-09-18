@@ -29,7 +29,7 @@ The feature-level replay is a separate, gated workflow in [`reproduction/README.
 ## Verification layers
 
 1. `pytest reproduction/tests -q` checks statistical and identity invariants.
-2. `python tools/portfolio_quickstart.py --check` checks the recruiter-safe aggregate path.
+2. `python tools/portfolio_quickstart.py --check` checks the aggregate-only path.
 3. `python tools/validate_public_artifacts.py` checks manifest hashes, counts, headers, and path redaction.
 4. The independent 66-unit replay acceptance is recorded in [`docs/paper/FRESH_REPRODUCTION_STATUS.md`](paper/FRESH_REPRODUCTION_STATUS.md).
 
