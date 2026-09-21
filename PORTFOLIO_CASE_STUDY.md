@@ -44,7 +44,7 @@ ADHD is clinically heterogeneous, and ADHD-200 combines scans from multiple hosp
 ### Evaluation and reliability
 
 - subject-level splitting to prevent slice/time-window leakage
-- repeated site-and-label-stratified cross-validation for portfolio presentation
+- repeated site-and-label-stratified cross-validation for within-dataset generalization
 - nested leave-one-site-out evaluation as a domain-shift stress test
 - preprocessing, feature selection, and residualization fit on training folds only
 - comparison with age, sex, site, motion, and QC baselines
@@ -60,7 +60,7 @@ ADHD is clinically heterogeneous, and ADHD-200 combines scans from multiple hosp
 
 ## Results and interpretation
 
-The presentation benchmark used 409 subjects and repeated four-fold cross-validation stratified jointly by site and diagnosis. Five repeats produced 20 outer evaluations, with regularization selected inside each training fold.
+The mixed-site benchmark used 409 subjects and repeated four-fold cross-validation stratified jointly by site and diagnosis. Five repeats produced 20 outer evaluations, with regularization selected inside each training fold.
 
 | Feature set | Mean AUC ± SD |
 |---|---:|

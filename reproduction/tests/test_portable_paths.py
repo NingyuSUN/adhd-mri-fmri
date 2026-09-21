@@ -41,7 +41,12 @@ def test_manifest_remapping_rejects_wrong_prefix_and_escape(tmp_path, path):
 def test_manifest_remapping_rejects_symlink_escape(tmp_path):
     data = tmp_path / "data"
     data.mkdir()
-    (data / "escape").symlink_to(tmp_path, target_is_directory=True)
+    try:
+        (data / "escape").symlink_to(tmp_path, target_is_directory=True)
+    except OSError as exc:
+        if getattr(exc, "winerror", None) == 1314:
+            pytest.skip("Windows account cannot create symlinks; this invariant runs in Linux CI")
+        raise
     with pytest.raises(ValueError):
         inventory.local_t1("original-data/escape/file", data, "original-data")
 

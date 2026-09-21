@@ -3,3 +3,7 @@
 reproduction/legacy/** -text -diff
 # User-configurable inventory helper: retain byte-exact hashes and show reviews.
 reproduction/legacy/build_multimodal_manifest.py -text diff
+
+# Aggregate package files are byte-pinned by PACKAGE_MANIFEST.json.
+# Preserve their bytes on Windows checkouts as well as Linux.
+results/tables_figures_20260914/** -text
