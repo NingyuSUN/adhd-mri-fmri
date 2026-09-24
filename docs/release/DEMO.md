@@ -9,7 +9,7 @@ Open the README. Explain two questions: improving image representation and measu
 ## 0:40–1:20 — Show a real pipeline running
 
 ```bash
-python -m adhd_portfolio demo --out artifacts/interview-demo-001
+python -m adhd_fmri_benchmark demo --out artifacts/demo-001
 ```
 
 The terminal identifies synthetic data. Open `demo.json` and the generated training history: show validation-selected C, early stopping, checkpoint replay and measured time. These timings apply only to this toy workload; neither score is a new ADHD result.

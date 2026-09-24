@@ -1,12 +1,12 @@
-> **2026-09-10 version note:** The current career portfolio is the frozen **378-person fMRI** release: image-only tangent MLP **0.6453**, full non-imaging control **0.7077**, control + imaging predictions **0.7127**. See [current case](PORTFOLIO_CASE_STUDY.md), [verified outputs](results/fmri_378) and [version map](docs/portfolio/RESULT_VERSIONS.md). The earlier text below documents historical experiments; its LOSO, cohort and model statements must not be transferred to the latest fMRI model.
+> **2026-09-10 version note:** The current release is the frozen **378-person fMRI** release: image-only tangent MLP **0.6453**, full non-imaging control **0.7077**, control + imaging predictions **0.7127**. See [current case](CASE_STUDY.md), [verified outputs](results/fmri_378) and [version map](docs/release/RESULT_VERSIONS.md). The earlier text below documents historical experiments; its LOSO, cohort and model statements must not be transferred to the latest fMRI model.
 
 ## Historical 409-subject results
 
 # Final Results
 
-## Portfolio benchmark
+## Stratified-CV benchmark
 
-The portfolio-facing endpoint is mean AUC across repeated four-fold cross-validation stratified jointly by site and diagnosis (`n=409`, five repeats, 20 outer evaluations). Imputation, scaling, and logistic-regression regularization selection are refit inside the training data of every outer fold.
+The primary endpoint is mean AUC across repeated four-fold cross-validation stratified jointly by site and diagnosis (`n=409`, five repeats, 20 outer evaluations). Imputation, scaling, and logistic-regression regularization selection are refit inside the training data of every outer fold.
 
 | Rank | Feature set | Mean AUC | SD | Mean AP | Mean balanced accuracy |
 |---:|---|---:|---:|---:|---:|

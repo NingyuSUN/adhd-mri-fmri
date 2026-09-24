@@ -9,14 +9,14 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 
 root=Path(__file__).resolve().parent.parent
-result=root/'results/fmri_378';out=root/'docs/portfolio';fig=root/'figures/fmri_378'
+result=root/'results/fmri_378';out=root/'docs/release';fig=root/'figures/fmri_378'
 def records(name):
  with (result/name).open(encoding='utf-8') as f:return list(csv.DictReader(f))
 rep={r['model']:r for r in records('representation_summary.csv')};cov={r['model']:r for r in records('demographic_increment_summary.csv')}
 WHITE='FFFFFF';NAVY='152B3C';TEAL='087E8B';MINT='DDEFEF';GOLD='B97921';GRAY='526775';LIGHT='EDF2F5'
 prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
 prs.core_properties.title='ADHD-200 fMRI | Reproducible ML/DL evaluation';prs.core_properties.author='Ningyu Sun'
-prs.core_properties.subject='Career portfolio; internal research evaluation'
+prs.core_properties.subject='Internal research evaluation'
 
 def box(sl,x,y,w,h,fill=None,line=None):
  sh=sl.shapes.add_shape(MSO_SHAPE.RECTANGLE,Inches(x),Inches(y),Inches(w),Inches(h))
@@ -94,16 +94,16 @@ card(s,.8,2.15,3.75,'35,910 rows','Test memberships, labels\nand per-fold AUC re
 card(s,4.8,2.15,3.75,'60 weight checks','Validation-only alpha\nand fusion arithmetic')
 card(s,8.8,2.15,3.75,'Preserved sources','11 archived modules\n+ 1 documented supplement')
 text(s,.95,4.85,11.4,1.0,'Table replay passed. Synthetic training passed.\nComplete raw-data reconstruction was not rerun.',25)
-s=slide('08 / Live demo','Run the pipeline, then inspect its boundaries','现场执行python -m adhd_portfolio demo --out新目录。合成120例，60训练30验证30测试，跑原MLP训练函数并重放checkpoint。合成AUC不是ADHD结果。展示一个测试，修改held-out值仍不改变trainfit。再打开真实verificationJSON讲两者区别。')
-box(s,.85,2.12,11.65,1.37,NAVY);text(s,1.1,2.43,11.1,.72,'python -m adhd_portfolio demo\n  --out artifacts/interview-demo-001',22,WHITE)
+s=slide('08 / Live demo','Run the pipeline, then inspect its boundaries','现场执行python -m adhd_fmri_benchmark demo --out新目录。合成120例，60训练30验证30测试，跑原MLP训练函数并重放checkpoint。合成AUC不是ADHD结果。展示一个测试，修改held-out值仍不改变trainfit。再打开真实verificationJSON讲两者区别。')
+box(s,.85,2.12,11.65,1.37,NAVY);text(s,1.1,2.43,11.1,.72,'python -m adhd_fmri_benchmark demo\n  --out artifacts/demo-001',22,WHITE)
 text(s,1,4.05,11.1,1.6,'120 synthetic examples · 60 / 30 / 30 split\nSaved training curve + checkpoint replay + measured timing\nThen inspect tests and the separate frozen-evidence record.',24)
 text(s,1,6.2,11.1,.35,'Synthetic scores and timing are software-demo measurements, not ADHD performance.',16,GRAY)
 s=slide('09 / Hiring relevance','One case, two technical conversations','医疗AI岗位讲QC、神经影像表示、站点与头动、非影像对照和外部验证边界。通用DS/MLE讲数据契约、版本、缓存与可运行入口、测试和资源成本。以证据解释为什么停下调参，而不是用阴性结果替代工程交付。项目主要由Ningyu主导，AI辅助开发审阅，不能转写为学生独立完成。')
 card(s,.85,2.05,5.6,'Medical / biological AI','Imaging QC and representation\nCovariate controls and site shift\nCareful limits on clinical inference')
 card(s,6.85,2.05,5.6,'Data science / ML engineering','Data contracts and reproducibility\nTestable training/evaluation paths\nNumerical debugging and model tradeoffs')
 text(s,1,4.98,11.2,.95,'Delivered: source + evidence + runnable example.\nNext evidence, not just the next architecture.',27,NAVY,True)
-text(s,1,6.32,11.2,.3,'github.com/NingyuSUN/adhd-mri-fmri · prepared locally on the portfolio branch',14,GRAY)
-prs.save(out/'ADHD_fMRI_technical_portfolio.pptx')
+text(s,1,6.32,11.2,.3,'github.com/NingyuSUN/adhd-mri-fmri · prepared locally on the fmri-benchmark-v1 branch',14,GRAY)
+prs.save(out/'ADHD_fMRI_technical_deck.pptx')
 # Lightweight standalone scientific chart in SVG, directly linked to numeric sources.
 rows=[('Pearson LR','pearson_lr'),('Pearson MLP','pearson_mlp_ens'),('Tangent LR','tangent_lr'),('Tangent MLP','tangent_mlp_ens')]
 svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">','<rect width="1200" height="520" fill="white"/>','<g font-family="Arial" fill="#152b3c">','<text x="35" y="45" font-size="26">378-person fMRI: representation comparison</text>']
@@ -144,7 +144,7 @@ for title,lines in blocks:
  ptext(42,y,title,10,True,TEAL);y-=20
  for line in lines:ptext(42,y,line,10);y-=15
  y-=16
-ptext(42,35,'github.com/NingyuSUN/adhd-mri-fmri  |  Current local portfolio release: 2026-09-10',9,False,GRAY)
+ptext(42,35,'github.com/NingyuSUN/adhd-mri-fmri  |  Current local release: 2026-09-10',9,False,GRAY)
 pdf.save()
 # Structural QA, including speaker notes and source values.
 assert len(prs.slides)==10

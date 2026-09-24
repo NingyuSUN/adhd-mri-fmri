@@ -1,4 +1,4 @@
-# Portfolio Case Study: ADHD-200 MRI/fMRI Deep Learning
+# Case Study: ADHD-200 MRI/fMRI Deep Learning
 
 ## Elevator pitch
 
@@ -44,7 +44,7 @@ ADHD is clinically heterogeneous, and ADHD-200 combines scans from multiple hosp
 ### Evaluation and reliability
 
 - subject-level splitting to prevent slice/time-window leakage
-- repeated site-and-label-stratified cross-validation for portfolio presentation
+- repeated site-and-label-stratified cross-validation as the primary within-dataset metric
 - nested leave-one-site-out evaluation as a domain-shift stress test
 - preprocessing, feature selection, and residualization fit on training folds only
 - comparison with age, sex, site, motion, and QC baselines
@@ -76,13 +76,13 @@ The project produced above-chance within-dataset image experiments, but the stro
 
 This is an important medical-AI result: model architecture alone cannot compensate for heterogeneous acquisition and confounded labels. The work demonstrates the ability to diagnose why a model fails, not just train it.
 
-The portfolio claim is therefore about engineering and experimental skill—not clinical accuracy: I implemented multiple deep-learning representations, designed leakage-safe comparisons, ran robustness analyses, and interpreted negative evidence responsibly.
+The claim is therefore about engineering and experimental rigor—not clinical accuracy: I implemented multiple deep-learning representations, designed leakage-safe comparisons, ran robustness analyses, and interpreted negative evidence responsibly.
 
 ## Technologies
 
 Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch Geometric, Hugging Face Transformers, nibabel, nilearn, ANTsPy, Google Colab, Google Drive, BIDS-style neuroimaging data, Git/GitHub.
 
-## Interview discussion points
+## Discussion points
 
 - why slice-level random splitting creates subject leakage
 - why mixed-site CV and unseen-site testing answer different questions
@@ -94,4 +94,4 @@ Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch G
 
 ## Responsible-use statement
 
-This is a research and portfolio project. It is not a clinical diagnostic tool and must not be used for screening, treatment decisions, or individual risk prediction.
+This is a research project. It is not a clinical diagnostic tool and must not be used for screening, treatment decisions, or individual risk prediction.

@@ -5,13 +5,13 @@ import pandas as pd
 
 class ImplementationExists(unittest.TestCase):
     def test_evidence_module_is_implemented(self):
-        self.assertIsNotNone(importlib.util.find_spec("adhd_portfolio.evidence"), "Evidence validation implementation is missing")
+        self.assertIsNotNone(importlib.util.find_spec("adhd_fmri_benchmark.evidence"), "Evidence validation implementation is missing")
 
 class EvidenceRules(unittest.TestCase):
     def setUp(self):
-        if importlib.util.find_spec("adhd_portfolio.evidence") is None:
+        if importlib.util.find_spec("adhd_fmri_benchmark.evidence") is None:
             self.skipTest("implementation not yet present")
-        from adhd_portfolio.evidence import validate_tables, aggregate
+        from adhd_fmri_benchmark.evidence import validate_tables, aggregate
         self.validate, self.aggregate = validate_tables, aggregate
         self.c = pd.DataFrame({"subject_id":list("abcdefgh"),"label":[0,1]*4,"site":["A"]*8})
         splits=[];pred=[]
@@ -50,14 +50,14 @@ class EvidenceRules(unittest.TestCase):
         fold,repeat,summary=self.aggregate(p)
         np.testing.assert_allclose(summary.mean_auc,1.)
     def test_replay_preserves_original_float32_image_multiplication(self):
-        from adhd_portfolio.evidence import combine_scores
+        from adhd_fmri_benchmark.evidence import combine_scores
         base=np.array([.623,.427],dtype=np.float64);image=np.array([.71234567,.39876543],dtype=np.float32);alpha=.75
         expected=(1-alpha)*base+alpha*image
         reloaded=image.astype(np.float64)
         np.testing.assert_array_equal(combine_scores(base,reloaded,alpha,image_float32=True),expected)
 
     def test_within_site_auc_ignores_cross_site_pairs(self):
-        from adhd_portfolio.evidence import within_site_auc
+        from adhd_fmri_benchmark.evidence import within_site_auc
         p=pd.DataFrame({"site":["A","A","B","B"],"y":[0,1,0,1],"score":[.1,.2,.8,.9]})
         self.assertEqual(within_site_auc(p),1.)
 

@@ -1,4 +1,4 @@
-> **2026-09-10 version note:** The current career portfolio is the frozen **378-person fMRI** release: image-only tangent MLP **0.6453**, full non-imaging control **0.7077**, control + imaging predictions **0.7127**. See [current case](PORTFOLIO_CASE_STUDY.md), [verified outputs](results/fmri_378) and [version map](docs/portfolio/RESULT_VERSIONS.md). The earlier text below documents historical experiments; its LOSO, cohort and model statements must not be transferred to the latest fMRI model.
+> **2026-09-10 version note:** The current release is the frozen **378-person fMRI** release: image-only tangent MLP **0.6453**, full non-imaging control **0.7077**, control + imaging predictions **0.7127**. See [current case](CASE_STUDY.md), [verified outputs](results/fmri_378) and [version map](docs/release/RESULT_VERSIONS.md). The earlier text below documents historical experiments; its LOSO, cohort and model statements must not be transferred to the latest fMRI model.
 
 # Methods
 

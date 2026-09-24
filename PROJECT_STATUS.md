@@ -1,8 +1,8 @@
-> **2026-09-10 version note:** The current career portfolio is the frozen **378-person fMRI** release: image-only tangent MLP **0.6453**, full non-imaging control **0.7077**, control + imaging predictions **0.7127**. See [current case](PORTFOLIO_CASE_STUDY.md), [verified outputs](results/fmri_378) and [version map](docs/portfolio/RESULT_VERSIONS.md). The earlier text below documents historical experiments; its LOSO, cohort and model statements must not be transferred to the latest fMRI model.
+> **2026-09-10 version note:** The current release is the frozen **378-person fMRI** release: image-only tangent MLP **0.6453**, full non-imaging control **0.7077**, control + imaging predictions **0.7127**. See [current case](CASE_STUDY.md), [verified outputs](results/fmri_378) and [version map](docs/release/RESULT_VERSIONS.md). The earlier text below documents historical experiments; its LOSO, cohort and model statements must not be transferred to the latest fMRI model.
 
 # Project Status
 
-**Status: completed deep-learning portfolio case study (September 2026).**
+**Status: completed deep-learning case study (September 2026).**
 
 The original goal was to test whether structural MRI and resting-state fMRI could support an ADHD prediction model. That question has been evaluated with subject-level and site-held-out protocols. The project is complete as a research result, although the final result is not a clinically useful predictor.
 
@@ -29,7 +29,7 @@ The original goal was to test whether structural MRI and resting-state fMRI coul
 
 No tested image-derived model demonstrated stable, confound-independent generalization across sites. The project therefore stops before costly Transformer fine-tuning. The frozen representation failed the prespecified transfer gate, and simpler image features also failed multiple robustness checks.
 
-This is a valid scientific endpoint and a strong portfolio outcome: it documents a complete multimodal deep-learning workflow, prevents overclaiming, and provides a reproducible benchmark for future work.
+This is a valid scientific endpoint: it documents a complete multimodal deep-learning workflow, prevents overclaiming, and provides a reproducible benchmark for future work.
 
 ## Optional future research
 

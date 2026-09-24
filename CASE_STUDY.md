@@ -32,4 +32,4 @@ For medical AI roles, the case demonstrates neuroimaging QC, explicit covariate 
 
 I led the project with AI-assisted implementation and review. This release replays frozen outputs, exercises real split preparation, and runs a synthetic training demonstration; it does not claim a fresh full 15-fold training run or raw-image reconstruction. Historical 409-person and structural experiments are versioned separately.
 
-[Code and quickstart](README.md) · [Evidence](results/fmri_378/verification.json) · [Technical deck](docs/portfolio/ADHD_fMRI_technical_portfolio.pptx) · [Demo](docs/portfolio/DEMO.md)
+[Code and quickstart](README.md) · [Evidence](results/fmri_378/verification.json) · [Technical deck](docs/release/ADHD_fMRI_technical_deck.pptx) · [Demo](docs/release/DEMO.md)

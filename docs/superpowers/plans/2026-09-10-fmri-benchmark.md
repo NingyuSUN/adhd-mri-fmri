@@ -1,6 +1,6 @@
-# fMRI portfolio implementation plan
+# fMRI benchmark implementation plan
 
-**Goal:** Execute the user-approved career portfolio route from the September 10 integrated strategy.
+**Goal:** Execute the user-approved release plan from the September 10 integrated strategy.
 **Architecture:** Preserve frozen scientific sources; add a small package for strict evidence replay, a synthetic ML/DL smoke example, and explicit path relocation for authorized-data reruns. Generate public aggregates and presentations from verified outputs.
 **Tech stack:** Python, pandas/NumPy/scikit-learn/PyTorch/nilearn, unittest, editable PPTX.
 **Spec:** User approved route 2: latest results, runnable code, reproducibility, correctness checks, one-page case, technical slides and short demo; both medical-AI and general DS/MLE narratives.
@@ -18,7 +18,7 @@
 - [x] Tests: unchanged training preprocessing after perturbing held-out inputs; alpha tie policy; synthetic training and checkpoint predictions.
 - [x] Add frozen runtime loader and non-destructive path wrapper; preflight inputs and environment, refuse reused output directories; run prepare-only on existing cohort, no original full training.
 - [x] Synthetic demo: existing LR/MLP implementation, explicit synthetic data, checkpoint replay, learning curves and measured resource context.
-- [x] Update README, results/version index, model card, reproducibility and one-page career case. Preserve historical evidence in clearly labeled paths.
+- [x] Update README, results/version index, model card, reproducibility and one-page case study. Preserve historical evidence in clearly labeled paths.
 - [x] Generate 10-slide English technical deck with Chinese presenter notes plus demo transcript; inspect rendered pages and numerical content.
 - [x] Run unit/integration tests, source hashes, real prediction replay, package import and CLI, source/diff/private-file audit; record exact limitations and completion.
 

@@ -1,4 +1,10 @@
-## 2026-09-10 — fMRI career portfolio packaging
+## 2026-09-24 — Naming cleanup
+
+- Renamed the release branch to `fmri-benchmark-v1`, the package to `adhd_fmri_benchmark` (command `adhd-fmri-benchmark`), the release documents folder to `docs/release/`, and the case study to `CASE_STUDY.md`. Wording now describes the work as a research benchmark.
+- Regenerated the technical deck and case-study PDF from `scripts/build_release_assets.py`; only the renamed strings changed.
+- Frozen scientific sources in `frozen_v1/` were moved with the package but not edited; their recorded hashes are unchanged.
+
+## 2026-09-10 — fMRI release packaging
 
 - Added current 378-person representation and demographic-control evidence, separate from 409-person and structural history.
 - Preserved scientific source hashes; added CLI evidence replay, synthetic demo and path-only runtime wrappers.
@@ -16,8 +22,8 @@
 
 ## 2026-09-04 — Final benchmark release
 
-- Added the completed repeated site-and-label-stratified portfolio benchmark (`n=409`, 20 outer evaluations).
-- Added `09_portfolio_site_stratified_cv.ipynb` and its aggregate result table.
+- Added the completed repeated site-and-label-stratified benchmark (`n=409`, 20 outer evaluations).
+- Added `09_benchmark_site_stratified_cv.ipynb` and its aggregate result table.
 - Locked the strict nested LOSO fMRI benchmark.
 - Added confound, motion-restricted, residualized, within-site, scrubbing, and spatial-module results.
 - Documented the decision not to proceed with Transformer fine-tuning after the frozen representation failed the transfer gate.

@@ -1,4 +1,4 @@
-# Portfolio release verification — 2026-09-10
+# Release verification — 2026-09-10
 
 - **Installed package:** final wheel built and installed locally with no dependency downloads; imported all 12 preserved scientific modules.
 - **Tests:** 19 tests passed, zero failures/errors/skips, executed against the installed final wheel with the existing recorded Windows CPU dependencies.

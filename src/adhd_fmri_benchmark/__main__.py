@@ -3,7 +3,7 @@ import argparse,json
 from pathlib import Path
 
 def main():
-    parser=argparse.ArgumentParser(description='ADHD-200 fMRI portfolio: evidence replay, synthetic demo and frozen runtime preflight')
+    parser=argparse.ArgumentParser(description='ADHD-200 fMRI benchmark: evidence replay, synthetic demo and frozen runtime preflight')
     commands=parser.add_subparsers(dest='command',required=True)
     evidence=commands.add_parser('verify',help='Replay local frozen evidence; export only aggregate metrics')
     evidence.add_argument('--release',type=Path,required=True);evidence.add_argument('--out',type=Path,required=True)

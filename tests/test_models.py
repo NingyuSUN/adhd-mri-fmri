@@ -7,13 +7,13 @@ import pandas as pd
 
 class ModelInterfaces(unittest.TestCase):
     def test_frozen_loader_exists(self):
-        self.assertIsNotNone(importlib.util.find_spec('adhd_portfolio.frozen'),'Frozen model loader is missing')
+        self.assertIsNotNone(importlib.util.find_spec('adhd_fmri_benchmark.frozen'),'Frozen model loader is missing')
 
 class ModelBoundaries(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        if importlib.util.find_spec('adhd_portfolio.frozen') is None:raise unittest.SkipTest('implementation not yet present')
-        from adhd_portfolio.frozen import load_modules
+        if importlib.util.find_spec('adhd_fmri_benchmark.frozen') is None:raise unittest.SkipTest('implementation not yet present')
+        from adhd_fmri_benchmark.frozen import load_modules
         cls.modules=load_modules()
     def test_feature_selection_and_scaling_ignore_held_out_values_and_labels(self):
         rng=np.random.default_rng(2);x=rng.normal(size=(40,12));y=np.arange(40)%2;tr=np.arange(24)
@@ -36,7 +36,7 @@ class ModelBoundaries(unittest.TestCase):
         a,ma,_=fn(data,tr);data2=data[:8]+[d*10 for d in data[8:]];b,mb,_=fn(data2,tr)
         np.testing.assert_allclose(ma.mean_,mb.mean_,rtol=0,atol=1e-12);np.testing.assert_allclose(a[tr],b[tr],rtol=0,atol=1e-7)
     def test_runtime_relocation_is_reset_between_invocations(self):
-        from adhd_portfolio.frozen import relocate,SOURCE
+        from adhd_fmri_benchmark.frozen import relocate,SOURCE
         with tempfile.TemporaryDirectory() as temp:
             a=Path(temp)/'one';b=Path(temp)/'two'
             relocate(self.modules,a);relocate(self.modules,b)
@@ -44,7 +44,7 @@ class ModelBoundaries(unittest.TestCase):
             self.assertEqual(self.modules['run_repeated_connectome'].BASE,SOURCE)
 
     def test_existing_output_is_refused_before_loading_or_writing(self):
-        from adhd_portfolio.frozen import run_stage
+        from adhd_fmri_benchmark.frozen import run_stage
         from types import SimpleNamespace
         with tempfile.TemporaryDirectory() as temp:
             runtime=Path(temp)/'runtime';runtime.mkdir();out=Path(temp)/'out';out.mkdir()
@@ -54,7 +54,7 @@ class ModelBoundaries(unittest.TestCase):
             self.assertEqual(marker.read_text(),'keep')
 
     def test_alpha_ties_choose_zero_image_weight(self):
-        from adhd_portfolio.evidence import select_alpha
+        from adhd_fmri_benchmark.evidence import select_alpha
         y=np.array([0,1,0,1]);p=np.array([.1,.9,.2,.8])
         self.assertEqual(select_alpha(y,p,p)[0],0.)
         self.assertEqual(self.modules['run_incremental_imaging'].choose_alpha(y,p,p)[0],0.)

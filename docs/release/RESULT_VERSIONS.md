@@ -1,9 +1,9 @@
 # Result versions and evidence map
 
-| Version | People / protocol | Role in this portfolio | Evidence |
+| Version | People / protocol | Role in this release | Evidence |
 |---|---|---|---|
 | Historical fMRI | 409; repeated 4-fold and separate historical LOSO | Earlier BrainLM/FC/CNN/Transformer experiments | [Archived overview](historical_README.md), [historical results](../../RESULTS.md#historical-409-subject-results) |
-| Frozen fMRI v1 | 378; 5 repeats × 3 folds, 201/51/126 | Current representation and fuller-control story | [Verified tables](../../results/fmri_378), [source inventory](../../src/adhd_portfolio/frozen_v1/sources.json), [config](../../configs/fmri_v1.json) |
+| Frozen fMRI v1 | 378; 5 repeats × 3 folds, 201/51/126 | Current representation and fuller-control story | [Verified tables](../../results/fmri_378), [source inventory](../../src/adhd_fmri_benchmark/frozen_v1/sources.json), [config](../../configs/fmri_v1.json) |
 | Structural/functional fusion v1 | 350 / 302 / 375; QC sensitivity cohorts | Separate extension | [Fusion report](../structural_functional_fusion.md) |
 | Structural fusion v2 | Separate currently running study | Not included in this release; no final claims | Requires separate completion, downstream stats and verification |
 

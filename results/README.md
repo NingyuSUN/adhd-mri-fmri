@@ -9,7 +9,7 @@ This folder contains small, non-identifying summary tables for the locked final 
 | File | Contents |
 |---|---|
 | `structural_mri_summary.csv` | locked structural MRI results and matched baselines |
-| `fmri_portfolio_stratified_cv_summary.csv` | repeated site+label-stratified 4-fold CV, five repeats |
+| `fmri_benchmark_stratified_cv_summary.csv` | repeated site+label-stratified 4-fold CV, five repeats |
 | `fmri_mixed_site_model_sweep_cv.csv` | follow-up mixed-site logistic/SVM/MLP comparison |
 | `fmri_mixed_site_model_sweep_holdout.csv` | pre-specified 80/20 comparison split |
 | `fmri_end_to_end_summary.csv` | image-only A424 1D-CNN and temporal Transformer summary |

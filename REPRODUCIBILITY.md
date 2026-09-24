@@ -1,4 +1,4 @@
-# Reproducing the fMRI portfolio
+# Reproducing the fMRI benchmark
 
 The package distinguishes four levels. Passing one level does not imply the next.
 
@@ -18,7 +18,7 @@ python -m venv .venv
 # Activate with .venv/bin/activate on POSIX, or .venv/Scripts/Activate.ps1 on PowerShell.
 python -m pip install -e ".[models]"
 python -m unittest discover -s tests -v
-python -m adhd_portfolio demo --out artifacts/demo-001
+python -m adhd_fmri_benchmark demo --out artifacts/demo-001
 ```
 
 `requirements-fmri-verified.txt` records the exact locally exercised Windows CPU dependencies. `pyproject.toml` supplies broader installation constraints for the example. Broad compatibility is not numerical equivalence: the full frozen runner checks exact recorded package versions and the nilearn numerical source hash before execution. A clean dependency installation on another OS has not been verified. Historical notebook dependencies are separate from this package.
@@ -34,7 +34,7 @@ The original runtime installed nilearn 0.12.1, nibabel 5.3.2 and packaging 25.0 
 The local archival release is named `ADHD_fMRI_frozen_2026-09-08` and includes `MANIFEST.json` and three `runs/` directories. It is separate from the repository and is not publicly redistributed.
 
 ```bash
-python -m adhd_portfolio verify --release /path/to/ADHD_fMRI_frozen_2026-09-08 --out artifacts/evidence-001
+python -m adhd_fmri_benchmark verify --release /path/to/ADHD_fMRI_frozen_2026-09-08 --out artifacts/evidence-001
 ```
 
 The verifier checks manifest hashes for every file it uses, role/label/site consistency, exactly one test prediction per person/model/repeat, matching cohorts across stages, fold and repeat aggregation, and all 60 validation-selected weights. Outputs are written only after every check passes. This is table-level independent replay, not independent reconstruction of raw preprocessing or refitting of every model.
@@ -58,21 +58,21 @@ The time-series NPZ requires data, offsets, lengths and subject_id; the feature 
 Start with preflight; it reports missing inputs and environment differences without training:
 
 ```bash
-python -m adhd_portfolio frozen --runtime-root /path/to/runtime --stage representation --out /separate/path/repeated-new
+python -m adhd_fmri_benchmark frozen --runtime-root /path/to/runtime --stage representation --out /separate/path/repeated-new
 ```
 
 Prepare splits only (output must be new and outside the runtime):
 
 ```bash
-python -m adhd_portfolio frozen --runtime-root /path/to/runtime --stage representation --out /separate/path/prepare-new --prepare-only
+python -m adhd_fmri_benchmark frozen --runtime-root /path/to/runtime --stage representation --out /separate/path/prepare-new --prepare-only
 ```
 
 With inputs and environment matched, a deliberate complete rerun uses three stages:
 
 ```bash
-python -m adhd_portfolio frozen --runtime-root /path/to/runtime --stage representation --out /separate/path/repeated-new --execute
-python -m adhd_portfolio frozen --runtime-root /path/to/runtime --stage site_motion_increment --parent /separate/path/repeated-new --out /separate/path/increment-new --execute
-python -m adhd_portfolio frozen --runtime-root /path/to/runtime --stage demographic_increment --parent /separate/path/increment-new --out /separate/path/demographic-new --execute
+python -m adhd_fmri_benchmark frozen --runtime-root /path/to/runtime --stage representation --out /separate/path/repeated-new --execute
+python -m adhd_fmri_benchmark frozen --runtime-root /path/to/runtime --stage site_motion_increment --parent /separate/path/repeated-new --out /separate/path/increment-new --execute
+python -m adhd_fmri_benchmark frozen --runtime-root /path/to/runtime --stage demographic_increment --parent /separate/path/increment-new --out /separate/path/demographic-new --execute
 ```
 
 Do not reuse the prepare-only directory for training. The wrapper refuses existing outputs and writes no source or input changes. Full training can be expensive; its duration and peak RAM were not measured by this packaging task. Stage 2 requires the parent checkpoints; stage 3 requires parent validation predictions and the fuller demographic metadata. The original archived cohort must already contain these audited fields.
@@ -83,13 +83,13 @@ Do not reuse the prepare-only directory for training. The wrapper refuses existi
 - Only the three selected entry points are supported through the wrapper. Other preserved modules are import dependencies, not newly supported standalone commands.
 - Original repeated-MLP seeds depend on fold, not repeat; the same three seed identities are reused across repeats. This historical choice is preserved, not silently changed.
 - Five repeats reuse participants. SD/ranges are descriptive. This package adds no claim of a formal independence-adjusted CI, equivalence, calibration or external validation.
-- [Version index](docs/portfolio/RESULT_VERSIONS.md) separates 409-person history, 378-person fMRI and structural/fusion cohorts.
+- [Version index](docs/release/RESULT_VERSIONS.md) separates 409-person history, 378-person fMRI and structural/fusion cohorts.
 
 ## Rebuild presentation artifacts
 
 ```bash
 python -m pip install -e ".[slides]"
-python scripts/build_portfolio_assets.py
+python scripts/build_release_assets.py
 ```
 
 The generator reads the verified aggregate CSVs and produces an editable 10-slide PPTX with Chinese speaker notes, a single-page English PDF, and the SVG result chart. The slide bounds and headline values are checked during generation; every page was also rendered and visually inspected locally. CI configuration is provided but its GitHub-hosted run has not occurred in this local task.

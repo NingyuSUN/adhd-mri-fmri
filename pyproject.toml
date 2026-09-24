@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "adhd-fmri-portfolio"
+name = "adhd-fmri-benchmark"
 version = "1.0.0"
 description = "Evidence replay and reproducible interfaces for an ADHD-200 fMRI case study"
 requires-python = ">=3.12"
@@ -14,10 +14,10 @@ models = ["torch>=2.6", "nilearn==0.12.1", "nibabel==5.3.2", "packaging==25.0"]
 slides = ["python-pptx==1.0.2", "reportlab==4.4.9"]
 
 [project.scripts]
-adhd-portfolio = "adhd_portfolio.__main__:main"
+adhd-fmri-benchmark = "adhd_fmri_benchmark.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-adhd_portfolio = ["frozen_v1/*.json", "frozen_v1/*.py"]
+adhd_fmri_benchmark = ["frozen_v1/*.json", "frozen_v1/*.py"]
