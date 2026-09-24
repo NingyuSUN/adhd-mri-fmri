@@ -1,6 +1,7 @@
 ## 2026-09-24 — Naming cleanup
 
 - Renamed the case study to `CASE_STUDY.md`, the aggregate quickstart to `tools/quickstart.py` (report schema `quickstart.v1`, default output `artifacts/quickstart`), and the site-stratified CV summary to `results/fmri_benchmark_stratified_cv_summary.csv`. Wording now describes the work as a research benchmark. The release branch is now `fmri-benchmark-v1`.
+- Added `docs/paper/LITERATURE_AND_NEXT_STEPS_20260916_ZH.md`: a targeted comparison with six published ADHD-200/neuroimaging studies and a proposed four-stage follow-up plan (from the `paper-hardening-20260911` branch, rewritten for public readers).
 
 # Changelog
 
