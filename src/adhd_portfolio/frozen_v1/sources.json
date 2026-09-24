@@ -1,7 +1,7 @@
 [
   {
     "file": "build_multimodal_manifest.py",
-    "sha256": "5dd01f8908388720608aac3fb7378bcde58bda39f4b1d018552412f108da3abf",
+    "sha256": "1a141aa1a1208b46769c055d6d1582a4486a93fafd19d22565e3e4bd07a59d15",
     "origin": "frozen-v1/code/build_multimodal_manifest.py",
     "archived": true
   },
