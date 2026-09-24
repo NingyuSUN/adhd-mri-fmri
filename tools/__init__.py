@@ -1,1 +1,1 @@
-"""Small, dependency-light portfolio tooling for aggregate repository artifacts."""
+"""Small, dependency-light tooling for aggregate repository artifacts."""

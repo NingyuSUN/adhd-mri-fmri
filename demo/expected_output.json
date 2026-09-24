@@ -1,5 +1,5 @@
 {
-  "schema_version": "portfolio-quickstart.v1",
+  "schema_version": "quickstart.v1",
   "required_models": 7,
   "required_contrasts": 9,
   "output_files": ["summary.json", "summary.md"],

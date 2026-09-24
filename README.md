@@ -57,11 +57,11 @@ See [results](RESULTS.md) and the [statistical interpretation](docs/paper/STATIS
 From the repository root, using Python 3.10 or later:
 
 ```bash
-python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart
+python tools/quickstart.py --output-dir artifacts/quickstart
 python tools/validate_public_artifacts.py
 ```
 
-Open `artifacts/portfolio_quickstart/summary.md` for the generated report and
+Open `artifacts/quickstart/summary.md` for the generated report and
 the [table and figure index](results/tables_figures_20260914/index.html) for the
 full aggregate package.
 
@@ -90,7 +90,7 @@ structure, overlapping QC cohorts, limited sample size, and selection instabilit
 restrict interpretation. Negative findings apply to the tested data and methods,
 not every possible imaging biomarker.
 
-[Case study](PORTFOLIO_CASE_STUDY.md) · [Methods](METHODS.md) ·
+[Case study](CASE_STUDY.md) · [Methods](METHODS.md) ·
 [Engineering guide](docs/ENGINEERING.md) · [Data](DATA.md) ·
 [Limitations](LIMITATIONS.md) · [Model card](MODEL_CARD.md) ·
 [Project status](PROJECT_STATUS.md)

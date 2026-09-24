@@ -2,13 +2,13 @@
 
 This repository has two deliberately separate execution paths.
 
-## Five-minute portfolio path
+## Five-minute quickstart path
 
 The aggregate-only path is safe to run after cloning and does not require ADHD-200 data:
 
 ```bash
-python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart
-cat artifacts/portfolio_quickstart/summary.md
+python tools/quickstart.py --output-dir artifacts/quickstart
+cat artifacts/quickstart/summary.md
 python tools/validate_public_artifacts.py
 ```
 
@@ -29,7 +29,7 @@ The feature-level replay is a separate, gated workflow in [`reproduction/README.
 ## Verification layers
 
 1. `pytest reproduction/tests -q` checks statistical and identity invariants.
-2. `python tools/portfolio_quickstart.py --check` checks the aggregate-only path.
+2. `python tools/quickstart.py --check` checks the aggregate-only path.
 3. `python tools/validate_public_artifacts.py` checks manifest hashes, counts, headers, and path redaction.
 4. The independent 66-unit replay acceptance is recorded in [`docs/paper/FRESH_REPRODUCTION_STATUS.md`](paper/FRESH_REPRODUCTION_STATUS.md).
 
@@ -44,7 +44,7 @@ Passing these checks proves engineering and reproducibility properties. It does 
 
 ## Five-minute reviewer route
 
-1. Read the top-level README and [`PORTFOLIO_CASE_STUDY.md`](../PORTFOLIO_CASE_STUDY.md).
+1. Read the top-level README and [`CASE_STUDY.md`](../CASE_STUDY.md).
 2. Run the aggregate-only quickstart.
 3. Inspect [`results/tables_figures_20260914/index.html`](../results/tables_figures_20260914/index.html).
 4. Read [`docs/paper/STATISTICAL_INTERPRETATION.md`](paper/STATISTICAL_INTERPRETATION.md) and [`docs/paper/FRESH_REPRODUCTION_STATUS.md`](paper/FRESH_REPRODUCTION_STATUS.md).

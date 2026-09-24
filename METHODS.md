@@ -104,7 +104,7 @@ weights. Full protocol and per-model results:
 
 ## Evaluation framework
 
-- **Portfolio benchmark (primary presentation metric):** repeated four-fold
+- **Stratified-CV benchmark (primary presentation metric):** repeated four-fold
   cross-validation stratified jointly by site and diagnosis, five repeats (20
   outer evaluations), with imputation, scaling, and hyperparameter selection
   refit inside every training fold.

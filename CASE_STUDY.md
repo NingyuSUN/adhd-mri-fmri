@@ -1,4 +1,4 @@
-# Portfolio Case Study: ADHD-200 MRI/fMRI Deep Learning
+# Case Study: ADHD-200 MRI/fMRI Deep Learning
 
 ## Elevator pitch
 
@@ -76,7 +76,7 @@ The project produced above-chance within-dataset image experiments, but the stro
 
 This is an important medical-AI result: model architecture alone cannot compensate for heterogeneous acquisition and confounded labels. The work demonstrates the ability to diagnose why a model fails, not just train it.
 
-The portfolio claim is therefore about engineering and experimental skill—not clinical accuracy: I implemented multiple deep-learning representations, designed leakage-safe comparisons, ran robustness analyses, and interpreted negative evidence responsibly.
+The claim is therefore about engineering and experimental rigor—not clinical accuracy: I implemented multiple deep-learning representations, designed leakage-safe comparisons, ran robustness analyses, and interpreted negative evidence responsibly.
 
 ## Confirmatory statistics and self-audit (analysis v2)
 
@@ -88,7 +88,7 @@ A follow-up round treated the fusion result as a hypothesis to confirm, not a fi
 - **Found and published a correction to my own published number**: I had reported one site's contribution to the leave-one-site-out estimate as "~40% of subjects", which conflated participant share with the actual AUC pair-weight; the corrected figure is 67.07%. The correction, its derivation, and its effect on every downstream claim are committed to the repository (`docs/paper/STATISTICAL_INTERPRETATION.md`) rather than silently edited away.
 - **Self-audited against TRIPOD+AI**, the published reporting standard for AI clinical-prediction studies, to map exactly what a submission-ready manuscript would still need (`docs/paper/TRIPOD_AI_GAPS_20260914.md`).
 
-This is the part of the project I'd point to first in an interview about statistical rigor: not that the numbers looked clean, but that the process was built to catch — and publicly correct — my own mistakes before anyone else had to.
+This is the most important part of the project for statistical rigor: not that the numbers looked clean, but that the process was built to catch — and publicly correct — my own mistakes before anyone else had to.
 
 ## Technologies
 
@@ -99,13 +99,13 @@ Python, NumPy, pandas, SciPy, scikit-learn, TensorFlow/Keras, PyTorch, PyTorch G
 The repository also exposes a small aggregate-only quickstart so a reviewer can run a useful path without private ADHD-200 data:
 
 ```bash
-python tools/portfolio_quickstart.py --output-dir artifacts/portfolio_quickstart
+python tools/quickstart.py --output-dir artifacts/quickstart
 python tools/validate_public_artifacts.py
 ```
 
 The public artifact validator checks manifest hashes, table/figure counts, CSV schemas, and private-path redaction. GitHub Actions runs the locked statistics tests, quickstart schema check, public-artifact validation, and Python syntax parsing. The full 66-unit replay remains a separately gated workflow because it requires authorized private derivatives.
 
-## Interview discussion points
+## Discussion points
 
 - why slice-level random splitting creates subject leakage
 - why mixed-site CV and unseen-site testing answer different questions
@@ -117,4 +117,4 @@ The public artifact validator checks manifest hashes, table/figure counts, CSV s
 
 ## Responsible-use statement
 
-This is a research and portfolio project. It is not a clinical diagnostic tool and must not be used for screening, treatment decisions, or individual risk prediction.
+This is a research project. It is not a clinical diagnostic tool and must not be used for screening, treatment decisions, or individual risk prediction.

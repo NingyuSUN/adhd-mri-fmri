@@ -12,7 +12,7 @@ workspace, and `DEST` to a new output directory. For example, in Bash:
 read -r -p "Repository directory: " REPO
 read -r -p "Private source workspace: " SOURCE
 read -r -p "New output directory: " DEST
-python "$REPO/tools/portfolio_quickstart.py" --output-dir "$DEST"
+python "$REPO/tools/quickstart.py" --output-dir "$DEST"
 python "$REPO/tools/validate_public_artifacts.py"
 ```
 

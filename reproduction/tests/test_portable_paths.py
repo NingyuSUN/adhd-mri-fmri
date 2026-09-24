@@ -53,7 +53,7 @@ def test_manifest_remapping_rejects_symlink_escape(tmp_path):
 
 def test_public_commands_work_from_an_unrelated_directory(tmp_path):
     for script, arguments in [
-        ("portfolio_quickstart.py", ["--output-dir", str(tmp_path / "report")]),
+        ("quickstart.py", ["--output-dir", str(tmp_path / "report")]),
         ("validate_public_artifacts.py", []),
     ]:
         subprocess.run([sys.executable, str(ROOT / "tools" / script), *arguments], cwd=tmp_path, check=True, capture_output=True, text=True)

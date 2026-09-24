@@ -8,14 +8,14 @@ import pytest
 
 ROOT = Path(__file__).parents[2]
 sys.path.insert(0, str(ROOT))
-from tools.portfolio_quickstart import build_summary, render_markdown, write_report
+from tools.quickstart import build_summary, render_markdown, write_report
 from tools import validate_public_artifacts as validator
 from tools.validate_public_artifacts import validate_manifest, validate_no_notebooks, validate_tables
 
 
 def test_quickstart_reads_committed_aggregate_contract():
     summary = build_summary()
-    assert summary["schema_version"] == "portfolio-quickstart.v1"
+    assert summary["schema_version"] == "quickstart.v1"
     assert len(summary["models"]) == 7
     assert summary["primary_contrast"]["cv_delta_auc"] == pytest.approx(-0.0114)
 

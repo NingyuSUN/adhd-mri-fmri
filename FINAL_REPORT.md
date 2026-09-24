@@ -2,7 +2,7 @@
 
 ## Project objective
 
-This project asked whether deep learning applied to structural MRI and resting-state fMRI could predict ADHD in the multi-site ADHD-200 dataset. Its portfolio goal was to demonstrate an end-to-end medical-AI workflow; unseen-site generalization was evaluated as a demanding robustness test rather than treated as the only definition of project completion.
+This project asked whether deep learning applied to structural MRI and resting-state fMRI could predict ADHD in the multi-site ADHD-200 dataset. Its goal was to demonstrate an end-to-end medical-AI workflow; unseen-site generalization was evaluated as a demanding robustness test rather than treated as the only definition of project completion.
 
 ## What was completed
 
@@ -14,7 +14,7 @@ The final evaluation was designed around a locked subject cohort and strict nest
 
 The available data and tested methods do not support a reliable cross-site MRI/fMRI ADHD predictor.
 
-In the portfolio-oriented repeated site-and-label-stratified experiment (`n=409`, four folds × five repeats), age + sex + motion/QC reached mean AUC 0.677 ± 0.058. FC plus frozen BrainLM reached 0.595 ± 0.031, FC ROI summary 0.583 ± 0.036, spectral features 0.570 ± 0.035, and frozen BrainLM alone 0.529 ± 0.043. This demonstrates above-chance within-dataset modeling for several image representations, but it also shows that confounds remain the strongest predictors.
+In the repeated site-and-label-stratified experiment (`n=409`, four folds × five repeats), age + sex + motion/QC reached mean AUC 0.677 ± 0.058. FC plus frozen BrainLM reached 0.595 ± 0.031, FC ROI summary 0.583 ± 0.036, spectral features 0.570 ± 0.035, and frozen BrainLM alone 0.529 ± 0.043. This demonstrates above-chance within-dataset modeling for several image representations, but it also shows that confounds remain the strongest predictors.
 
 On the locked fMRI cohort (`n=409`), the strongest result came from age, sex, and motion/QC variables (macro AUC 0.686). Motion/QC alone reached 0.664. In contrast, frozen BrainLM reached 0.512, FC plus BrainLM 0.501, spectral features 0.492, FC ROI summaries 0.477, and selected full-connectivity edges 0.430.
 

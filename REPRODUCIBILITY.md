@@ -34,7 +34,7 @@ The directory `reproduction/legacy/` is retained because the current fresh-fit r
 
 ## Primary metric
 
-For portfolio presentation, the primary within-dataset metric is mean AUC across 20 outer folds from repeated site-and-label-stratified CV. For the unseen-site stress test, macro AUC is the unweighted mean of valid held-out-site AUC values. These metrics answer different questions and must not be substituted for each other.
+The primary within-dataset metric is mean AUC across 20 outer folds from repeated site-and-label-stratified CV. For the unseen-site stress test, macro AUC is the unweighted mean of valid held-out-site AUC values. These metrics answer different questions and must not be substituted for each other.
 
 ## Randomness and environments
 

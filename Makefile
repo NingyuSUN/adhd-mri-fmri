@@ -1,10 +1,10 @@
 .PHONY: quickstart test validate-public syntax
 
 PYTHON ?= python3
-OUTPUT_DIR ?= artifacts/portfolio_quickstart
+OUTPUT_DIR ?= artifacts/quickstart
 
 quickstart:
-	$(PYTHON) tools/portfolio_quickstart.py --output-dir $(OUTPUT_DIR)
+	$(PYTHON) tools/quickstart.py --output-dir $(OUTPUT_DIR)
 
 test:
 	$(PYTHON) -m pytest reproduction/tests -q

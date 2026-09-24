@@ -77,7 +77,7 @@ Secondary:
 | C3 | Add a **strict nested LOSO** evaluation of the contrast-relevant models, alongside the mixed-site CV | W3 |
 | C4 | Formal statistics: Nadeau–Bengio corrected variance (CV) + site-level paired bootstrap (LOSO) + pre-registered TOST | W2 |
 | C5 | Calibration analysis (reliability curve + ECE) on v2 predictions | H4 evidence |
-| C6 | Figures: site/cohort ΔAUC forest plot; confound-vs-imaging bar | portfolio + `figures/` is currently empty |
+| C6 | Figures: site/cohort ΔAUC forest plot; confound-vs-imaging bar | `figures/` is currently empty |
 
 **Not changed:** QC lock, cohort definitions, feature definitions, C grid
 {0.01,0.1,1,10}, α grid {0,0.25,0.5,0.75,1}, MLP architecture 64/16 GELU

@@ -1,6 +1,6 @@
 # Reproduce the multimodal v2 analysis
 
-This package reproduces the frozen 2026-09-10 multimodal analysis and runs an explicitly post hoc statistical/sensitivity audit. It does not alter the historical run. It is separate from the earlier n=409 BrainLM benchmark and from the portfolio branch.
+This package reproduces the frozen 2026-09-10 multimodal analysis and runs an explicitly post hoc statistical/sensitivity audit. It does not alter the historical run. It is separate from the earlier n=409 BrainLM benchmark and from the `fmri-benchmark-v1` branch.
 
 ## Reproduction boundaries
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a five-minute, aggregate-only portfolio smoke test.
+"""Run a five-minute, aggregate-only smoke test.
 
 This command intentionally does not need ADHD-200 data, model checkpoints, or
 scientific Python dependencies. It reads committed summary CSVs and produces a
@@ -59,7 +59,7 @@ def build_summary(root: Path = ROOT) -> dict:
     primary_cv = next(row for row in contrasts if (row["Framework"], row["Cohort"]) == ("CV", "primary"))
     primary_loso = next(row for row in contrasts if (row["Framework"], row["Cohort"]) == ("LOSO", "primary"))
     return {
-        "schema_version": "portfolio-quickstart.v1",
+        "schema_version": "quickstart.v1",
         "data_scope": "aggregate-only; no raw MRI or subject-level predictions",
         "source": "results/tables_figures_20260914/tables/Table2_primary_model_performance.csv + Table3_primary_contrast_by_QC.csv",
         "models": by_model,
@@ -82,7 +82,7 @@ def render_markdown(summary: dict) -> str:
     models = summary["models"]
     contrast = summary["primary_contrast"]
     lines = [
-        "# ADHD-200 portfolio quickstart",
+        "# ADHD-200 quickstart",
         "",
         "This report was generated from committed aggregate CSVs. It does not access raw MRI, subject-level predictions, or model checkpoints.",
         "",
@@ -125,7 +125,7 @@ def write_report(output_dir: Path, summary: dict) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=ROOT / "artifacts" / "portfolio_quickstart")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "artifacts" / "quickstart")
     parser.add_argument("--check", action="store_true", help="validate sources without writing output files")
     args = parser.parse_args(argv)
     summary = build_summary()

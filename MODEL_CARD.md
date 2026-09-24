@@ -26,7 +26,7 @@ ADHD-200 multi-site structural MRI, resting-state fMRI derivatives, phenotypic l
 
 Two evaluation frameworks were used on the locked `n=409` fMRI cohort:
 
-- **Portfolio benchmark (primary presentation metric):** repeated four-fold
+- **Stratified-CV benchmark (primary presentation metric):** repeated four-fold
   cross-validation stratified jointly by site and diagnosis (5 repeats, 20
   outer evaluations); imputation, scaling, and hyperparameter selection are
   refit inside every training fold.
