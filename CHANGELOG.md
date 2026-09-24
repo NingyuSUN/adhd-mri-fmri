@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-18 — ROI biological rationale and exploratory feature-subset comparisons
+
+- Added `docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md`, which maps the early ROI-guided CNN's region choice to the fronto-striatal-thalamic circuit literature (PubMed citations with DOIs) and traces the atlas behind each later feature set: SynthSeg 2.0 for the 98 structural volumes (including the exact 3 columns dropped from the 101-measurement output) and BrainLM's Glasser HCP-MMP + subcortical + cerebellar A424 atlas for the 424 functional nodes.
+- Added two exploratory CV comparisons of a literature-motivated subset against the full feature set, reusing the frozen splits and cohorts: `reproduction/exploratory/structural_biological_subset_cv.py` (36 of 98 regions) and `reproduction/exploratory/a424_biological_subset_cv.py` (148 of 424 nodes), with atlas reference files under `reproduction/exploratory/a424_atlas_reference/` and outputs in `results/*_biological_subset_cv_20260918/`.
+- Summarized both comparisons in `FINAL_REPORT.md` and `README.md`. They are single exploratory runs outside the confirmatory statistical framework; the repeat counts are descriptive, not significance claims.
+
 ## 2026-09-17 — Update stale methodology docs
 
 - Rewrote `METHODS.md`, which still described only the project's original single-slice/ROI-CNN plan from May 2026. It now documents the actual final pipeline: A424-based fMRI representations (FC, spectral, GNN, frozen BrainLM, end-to-end temporal models), the structural branch through pretrained Swin-T, structural+functional late fusion, and the two-framework evaluation design (repeated site-stratified CV as the primary portfolio metric, strict LOSO as the robustness stress test) plus the v2 statistical framework (Nadeau–Bengio intervals, TOST equivalence).
