@@ -2,7 +2,7 @@
 
 This repository has two deliberately separate execution paths.
 
-## Five-minute path
+## Five-minute quickstart path
 
 The aggregate-only path is safe to run after cloning and does not require ADHD-200 data:
 

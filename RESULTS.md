@@ -3,7 +3,7 @@
 **Interpretation update (2026-09-11):** The original v2 primary equivalence hypothesis was not confirmed. Post hoc QC decomposition and corrected reporting are in [the statistical audit](docs/paper/STATISTICAL_INTERPRETATION.md) and [sensitivity tables](results/paper_readiness_20260911/). Original numerical results and frozen decisions are preserved; older causal explanations are superseded by this audit.
 
 
-## Repeated site-stratified benchmark
+## Stratified-CV benchmark
 
 The primary endpoint is mean AUC across repeated four-fold cross-validation stratified jointly by site and diagnosis (`n=409`, five repeats, 20 outer evaluations). Imputation, scaling, and logistic-regression regularization selection are refit inside the training data of every outer fold.
 
