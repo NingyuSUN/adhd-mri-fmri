@@ -3,6 +3,12 @@
 [![Repository checks](https://github.com/NingyuSUN/adhd-mri-fmri/actions/workflows/ci.yml/badge.svg)](https://github.com/NingyuSUN/adhd-mri-fmri/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+**[Project evidence: ownership, methods, results and reproducibility](docs/PROJECT_EVIDENCE.md)**
+
+Independently developed by Ningyu Sun. The evidence guide connects the historical
+GCN/GAT implementation, the separate later controlled imaging benchmarks, and the
+recorded feature-level replay, with the limits of each result made explicit.
+
 **Do structural MRI and resting-state fMRI add predictive information beyond
 demographics and motion, and does that information transfer to unseen sites?**
 
