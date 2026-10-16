@@ -1,9 +1,15 @@
+# Changelog
+
+## 2026-10-16 — English evidence documents
+
+- Rewrote `docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md` in English as reader-facing documentation. The atlas verification, literature mapping, exploratory results and limitations are unchanged; process notes about how the records were checked were removed, and the second section "3c" is now "3d".
+- Translated the TRIPOD+AI gap table in `docs/paper/TRIPOD_AI_GAPS_20260914.md` into English.
+- Removed references to branches that are not published in this repository.
+
 ## 2026-09-24 — Naming cleanup
 
-- Renamed the case study to `CASE_STUDY.md`, the aggregate quickstart to `tools/quickstart.py` (report schema `quickstart.v1`, default output `artifacts/quickstart`), and the site-stratified CV summary to `results/fmri_benchmark_stratified_cv_summary.csv`. Wording now describes the work as a research benchmark. The release branch is now `fmri-benchmark-v1`.
-- Added `docs/paper/LITERATURE_AND_NEXT_STEPS_20260916_ZH.md`: a targeted comparison with six published ADHD-200/neuroimaging studies and a proposed four-stage follow-up plan (from the `paper-hardening-20260911` branch, rewritten for public readers).
-
-# Changelog
+- Renamed the case study to `CASE_STUDY.md`, the aggregate quickstart to `tools/quickstart.py` (report schema `quickstart.v1`, default output `artifacts/quickstart`), and the site-stratified CV summary to `results/fmri_benchmark_stratified_cv_summary.csv`. Wording now describes the work as a research benchmark.
+- Added `docs/paper/LITERATURE_AND_NEXT_STEPS_20260916_ZH.md`: a targeted comparison with six published ADHD-200/neuroimaging studies and a proposed four-stage follow-up plan, rewritten for public readers.
 
 ## 2026-09-18 — ROI biological rationale and exploratory feature-subset comparisons
 
@@ -19,7 +25,7 @@
 
 ## 2026-09-17 — Remove internal working notes; neutral wording
 
-- Removed six `docs/paper/` files that were internal AI-assisted-workflow logs rather than reader-facing documentation (a cross-session handoff note, a raw AI reviewer transcript and its adjudication table, a task-authorization log, a package-validation log, and a post hoc analysis plan written as an internal checklist). Their non-redundant scientific content (the NYU pair-weight correction, methods deviations, TRIPOD+AI gaps) is already preserved in `STATISTICAL_INTERPRETATION.md`, `CLAIMS_EVIDENCE_20260914.md`, `SENSITIVITY_RESULTS.md`, `METHODS_CLARIFICATION_20260914.md`, and `TRIPOD_AI_GAPS_20260914.md`.
+- Removed six `docs/paper/` files that were internal working notes rather than reader-facing documentation. Their non-redundant scientific content (the NYU pair-weight correction, methods deviations, TRIPOD+AI gaps) is already preserved in `STATISTICAL_INTERPRETATION.md`, `CLAIMS_EVIDENCE_20260914.md`, `SENSITIVITY_RESULTS.md`, `METHODS_CLARIFICATION_20260914.md`, and `TRIPOD_AI_GAPS_20260914.md`.
 - Removed `docs/github_about.md`, a stale pre-launch scratch note superseded by the repository's actual description/topics/badges.
 - Replaced informal wording in `README.md`, `demo/README.md`, `docs/ENGINEERING.md`, and `tools/quickstart.py` with neutral technical language ("aggregate-only" / "public").
 - Replaced the internal server codename with generic wording in `docs/analysis_v2_deviations.md`, `docs/analysis_v2_protocol.md`, `docs/paper/FRESH_REPRODUCTION_STATUS.md`, and two source manifests (with a matching `PACKAGE_MANIFEST.json` hash/byte-count update for the one manifest that is itself hash-verified).
