@@ -1,10 +1,35 @@
 # Changelog
 
+## 2026-11-02 — v1.0.0: wording, English documents and layout
+
+- First tagged release, `v1.0.0`. `CITATION.cff` now records version 1.0.0, the release date, license, repository URL, abstract and keywords.
+- Terminology: the analysis v2 protocol, results and deviation log were first published together in `aad605a`, and the protocol was not registered externally, so reader-facing documents now call it *prespecified*. The protocol and deviation log keep their frozen wording under a dated note, which also states that the cited `coordination/gemini/v2protocol_review_20260910/REVIEW.md` is an internal file not included here. Earlier entries in this changelog were reworded to match; hash-bound refit reports keep their original text.
+- The Gemini 3.1 Pro check of the protocol is described as an AI-assisted methods review, not an independent or external review.
+- Published the remaining Chinese documents in English: `docs/paper/LITERATURE_AND_NEXT_STEPS_20260916.md` (formerly `_ZH`) and the tables-and-figures notes and index. The package README is now `results/tables_figures_20260914/README_TABLES_AND_FIGURES.md`; the generator scripts carry the same English text, and `PACKAGE_MANIFEST.json` is updated for the four changed files. Tables, figures and source data are unchanged. The manifest's `head` field still records the pre-revision commit `40a4bb9`, which no longer resolves on GitHub; package integrity is checked by the file hashes.
+- Moved `CASE_STUDY`, `DATA`, `FINAL_REPORT`, `LIMITATIONS`, `METHODS`, `MODEL_CARD`, `PROJECT_STATUS`, `REPRODUCIBILITY`, `RESULTS` and `ROADMAP` into `docs/`, rewrote every relative link and added `docs/README.md`. Links pinned to earlier commits still resolve; links to these files on `main` need the `docs/` prefix.
+- Added `reproduction/tests/test_headline_numbers.py`, which checks the README headline table against `docs/RESULTS.md` and the summaries.
+- CI also runs the standard-library quickstart and artifact validator on Python 3.10 and 3.12, matching the README.
+- Recorded in `reproduction/VENDORED_SOURCES.md` that the vendored Nilearn, NiBabel and Packaging sources are byte-identical to the official wheels; the reproduction guide no longer calls them patched.
+- Set the repository homepage to the project evidence guide and changed "pre-registered" to "prespecified" in the repository description.
+
 ## 2026-10-16 — English evidence documents
 
 - Rewrote `docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md` in English as reader-facing documentation. The atlas verification, literature mapping, exploratory results and limitations are unchanged; process notes about how the records were checked were removed, and the second section "3c" is now "3d".
 - Translated the TRIPOD+AI gap table in `docs/paper/TRIPOD_AI_GAPS_20260914.md` into English.
 - Removed references to branches that are not published in this repository.
+
+## 2026-10-15 — Evidence links repinned after the history revision
+
+- The public history was revised in October 2026: commit IDs changed and commit times were kept. `docs/PROJECT_EVIDENCE.md` was repinned to the published commits. Links made before the revision translate as follows:
+
+| Earlier commit | Published commit | Used for |
+|---|---|---|
+| `84629eaac0e3e621e3002d6259f769e03e8515ec` | `2cfc942f81d481eb2c17cc79e18dd7ffd62a8f62` | 24 September evidence baseline |
+| `755266f388f73955c58a86e8a81b13197052a303` | `d9093c69808fe1591506a06e4f652b71005ca3a9` | Archived GCN/GAT notebook source |
+
+## 2026-10-13 — Evidence guide on the homepage
+
+- Added `docs/PROJECT_EVIDENCE.md`, which connects ownership, the historical GCN/GAT implementation, the controlled imaging benchmarks and the recorded feature-level replay, with the limits of each, and linked it from the top of `README.md`.
 
 ## 2026-09-24 — Naming cleanup
 
