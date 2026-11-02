@@ -1,5 +1,7 @@
 # Analysis v2 — deviations from the pre-registered protocol
 
+> **Terminology note (added 2026-11-02).** "Pre-registered protocol" below means the internally frozen protocol in `docs/analysis_v2_protocol.md`; it was not registered externally, so the project now calls it prespecified. The "Gemini review" was an AI-assisted methods review. The deviation log itself is unchanged.
+
 Protocol: `docs/analysis_v2_protocol.md` (finalized 2026-09-10 after Gemini review).
 Run started 2026-09-10 ~11:45 JST on the training server. Deviations logged before results were
 inspected (training still running, all `test.csv` withheld from summarisation).

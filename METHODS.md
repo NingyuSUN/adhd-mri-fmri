@@ -113,9 +113,9 @@ weights. Full protocol and per-model results:
   residualization, or hyperparameter selection. Macro AUC across evaluable
   held-out sites is the primary LOSO metric so that large sites cannot dominate
   the conclusion.
-- **Confirmatory statistics (analysis v2):** a pre-registered protocol
+- **Confirmatory statistics (analysis v2):** a prespecified protocol
   ([docs/analysis_v2_protocol.md](docs/analysis_v2_protocol.md)) adds a
-  Nadeau–Bengio corrected interval for the CV contrast, a pre-registered TOST
+  Nadeau–Bengio corrected interval for the CV contrast, a prespecified TOST
   equivalence test (margin ±0.02 AUC), and a site-stratified subject bootstrap
   for LOSO uncertainty. See [docs/analysis_v2_results.md](docs/analysis_v2_results.md)
   and the [statistical interpretation](docs/paper/STATISTICAL_INTERPRETATION.md).
@@ -134,5 +134,5 @@ weights. Full protocol and per-model results:
 - Model-by-model numbers: [RESULTS.md](RESULTS.md)
 - Narrative conclusion: [FINAL_REPORT.md](FINAL_REPORT.md)
 - Fusion protocol and results: [docs/structural_functional_fusion.md](docs/structural_functional_fusion.md)
-- v2 pre-registration, deviations, and results: [docs/analysis_v2_protocol.md](docs/analysis_v2_protocol.md), [docs/analysis_v2_deviations.md](docs/analysis_v2_deviations.md), [docs/analysis_v2_results.md](docs/analysis_v2_results.md)
+- v2 prespecified protocol, deviations, and results: [docs/analysis_v2_protocol.md](docs/analysis_v2_protocol.md), [docs/analysis_v2_deviations.md](docs/analysis_v2_deviations.md), [docs/analysis_v2_results.md](docs/analysis_v2_results.md)
 - Reproduction commands: [reproduction/README.md](reproduction/README.md)

@@ -35,7 +35,7 @@
 - Set the GitHub repository description and topics (previously blank, which hurt discoverability).
 - Added a CI-status badge and an MIT license badge to `README.md`.
 - Retitled `CITATION.cff` from a result-implying title to a neutral, TRIPOD+AI-aligned one (title previously read as a positive-result claim; the finding is a confound-aware negative/boundary result).
-- Added a "Confirmatory statistics and self-audit (analysis v2)" section to `CASE_STUDY.md` — the pre-registration, external review, strict-LOSO re-analysis, and public self-correction of a reporting error were previously undocumented there.
+- Added a "Confirmatory statistics and self-audit (analysis v2)" section to `CASE_STUDY.md` — the prespecified protocol, AI-assisted methods review, strict-LOSO re-analysis, and public self-correction of a reporting error were previously undocumented there.
 
 ## 2026-09-14 — Engineering release
 
@@ -55,9 +55,9 @@
 - This audit supersedes the causal and LOSO-validity interpretations in the historical entry below. The three pairwise cohort overlaps are 86.3%, 93.3%, and 80.5% when expressed as intersection/union, not all above 85%.
 
 
-## 2026-09-11 — Analysis v2: pre-registered confirmatory statistics
+## 2026-09-11 — Analysis v2: prespecified confirmatory statistics
 
-- Re-ran the structural + functional late-fusion analysis under a pre-registered protocol (`docs/analysis_v2_protocol.md`, finalized after an independent methods/statistics review): repeat-dependent MLP seed, symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), Nadeau–Bengio corrected 90% intervals for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict leave-one-site-out re-run.
+- Re-ran the structural + functional late-fusion analysis under a prespecified protocol (`docs/analysis_v2_protocol.md`, finalized after an AI-assisted methods/statistics review): repeat-dependent MLP seed, symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), Nadeau–Bengio corrected 90% intervals for the CV deltas, a prespecified TOST equivalence test (margin ±0.02 AUC), and a full strict leave-one-site-out re-run.
 - 45 mixed-site CV folds + 21 LOSO units × 3 cohorts, independently consistency-verified (`reproduction/legacy/verify_v2.py`, 66 units).
 - Result: mixed-site CV point estimates confirm the direction (every confound-plus-imaging contrast negative) but the corrected 90% interval for the primary contrast is [−0.040, +0.017] — formal equivalence is underpowered at n=350. Strict LOSO is uninformative: the held-out summary ΔAUC swings +0.028 / −0.086 / −0.043 across three QC cohorts sharing >85% of subjects, dominated by NYU's subject composition.
 - Documented why ADHD-200 (7 sites, one dominant, two below n=15) cannot support strict LOSO for a small AUC effect, which is the empirical basis for using repeated site-stratified CV as the primary endpoint.
