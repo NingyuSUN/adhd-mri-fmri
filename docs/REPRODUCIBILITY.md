@@ -12,13 +12,13 @@ make validate-public
 make test
 ```
 
-For the complete multimodal v2 workflow, use [the reproduction package](reproduction/README.md). It distinguishes statistical recomputation, sensitivity analysis, and fresh model fitting. Saved-prediction recomputation is not model retraining.
+For the complete multimodal v2 workflow, use [the reproduction package](../reproduction/README.md). It distinguishes statistical recomputation, sensitivity analysis, and fresh model fitting. Saved-prediction recomputation is not model retraining.
 
-The final table and figure package is assembled by the scripts in [`reporting/`](reporting/) and bound by [`PACKAGE_MANIFEST.json`](results/tables_figures_20260914/PACKAGE_MANIFEST.json).
+The final table and figure package is assembled by the scripts in [`reporting/`](../reporting/) and bound by [`PACKAGE_MANIFEST.json`](../results/tables_figures_20260914/PACKAGE_MANIFEST.json).
 
 ## Private inputs
 
-Authorized ADHD-200 derivatives, large arrays, subject-level predictions, and model checkpoints stay outside the repository. Exact private inputs and output isolation requirements are documented in [`reproduction/README.md`](reproduction/README.md).
+Authorized ADHD-200 derivatives, large arrays, subject-level predictions, and model checkpoints stay outside the repository. Exact private inputs and output isolation requirements are documented in [`reproduction/README.md`](../reproduction/README.md).
 
 The directory `reproduction/legacy/` is retained because the current fresh-fit runner imports and hash-verifies that frozen source closure. `reproduction/execution_history/` is retained because the final verifier recognizes the exact driver used by the completed server run. Both are active provenance dependencies of the maintained reproduction path.
 

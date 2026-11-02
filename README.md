@@ -56,7 +56,7 @@ answer different questions and should not be treated as interchangeable scores.
 Structural models also failed to show a reliable advantage over confounds.
 Later fusion analyses were sensitive to QC cohort and model-selection choices;
 the confirmatory equivalence hypothesis was not established.
-See [results](RESULTS.md) and the [statistical interpretation](docs/paper/STATISTICAL_INTERPRETATION.md).
+See [results](docs/RESULTS.md) and the [statistical interpretation](docs/paper/STATISTICAL_INTERPRETATION.md).
 
 ## Five-minute review
 
@@ -96,9 +96,9 @@ structure, overlapping QC cohorts, limited sample size, and selection instabilit
 restrict interpretation. Negative findings apply to the tested data and methods,
 not every possible imaging biomarker.
 
-[Case study](CASE_STUDY.md) · [Methods](METHODS.md) ·
-[Engineering guide](docs/ENGINEERING.md) · [Data](DATA.md) ·
-[Limitations](LIMITATIONS.md) · [Model card](MODEL_CARD.md) ·
-[Project status](PROJECT_STATUS.md)
+[Case study](docs/CASE_STUDY.md) · [Methods](docs/METHODS.md) ·
+[Engineering guide](docs/ENGINEERING.md) · [Data](docs/DATA.md) ·
+[Limitations](docs/LIMITATIONS.md) · [Model card](docs/MODEL_CARD.md) ·
+[Project status](docs/PROJECT_STATUS.md)
 
 Code: MIT. ADHD-200 data remain subject to their original terms.

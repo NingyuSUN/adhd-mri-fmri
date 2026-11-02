@@ -83,4 +83,4 @@ No deployable trained model is released. Research code and aggregate results are
 
 ## Later multimodal v2 analysis
 
-The three QC cohorts (350/302/375) use paired multimodal comparisons under repeated CV and site-held-out evaluation. The primary equivalence criterion was not met. Interpretations are updated in [the statistical audit](docs/paper/STATISTICAL_INTERPRETATION.md); the earlier n=409 metrics above should not be treated as paired baselines for this later cohort.
+The three QC cohorts (350/302/375) use paired multimodal comparisons under repeated CV and site-held-out evaluation. The primary equivalence criterion was not met. Interpretations are updated in [the statistical audit](paper/STATISTICAL_INTERPRETATION.md); the earlier n=409 metrics above should not be treated as paired baselines for this later cohort.

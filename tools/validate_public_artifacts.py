@@ -71,8 +71,7 @@ def validate_no_private_paths() -> int:
     checked = 0
     roots = [
         ROOT / "README.md",
-        ROOT / "PROJECT_STATUS.md",
-        ROOT / "CASE_STUDY.md",
+        ROOT / "CHANGELOG.md",
         ROOT / "docs",
         ROOT / "reporting",
         ROOT / "reproduction",

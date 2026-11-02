@@ -1,6 +1,6 @@
 # Final Results
 
-**Interpretation update (2026-09-11):** The original v2 primary equivalence hypothesis was not confirmed. Post hoc QC decomposition and corrected reporting are in [the statistical audit](docs/paper/STATISTICAL_INTERPRETATION.md) and [sensitivity tables](results/paper_readiness_20260911/). Original numerical results and frozen decisions are preserved; older causal explanations are superseded by this audit.
+**Interpretation update (2026-09-11):** The original v2 primary equivalence hypothesis was not confirmed. Post hoc QC decomposition and corrected reporting are in [the statistical audit](paper/STATISTICAL_INTERPRETATION.md) and [sensitivity tables](../results/paper_readiness_20260911/). Original numerical results and frozen decisions are preserved; older causal explanations are superseded by this audit.
 
 
 ## Stratified-CV benchmark
@@ -135,7 +135,7 @@ The confidence intervals include no improvement. Scrubbing does not rescue the i
 
 ## Structural + functional late-fusion (QC-locked paired analysis)
 
-A follow-up round retrained structural (98 region/TIV volume fractions), functional (A424 tangent connectivity) and non-imaging models **together** on one frozen protocol, three prespecified QC-locked cohorts (`primary` n=350, `warning_free` n=302, `include_holds` n=375) and the original 5×3 subject-level split identities. 45 folds, 17 models/fusions each, all independently replay-verified. Full detail: [`docs/structural_functional_fusion.md`](docs/structural_functional_fusion.md); tables in `results/structural_functional_fusion_summary.csv` and `results/structural_functional_fusion_paired_deltas.csv`.
+A follow-up round retrained structural (98 region/TIV volume fractions), functional (A424 tangent connectivity) and non-imaging models **together** on one frozen protocol, three prespecified QC-locked cohorts (`primary` n=350, `warning_free` n=302, `include_holds` n=375) and the original 5×3 subject-level split identities. 45 folds, 17 models/fusions each, all independently replay-verified. Full detail: [`docs/structural_functional_fusion.md`](structural_functional_fusion.md); tables in `results/structural_functional_fusion_summary.csv` and `results/structural_functional_fusion_paired_deltas.csv`.
 
 `primary` cohort, mean AUC over 5 repeats:
 
@@ -160,7 +160,7 @@ The non-imaging control is strongest in every cohort. Neither functional nor str
 
 ## Confirmatory statistics (analysis v2) and why LOSO is not the primary endpoint
 
-A prespecified confirmatory round ([`docs/analysis_v2_protocol.md`](docs/analysis_v2_protocol.md), [`docs/analysis_v2_results.md`](docs/analysis_v2_results.md)) re-ran the fusion analysis with a repeat-dependent MLP seed, a symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), a Nadeau–Bengio corrected interval for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict LOSO re-run. Independently consistency-verified (66 units).
+A prespecified confirmatory round ([`docs/analysis_v2_protocol.md`](analysis_v2_protocol.md), [`docs/analysis_v2_results.md`](analysis_v2_results.md)) re-ran the fusion analysis with a repeat-dependent MLP seed, a symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), a Nadeau–Bengio corrected interval for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict LOSO re-run. Independently consistency-verified (66 units).
 
 - **Mixed-site CV:** primary ΔAUC −0.011, original corrected 90% interval [−0.040,+0.017]. Equivalence to ±0.02 was not established. The pre-specified df=2 sensitivity extends to +0.036, and an additional actual-fit-ratio sensitivity gives about [−0.043,+0.020]. See the audit for the different correction conventions.
 - **Strict LOSO:** primary ΔAUC +0.028 [+0.009,+0.046], with negative estimates in the other two QC cohorts. This supports a positive conditional primary contrast but does not establish a benefit exceeding +0.02, nor does sign reversal prove LOSO invalid. NYU contributes 67.07% of primary case-control pairs. Matched-subject and fixed-weight analyses show most QC-related change persists after evaluation composition is held fixed; final validation-selected structural fusion weights contribute strongly. These later analyses are explicitly post hoc.

@@ -44,7 +44,7 @@ Passing these checks proves engineering and reproducibility properties. It does 
 
 ## Five-minute reviewer route
 
-1. Read the top-level README and [`CASE_STUDY.md`](../CASE_STUDY.md).
+1. Read the top-level README and [`CASE_STUDY.md`](CASE_STUDY.md).
 2. Run the aggregate-only quickstart.
 3. Inspect [`results/tables_figures_20260914/index.html`](../results/tables_figures_20260914/index.html).
 4. Read [`docs/paper/STATISTICAL_INTERPRETATION.md`](paper/STATISTICAL_INTERPRETATION.md) and [`docs/paper/FRESH_REPRODUCTION_STATUS.md`](paper/FRESH_REPRODUCTION_STATUS.md).
