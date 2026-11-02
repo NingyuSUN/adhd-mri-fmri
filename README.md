@@ -60,7 +60,8 @@ See [results](docs/RESULTS.md) and the [statistical interpretation](docs/paper/S
 
 ## Five-minute review
 
-From the repository root, using Python 3.10 or later:
+From the repository root, using Python 3.10 or later. Both tools use only the
+standard library, and CI runs them on Python 3.10 and 3.12:
 
 ```bash
 python tools/quickstart.py --output-dir artifacts/quickstart
