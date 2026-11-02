@@ -1,8 +1,30 @@
 cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata in this file."
+type: software
 title: "A Confound-Aware ADHD-200 MRI/fMRI Benchmark: Structural, Functional, and Fusion Evaluation"
+abstract: >-
+  Research benchmark testing whether structural MRI and resting-state fMRI add
+  predictive information about ADHD beyond age, sex and motion/QC confounds in
+  ADHD-200, using subject-level mixed-site cross-validation, nested
+  leave-one-site-out evaluation and a prespecified confirmatory fusion
+  analysis. The tested imaging models did not establish stable
+  confound-independent generalization across sites. Research use only; not a
+  diagnostic system.
 authors:
   - family-names: Sun
     given-names: Ningyu
-version: 0.2.0
-date-released: 2026-09-14
-message: "If you use this repository, please cite it using the metadata in this file."
+version: 1.0.0
+date-released: 2026-11-02
+license: MIT
+repository-code: "https://github.com/NingyuSUN/adhd-mri-fmri"
+url: "https://github.com/NingyuSUN/adhd-mri-fmri/blob/main/docs/PROJECT_EVIDENCE.md"
+keywords:
+  - ADHD
+  - ADHD-200
+  - neuroimaging
+  - MRI
+  - fMRI
+  - machine learning
+  - confound baselines
+  - leave-one-site-out
+  - reproducible research

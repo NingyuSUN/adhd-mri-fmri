@@ -1,5 +1,7 @@
 # Analysis v2 — confirmatory round (pre-registration)
 
+> **Terminology and provenance note (added 2026-11-02).** This protocol was frozen internally on 2026-09-10 and first published, together with its results and deviation log, in commit `aad605a` (2026-09-11). It was not registered with an external registry, so the project now describes it as *prespecified* rather than pre-registered; the wording below is kept exactly as frozen. The methods review it cites was an AI-assisted review with Gemini 3.1 Pro, not independent peer review. The file it references, `coordination/gemini/v2protocol_review_20260910/REVIEW.md`, is an internal working file that is not part of this repository; its must-fix items are listed in the status line below and its resolved questions in section 13.
+
 **Status: FINALIZED 2026-09-10 after Gemini 3.1 Pro methods/stats review
 (`coordination/gemini/v2protocol_review_20260910/REVIEW.md`). 4 must-fix items
 applied (decision tree, LOSO primary metric, bootstrap scheme, NB formula).

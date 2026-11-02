@@ -1,10 +1,35 @@
 # Changelog
 
+## 2026-11-02 — v1.0.0: wording, English documents and layout
+
+- First tagged release, `v1.0.0`. `CITATION.cff` now records version 1.0.0, the release date, license, repository URL, abstract and keywords.
+- Terminology: the analysis v2 protocol, results and deviation log were first published together in `aad605a`, and the protocol was not registered externally, so reader-facing documents now call it *prespecified*. The protocol and deviation log keep their frozen wording under a dated note, which also states that the cited `coordination/gemini/v2protocol_review_20260910/REVIEW.md` is an internal file not included here. Earlier entries in this changelog were reworded to match; hash-bound refit reports keep their original text.
+- The Gemini 3.1 Pro check of the protocol is described as an AI-assisted methods review, not an independent or external review.
+- Published the remaining Chinese documents in English: `docs/paper/LITERATURE_AND_NEXT_STEPS_20260916.md` (formerly `_ZH`) and the tables-and-figures notes and index. The package README is now `results/tables_figures_20260914/README_TABLES_AND_FIGURES.md`; the generator scripts carry the same English text, and `PACKAGE_MANIFEST.json` is updated for the four changed files. Tables, figures and source data are unchanged. The manifest's `head` field still records the pre-revision commit `40a4bb9`, which no longer resolves on GitHub; package integrity is checked by the file hashes.
+- Moved `CASE_STUDY`, `DATA`, `FINAL_REPORT`, `LIMITATIONS`, `METHODS`, `MODEL_CARD`, `PROJECT_STATUS`, `REPRODUCIBILITY`, `RESULTS` and `ROADMAP` into `docs/`, rewrote every relative link and added `docs/README.md`. Links pinned to earlier commits still resolve; links to these files on `main` need the `docs/` prefix.
+- Added `reproduction/tests/test_headline_numbers.py`, which checks the README headline table against `docs/RESULTS.md` and the summaries.
+- CI also runs the standard-library quickstart and artifact validator on Python 3.10 and 3.12, matching the README.
+- Recorded in `reproduction/VENDORED_SOURCES.md` that the vendored Nilearn, NiBabel and Packaging sources are byte-identical to the official wheels; the reproduction guide no longer calls them patched.
+- Set the repository homepage to the project evidence guide and changed "pre-registered" to "prespecified" in the repository description.
+
 ## 2026-10-16 — English evidence documents
 
 - Rewrote `docs/paper/ROI_BIOLOGICAL_RATIONALE_AND_EVIDENCE.md` in English as reader-facing documentation. The atlas verification, literature mapping, exploratory results and limitations are unchanged; process notes about how the records were checked were removed, and the second section "3c" is now "3d".
 - Translated the TRIPOD+AI gap table in `docs/paper/TRIPOD_AI_GAPS_20260914.md` into English.
 - Removed references to branches that are not published in this repository.
+
+## 2026-10-15 — Evidence links repinned after the history revision
+
+- The public history was revised in October 2026: commit IDs changed and commit times were kept. `docs/PROJECT_EVIDENCE.md` was repinned to the published commits. Links made before the revision translate as follows:
+
+| Earlier commit | Published commit | Used for |
+|---|---|---|
+| `84629eaac0e3e621e3002d6259f769e03e8515ec` | `2cfc942f81d481eb2c17cc79e18dd7ffd62a8f62` | 24 September evidence baseline |
+| `755266f388f73955c58a86e8a81b13197052a303` | `d9093c69808fe1591506a06e4f652b71005ca3a9` | Archived GCN/GAT notebook source |
+
+## 2026-10-13 — Evidence guide on the homepage
+
+- Added `docs/PROJECT_EVIDENCE.md`, which connects ownership, the historical GCN/GAT implementation, the controlled imaging benchmarks and the recorded feature-level replay, with the limits of each, and linked it from the top of `README.md`.
 
 ## 2026-09-24 — Naming cleanup
 
@@ -35,7 +60,7 @@
 - Set the GitHub repository description and topics (previously blank, which hurt discoverability).
 - Added a CI-status badge and an MIT license badge to `README.md`.
 - Retitled `CITATION.cff` from a result-implying title to a neutral, TRIPOD+AI-aligned one (title previously read as a positive-result claim; the finding is a confound-aware negative/boundary result).
-- Added a "Confirmatory statistics and self-audit (analysis v2)" section to `CASE_STUDY.md` — the pre-registration, external review, strict-LOSO re-analysis, and public self-correction of a reporting error were previously undocumented there.
+- Added a "Confirmatory statistics and self-audit (analysis v2)" section to `CASE_STUDY.md` — the prespecified protocol, AI-assisted methods review, strict-LOSO re-analysis, and public self-correction of a reporting error were previously undocumented there.
 
 ## 2026-09-14 — Engineering release
 
@@ -55,9 +80,9 @@
 - This audit supersedes the causal and LOSO-validity interpretations in the historical entry below. The three pairwise cohort overlaps are 86.3%, 93.3%, and 80.5% when expressed as intersection/union, not all above 85%.
 
 
-## 2026-09-11 — Analysis v2: pre-registered confirmatory statistics
+## 2026-09-11 — Analysis v2: prespecified confirmatory statistics
 
-- Re-ran the structural + functional late-fusion analysis under a pre-registered protocol (`docs/analysis_v2_protocol.md`, finalized after an independent methods/statistics review): repeat-dependent MLP seed, symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), Nadeau–Bengio corrected 90% intervals for the CV deltas, a pre-registered TOST equivalence test (margin ±0.02 AUC), and a full strict leave-one-site-out re-run.
+- Re-ran the structural + functional late-fusion analysis under a prespecified protocol (`docs/analysis_v2_protocol.md`, finalized after an AI-assisted methods/statistics review): repeat-dependent MLP seed, symmetric primary contrast (`full_fusion_structural_mlp` − `full_functional_mlp`), Nadeau–Bengio corrected 90% intervals for the CV deltas, a prespecified TOST equivalence test (margin ±0.02 AUC), and a full strict leave-one-site-out re-run.
 - 45 mixed-site CV folds + 21 LOSO units × 3 cohorts, independently consistency-verified (`reproduction/legacy/verify_v2.py`, 66 units).
 - Result: mixed-site CV point estimates confirm the direction (every confound-plus-imaging contrast negative) but the corrected 90% interval for the primary contrast is [−0.040, +0.017] — formal equivalence is underpowered at n=350. Strict LOSO is uninformative: the held-out summary ΔAUC swings +0.028 / −0.086 / −0.043 across three QC cohorts sharing >85% of subjects, dominated by NYU's subject composition.
 - Documented why ADHD-200 (7 sites, one dominant, two below n=15) cannot support strict LOSO for a small AUC effect, which is the empirical basis for using repeated site-stratified CV as the primary endpoint.

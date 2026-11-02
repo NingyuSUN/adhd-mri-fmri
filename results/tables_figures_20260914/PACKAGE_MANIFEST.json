@@ -4,9 +4,9 @@
   "scope": "Tables and figures only; published aggregate results package",
   "files": [
     {
-      "path": "README_\u56fe\u8868\u53e3\u5f84\u4e0e\u56fe\u6ce8.md",
-      "sha256": "a4ae5335598825b8e6a5a0b44763e6cf47fda2b7effd45cdf9e97d6bd30d82cf",
-      "bytes": 5325
+      "path": "README_TABLES_AND_FIGURES.md",
+      "sha256": "a0c566a2fd270264b741f3045c31264f02e107a2271f6e0f4e46b2ed3846b4bb",
+      "bytes": 6834
     },
     {
       "path": "figures/Figure1_participant_flow.pdf",
@@ -95,8 +95,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "a7b523b94e03d4717edd77000786aac1864e38275ba4767830639535daa31eb3",
-      "bytes": 12063
+      "sha256": "5adf23be2677e9c88630bc51507ef28458b86964de4f9131857ff5a5e1547c77",
+      "bytes": 13087
     },
     {
       "path": "scripts/build_participant_tables_20260914.py",
@@ -105,13 +105,13 @@
     },
     {
       "path": "scripts/organize_tables_figures_20260914.py",
-      "sha256": "f2c05a00b7b044cf722e19fbc8893ecaa16150d668155ab7c55632050993e34e",
-      "bytes": 12828
+      "sha256": "d7b47e83ed628ed01011127d4f03870ab832b688c6f5532891783c5243590761",
+      "bytes": 14369
     },
     {
       "path": "scripts/package_tables_figures_20260914.py",
-      "sha256": "d52b0d0af233dfa6e9133057dfc5a7a7c7f7b259af7d55c815983c050224b154",
-      "bytes": 4574
+      "sha256": "5f06f4336b398ae5c0b5d8df7df7155916484269382d36d277ef167572f81e84",
+      "bytes": 4780
     },
     {
       "path": "scripts/render_summary_figures_20260914.py",

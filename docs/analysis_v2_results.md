@@ -1,7 +1,7 @@
 # Analysis v2 — confirmatory statistics, and why strict LOSO is not the primary endpoint
 
-Pre-registration: [`analysis_v2_protocol.md`](analysis_v2_protocol.md) (finalized after an
-independent methods/statistics review). Deviations: [`analysis_v2_deviations.md`](analysis_v2_deviations.md).
+Prespecified protocol: [`analysis_v2_protocol.md`](analysis_v2_protocol.md) (finalized after an
+AI-assisted methods/statistics review). Deviations: [`analysis_v2_deviations.md`](analysis_v2_deviations.md).
 Independent consistency verification (`reproduction/legacy/verify_v2.py`): **verified** — 66 units
 (45 mixed-site CV folds + 21 LOSO units) hash-checked; every fold/site summary and the
 statistics re-derivation reproduce.
@@ -12,7 +12,7 @@ The [structural + functional late-fusion round](structural_functional_fusion.md)
 paired ΔAUC with a "positive-repeat count / 5" descriptor. A reviewer would ask two things:
 (1) is "no increment" distinguishable from "underpowered", i.e. where is the confidence
 interval; (2) does the conclusion hold under strict leave-one-site-out (LOSO), not just
-mixed-site CV. v2 answers both with a pre-registered equivalence test (TOST, margin
+mixed-site CV. v2 answers both with a prespecified equivalence test (TOST, margin
 ±0.02 AUC), a Nadeau–Bengio corrected interval for the CV deltas, and a full LOSO re-run.
 Same frozen QC lock / features / covariances / 5×3 splits as `20260909`. The primary
 contrast was made **symmetric** — `full_fusion_structural_mlp` − `full_functional_mlp`
@@ -85,7 +85,7 @@ Pooled CV test-fold predictions, per cohort. Calibration is descriptive and does
 | image_fusion_mlp | 0.121 | **−0.049** (worse than predicting the base rate) |
 
 `image_fusion_mlp` has a negative Brier skill score in `primary` and `warning_free`.
-Pre-registered statement stands: outputs are class-weighted and uncalibrated and must not be
+Prespecified statement stands: outputs are class-weighted and uncalibrated and must not be
 read as individual diagnostic risk. Table:
 [`results/v2_calibration_summary.csv`](../results/v2_calibration_summary.csv); figure
 [`v2_F3_reliability.png`](../figures/v2_F3_reliability.png).

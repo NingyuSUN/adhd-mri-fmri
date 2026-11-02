@@ -32,7 +32,7 @@ AUC measures ranking, not calibration or clinical utility. Pooled AUC can be inf
 
 The planned v2 reanalysis did not establish its primary equivalence hypothesis. Its primary LOSO increment was positive (+0.028), while two other QC cohorts gave negative estimates. The original site-stratified bootstrap conditions on fixed sites and models; it omits uncertainty from training and unseen-site sampling. The sign changes do not prove LOSO is invalid or establish the cause of instability.
 
-A [post hoc audit](docs/paper/STATISTICAL_INTERPRETATION.md) corrects NYU's primary pair weight to 67.07% (39.7% is its participant fraction). On common subjects with fixed weights, most of the QC-related shift persists. Further descriptive decomposition implicates the selected final fusion weight. This does not isolate all sources of training/tuning variability or establish causation.
+A [post hoc audit](paper/STATISTICAL_INTERPRETATION.md) corrects NYU's primary pair weight to 67.07% (39.7% is its participant fraction). On common subjects with fixed weights, most of the QC-related shift persists. Further descriptive decomposition implicates the selected final fusion weight. This does not isolate all sources of training/tuning variability or establish causation.
 
 The original corrected CV interval and its df=2 sensitivity do not establish equivalence to ±0.02. Cohorts and repeated folds reuse participants, and the many secondary comparisons are exploratory without family-wise error control.
 
